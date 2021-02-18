@@ -1,1 +1,1 @@
-{"version":3,"sources":[],"names":[],"mappings":"","file":"child-theme.min.css","sourcesContent":[]}
+{"version":3,"sources":["child-theme.scss"],"names":[],"mappings":"AAGA,WACI,WAAA","file":"child-theme.min.css","sourcesContent":["// Design tokens from ASU Boostrap library\n@import \"../node_modules/@asu-design-system/design-tokens/build/scss/_variables\"; \n\n.testclass {\n    background: blue;\n}\n"]}
