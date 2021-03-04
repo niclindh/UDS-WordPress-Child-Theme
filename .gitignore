@@ -46,6 +46,10 @@ Thumbs.db
 node_modules/*
 !node_modules/@asu-design-system/design-tokens/
 
+# Composer #
+######################
+.phpcs-cache
+
 # Other compiled assets #
 ######################
 .sass-cache
