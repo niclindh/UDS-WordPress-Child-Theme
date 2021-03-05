@@ -5,32 +5,107 @@
  * @package uds-wordpress-child-theme
  */
 
- // Exit if accessed directly.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
+// Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit;
 }
+
+if (!function_exists('custom_post_type')) {
+
+    // Register Custom Post Type
+    function custom_post_type()
+    {
+
+        $labels = array(
+            'name' => _x('Event videos', 'Post Type General Name', 'uds-wordpress-theme-child'),
+            'singular_name' => _x('Event video', 'Post Type Singular Name', 'uds-wordpress-theme-child'),
+            'menu_name' => __('Event Videos', 'uds-wordpress-theme-child'),
+            'name_admin_bar' => __('Event Videos', 'uds-wordpress-theme-child'),
+            'archives' => __('Item Archives', 'uds-wordpress-theme-child'),
+            'attributes' => __('Item Attributes', 'uds-wordpress-theme-child'),
+            'parent_item_colon' => __('Parent Item:', 'uds-wordpress-theme-child'),
+            'all_items' => __('All Items', 'uds-wordpress-theme-child'),
+            'add_new_item' => __('Add New Item', 'uds-wordpress-theme-child'),
+            'add_new' => __('Add New', 'uds-wordpress-theme-child'),
+            'new_item' => __('New Item', 'uds-wordpress-theme-child'),
+            'edit_item' => __('Edit Item', 'uds-wordpress-theme-child'),
+            'update_item' => __('Update Item', 'uds-wordpress-theme-child'),
+            'view_item' => __('View Item', 'uds-wordpress-theme-child'),
+            'view_items' => __('View Items', 'uds-wordpress-theme-child'),
+            'search_items' => __('Search Item', 'uds-wordpress-theme-child'),
+            'not_found' => __('Not found', 'uds-wordpress-theme-child'),
+            'not_found_in_trash' => __('Not found in Trash', 'uds-wordpress-theme-child'),
+            'featured_image' => __('Featured Image', 'uds-wordpress-theme-child'),
+            'set_featured_image' => __('Set featured image', 'uds-wordpress-theme-child'),
+            'remove_featured_image' => __('Remove featured image', 'uds-wordpress-theme-child'),
+            'use_featured_image' => __('Use as featured image', 'uds-wordpress-theme-child'),
+            'insert_into_item' => __('Insert into item', 'uds-wordpress-theme-child'),
+            'uploaded_to_this_item' => __('Uploaded to this item', 'uds-wordpress-theme-child'),
+            'items_list' => __('Items list', 'uds-wordpress-theme-child'),
+            'items_list_navigation' => __('Items list navigation', 'uds-wordpress-theme-child'),
+            'filter_items_list' => __('Filter items list', 'uds-wordpress-theme-child'),
+        );
+        $args = array(
+            'label' => __('Event video', 'uds-wordpress-theme-child'),
+            'description' => __('Cronkite event videos', 'uds-wordpress-theme-child'),
+            'labels' => $labels,
+            'supports' => array('title', 'editor', 'thumbnail', 'revisions', 'custom-fields'),
+            'taxonomies' => array('category', 'post_tag'),
+            'hierarchical' => false,
+            'public' => true,
+            'show_ui' => true,
+            'show_in_menu' => true,
+            'menu_position' => 5,
+            'menu_icon' => 'dashicons-video-alt3',
+            'show_in_admin_bar' => true,
+            'show_in_nav_menus' => true,
+            'can_export' => true,
+            'has_archive' => true,
+            'exclude_from_search' => false,
+            'publicly_queryable' => true,
+            'capability_type' => 'post',
+            'show_in_rest' => true,
+        );
+        register_post_type('eventvideos', $args);
+
+    }
+    add_action('init', 'custom_post_type', 0);
+
+}
+
+/**
+ * Enqueue child scripts and styles.
+ */
+function uds_wordpress_child_scripts()
+{
+    // Get the theme data.
+    $the_theme = wp_get_theme();
+    $theme_version = $the_theme->get('Version');
+
+    $css_child_version = $theme_version . '.' . filemtime(get_stylesheet_directory() . '/css/child-theme.min.css');
+    wp_enqueue_style('uds-wordpress-child-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array('uds-wordpress-styles'), $css_child_version);
+
+    $js_child_version = $theme_version . '.' . filemtime(get_stylesheet_directory() . '/js/child-theme.js');
+    wp_enqueue_style('uds-wordpress-child-styles', get_stylesheet_directory_uri() . '/js/child-theme.js', array('jquery'), $js_child_version);
+}
+add_action('wp_enqueue_scripts', 'uds_wordpress_child_scripts');
 
 add_filter('acf/settings/load_json', 'parent_theme_field_groups');
 function parent_theme_field_groups($paths)
 {
     $path = get_template_directory() . '/acf-json';
     $paths[] = $path;
+    $path = get_stylesheet_directory() . '/acf-json';
+    $paths[] = $path;
     return $paths;
 }
 
-/** 
- * Enqueue child scripts and styles.
- */ 
-function uds_wordpress_child_scripts() {
-	// Get the theme data.
-	$the_theme     = wp_get_theme();
-	$theme_version = $the_theme->get( 'Version' );
-
-	$css_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/css/child-theme.min.css' );
-	wp_enqueue_style( 'uds-wordpress-child-styles', get_stylesheet_directory_uri() . '/css/child-theme.min.css', array( 'uds-wordpress-styles' ), $css_child_version );
-
-	$js_child_version = $theme_version . '.' . filemtime( get_stylesheet_directory() . '/js/child-theme.js' );
-	wp_enqueue_style( 'uds-wordpress-child-styles', get_stylesheet_directory_uri() . '/js/child-theme.js', array( 'jquery' ), $js_child_version );
->>>>>>> 59e66d3ab8667bdfcf0c2b169af223a6f6725d2a
+// from https://www.advancedcustomfields.com/resources/local-json/
+add_filter('acf/settings/save_json', 'my_acf_json_save_point');
+function my_acf_json_save_point($path)
+{
+    // update path
+    $path = get_stylesheet_directory() . '/acf-json';
+    // return
+    return $path;
 }
-add_action( 'wp_enqueue_scripts', 'uds_wordpress_child_scripts' );
