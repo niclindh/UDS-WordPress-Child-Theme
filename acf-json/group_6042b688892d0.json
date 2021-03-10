@@ -1,13 +1,13 @@
 {
     "key": "group_6042b688892d0",
-    "title": "Event Video",
+    "title": "CRONKITE Event Video",
     "fields": [
         {
             "key": "field_6042b6a6cef56",
-            "label": "YouTube URL",
+            "label": "YouTube URL Gobbledygook",
             "name": "youtube_url",
-            "type": "url",
-            "instructions": "Paste in the URL from YouTube",
+            "type": "text",
+            "instructions": "Paste in the last bit of the URL from YouTube.",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -16,7 +16,27 @@
                 "id": ""
             },
             "default_value": "",
-            "placeholder": ""
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60469b00c13c5",
+            "label": "Event Date",
+            "name": "event_date",
+            "type": "date_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "d\/m\/Y",
+            "return_format": "d\/m\/Y",
+            "first_day": 1
         }
     ],
     "location": [
@@ -36,5 +56,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1614985802
+    "modified": 1615408591
 }

@@ -10,12 +10,26 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+add_theme_support('post-thumbnails');
+
+// function eventvideos_permalink($url, $post)
+// {
+//     if ('eventvideos' == get_post_type($post)) {
+//         $url = str_replace("%year%", get_the_date('Y'), $url);
+//     }
+//     return $url;
+// }
+// add_filter('post_type_link', 'eventvideos_permalink', 10, 2);
+
+// global $wp_rewrite;
+// $permalink_structure = '/eventvideos/%year%/%events%';
+// $wp_rewrite->add_permastruct('eventvideos', $permalink_structure, array('with_front' => true));
+
 if (!function_exists('custom_post_type')) {
 
     // Register Custom Post Type
     function custom_post_type()
     {
-
         $labels = array(
             'name' => _x('Event videos', 'Post Type General Name', 'uds-wordpress-theme-child'),
             'singular_name' => _x('Event video', 'Post Type Singular Name', 'uds-wordpress-theme-child'),
@@ -58,13 +72,14 @@ if (!function_exists('custom_post_type')) {
             'menu_position' => 5,
             'menu_icon' => 'dashicons-video-alt3',
             'show_in_admin_bar' => true,
-            'show_in_nav_menus' => true,
+            'show_in_nav_menus' => false,
             'can_export' => true,
             'has_archive' => true,
             'exclude_from_search' => false,
             'publicly_queryable' => true,
             'capability_type' => 'post',
             'show_in_rest' => true,
+            'rewrite' => array('slug' => 'eventvideos/%year%', 'with_front' => false),
         );
         register_post_type('eventvideos', $args);
 
@@ -72,6 +87,15 @@ if (!function_exists('custom_post_type')) {
     add_action('init', 'custom_post_type', 0);
 
 }
+
+function eventvideos_permalink($url, $post)
+{
+    if ('eventvideos' == get_post_type($post)) {
+        $url = str_replace("%year%", get_the_date('Y'), $url);
+    }
+    return $url;
+}
+add_filter('post_type_link', 'eventvideos_permalink', 10, 2);
 
 /**
  * Enqueue child scripts and styles.
@@ -90,6 +114,7 @@ function uds_wordpress_child_scripts()
 }
 add_action('wp_enqueue_scripts', 'uds_wordpress_child_scripts');
 
+// from https://www.advancedcustomfields.com/resources/local-json/
 add_filter('acf/settings/load_json', 'parent_theme_field_groups');
 function parent_theme_field_groups($paths)
 {
@@ -100,7 +125,6 @@ function parent_theme_field_groups($paths)
     return $paths;
 }
 
-// from https://www.advancedcustomfields.com/resources/local-json/
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
 function my_acf_json_save_point($path)
 {
@@ -108,4 +132,78 @@ function my_acf_json_save_point($path)
     $path = get_stylesheet_directory() . '/acf-json';
     // return
     return $path;
+}
+
+function ap_date()
+{ // ap-formats date of post
+    if (get_the_time('m') == '01'):
+        $apmonth = 'Jan. ';
+    elseif (get_the_time('m') == '02'):
+        $apmonth = 'Feb. ';
+    elseif (get_the_time('m') == '08'):
+        $apmonth = 'Aug. ';
+    elseif (get_the_time('m') == '09'):
+        $apmonth = 'Sept. ';
+    elseif (get_the_time('m') == '10'):
+        $apmonth = 'Oct. ';
+    elseif (get_the_time('m') == '11'):
+        $apmonth = 'Nov. ';
+    elseif (get_the_time('m') == '12'):
+        $apmonth = 'Dec. ';
+    else:
+        $apmonth = (get_the_time('F'));
+    endif;
+    $thedate = get_the_time('l') . ', ' . $apmonth . ' ' . get_the_time('j') . ', ' . get_the_time('Y');
+    return $thedate;
+}
+
+// Make months AP style, no weekday
+function ap_date_no_weekday($thedate)
+{ // ap-formats date of post
+    $theapdate = DateTime::createFromFormat('Y-m-d', $thedate);
+    if ($theapdate->format('m') == '01'):
+        $apmonth = 'Jan. ';
+    elseif ($theapdate->format('m') == '02'):
+        $apmonth = 'Feb. ';
+    elseif ($theapdate->format('m') == '08'):
+        $apmonth = 'Aug. ';
+    elseif ($theapdate->format('m') == '09'):
+        $apmonth = 'Sept. ';
+    elseif ($theapdate->format('m') == '10'):
+        $apmonth = 'Oct. ';
+    elseif ($theapdate->format('m') == '11'):
+        $apmonth = 'Nov. ';
+    elseif ($theapdate->format('m') == '12'):
+        $apmonth = 'Dec. ';
+    else:
+        $apmonth = ($theapdate->format('F'));
+    endif;
+    $thedate = $apmonth . ' ' . $theapdate->format('j') . ', ' . $theapdate->format('Y');
+
+    return $thedate;
+}
+
+function ap_show_date($thedate)
+{
+    $theapdate = DateTime::createFromFormat('Y-m-d', $thedate);
+    if ($theapdate->format('m') == '01'):
+        $apmonth = 'Jan. ';
+    elseif ($theapdate->format('m') == '02'):
+        $apmonth = 'Feb. ';
+    elseif ($theapdate->format('m') == '08'):
+        $apmonth = 'Aug. ';
+    elseif ($theapdate->format('m') == '09'):
+        $apmonth = 'Sept. ';
+    elseif ($theapdate->format('m') == '10'):
+        $apmonth = 'Oct. ';
+    elseif ($theapdate->format('m') == '11'):
+        $apmonth = 'Nov. ';
+    elseif ($theapdate->format('m') == '12'):
+        $apmonth = 'Dec. ';
+    else:
+        $apmonth = ($theapdate->format('F'));
+    endif;
+    $thedate = $theapdate->format('l') . ', ' . $apmonth . ' ' . $theapdate->format('j') . ', ' . $theapdate->format('Y');
+
+    return $thedate;
 }
