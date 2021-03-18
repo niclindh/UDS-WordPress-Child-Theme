@@ -12,19 +12,6 @@ if (!defined('ABSPATH')) {
 
 add_theme_support('post-thumbnails');
 
-// function eventvideos_permalink($url, $post)
-// {
-//     if ('eventvideos' == get_post_type($post)) {
-//         $url = str_replace("%year%", get_the_date('Y'), $url);
-//     }
-//     return $url;
-// }
-// add_filter('post_type_link', 'eventvideos_permalink', 10, 2);
-
-// global $wp_rewrite;
-// $permalink_structure = '/eventvideos/%year%/%events%';
-// $wp_rewrite->add_permastruct('eventvideos', $permalink_structure, array('with_front' => true));
-
 if (!function_exists('custom_post_type')) {
 
     // Register Custom Post Type

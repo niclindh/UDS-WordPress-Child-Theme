@@ -1,6 +1,6 @@
 {
   "browserSyncOptions": {
-    "proxy": "https://spark.proudpangolin.com",
+    "proxy": "https://ws2.proudpangolin.com",
     "notify": false,
     "open": false
   },

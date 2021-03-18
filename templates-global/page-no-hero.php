@@ -13,7 +13,6 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
-
 	<main id="skip-to-content" <?php post_class();?>>
 
 		<?php
