@@ -1,24 +1,20 @@
 {
-  "browserSyncOptions" : {
-    "proxy": "localhost/wordpress/",
-    "notify": false
+  "browserSyncOptions": {
+    "proxy": "https://spark.proudpangolin.com",
+    "notify": false,
+    "open": false
   },
-  "browserSyncWatchFiles" : [
-    "./css/*.min.css",
-    "./js/*.min.js",
-    "./**/*.php"
-  ],
-  "paths" : {
+  "browserSyncWatchFiles": ["./css/*.min.css", "./js/*.min.js", "./**/*.php"],
+  "paths": {
     "js": "./js",
     "css": "./css",
     "img": "./img",
-		"imgsrc": "./src/img",
+    "imgsrc": "./src/img",
     "sass": "./sass",
     "node": "./node_modules/",
     "bower": "./bower_components/",
     "dev": "./src",
     "dist": "./dist",
-    "distprod": "./dist-product",
-    "vendor": ""
+    "distprod": "./dist-product"
   }
 }
