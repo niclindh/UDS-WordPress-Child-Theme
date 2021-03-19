@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts.
+ * The template for displaying all single event videos.
  *
  * This template includes an intrinsic Bootstrap container to make the process of
  * content creation easier for the post author. To escape from the original container

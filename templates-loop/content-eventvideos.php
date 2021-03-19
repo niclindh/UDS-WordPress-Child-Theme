@@ -15,13 +15,18 @@ defined('ABSPATH') || exit;
 
 		<?php
 if (!get_field('hide_page_title')) {
-    the_title('<h1 class="entry-title">', '</h1>');}
+    the_title('<h1 class="article">', '</h1>');}
 ?>
 
 		<div class="entry-meta">
 
-			<?php uds_wp_posted_on();?>
+			
+<?php
+			$event_date = get_field( "event_date" );
 
+			echo ap_date($event_date);
+
+			?>
 		</div><!-- .entry-meta -->
 
 	</header><!-- .entry-header -->

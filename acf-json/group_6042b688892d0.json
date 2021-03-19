@@ -4,10 +4,10 @@
     "fields": [
         {
             "key": "field_6042b6a6cef56",
-            "label": "YouTube URL Gobbledygook",
+            "label": "YouTube URL",
             "name": "youtube_url",
             "type": "text",
-            "instructions": "Paste in the last bit of the URL from YouTube.",
+            "instructions": "Paste in the YouTube URL",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -27,7 +27,7 @@
             "name": "event_date",
             "type": "date_picker",
             "instructions": "",
-            "required": 0,
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -56,5 +56,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1615408591
+    "modified": 1616189920
 }

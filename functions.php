@@ -121,33 +121,38 @@ function my_acf_json_save_point($path)
     return $path;
 }
 
-function ap_date()
+function ap_date($thedate)
 { // ap-formats date of post
-    if (get_the_time('m') == '01'):
+    $month = date ('m', strtotime($thedate));
+    //echo 'month: ' . $month;
+    //echo date('Y', $argh);
+    //$theapdate = new Datetime( $thedate);
+    //print_r ($argh);
+    //$month =  $theapdate->format('m');
+    if ($month == '01'):
         $apmonth = 'Jan. ';
-    elseif (get_the_time('m') == '02'):
+    elseif ($month == '02'):
         $apmonth = 'Feb. ';
-    elseif (get_the_time('m') == '08'):
+    elseif ($month == '08'):
         $apmonth = 'Aug. ';
-    elseif (get_the_time('m') == '09'):
+    elseif ($month == '09'):
         $apmonth = 'Sept. ';
-    elseif (get_the_time('m') == '10'):
+    elseif ($month == '10'):
         $apmonth = 'Oct. ';
-    elseif (get_the_time('m') == '11'):
+    elseif ($month == '11'):
         $apmonth = 'Nov. ';
-    elseif (get_the_time('m') == '12'):
+    elseif ($month == '12'):
         $apmonth = 'Dec. ';
-    else:
-        $apmonth = (get_the_time('F'));
     endif;
-    $thedate = get_the_time('l') . ', ' . $apmonth . ' ' . get_the_time('j') . ', ' . get_the_time('Y');
-    return $thedate;
+    // $thedate = get_the_time('l') . ', ' . $apmonth . ' ' . get_the_time('j') . ', ' . get_the_time('Y');
+    //return $thedate;
+    return 'DATE: ' . $apmonth;
 }
 
 // Make months AP style, no weekday
 function ap_date_no_weekday($thedate)
 { // ap-formats date of post
-    $theapdate = DateTime::createFromFormat('Y-m-d', $thedate);
+    $theapdate = DateTime::createFromFormat('Ymd', $thedate);
     if ($theapdate->format('m') == '01'):
         $apmonth = 'Jan. ';
     elseif ($theapdate->format('m') == '02'):
@@ -172,7 +177,7 @@ function ap_date_no_weekday($thedate)
 
 function ap_show_date($thedate)
 {
-    $theapdate = DateTime::createFromFormat('Y-m-d', $thedate);
+    $theapdate = DateTime::createFromFormat('Ymd', $thedate);
     if ($theapdate->format('m') == '01'):
         $apmonth = 'Jan. ';
     elseif ($theapdate->format('m') == '02'):
