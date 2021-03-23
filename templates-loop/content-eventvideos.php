@@ -19,12 +19,42 @@ if (!get_field('hide_page_title')) {
 ?>
 
 		<div class="entry-meta">
-
 			
 <?php
-			$event_date = get_field( "event_date" );
+	// Fancy-pants AP Style
+	$event_date = get_field( "event_date" );
 
-			echo ap_date($event_date);
+	$day = substr($event_date, 0, 2);
+	$month = substr($event_date, 3, 2);
+	$year = substr($event_date, 6, 4);
+
+	if ($month=='01') :
+        $apmonth = 'Jan. ';
+    elseif ($month=='02') :
+        $apmonth = 'Feb. ';
+	elseif ($month=='03') :
+		$apmonth = 'March ';
+	elseif ($month=='04') :
+		$apmonth = 'April ';
+	elseif ($month=='05') :
+		$apmonth = 'May ';
+	elseif ($month=='06') :
+		$apmonth = 'June ';
+	elseif ($month=='07') :
+		$apmonth = 'July ';
+    elseif ($month=='08') :
+        $apmonth = 'Aug. ';
+    elseif ($month=='09') :
+        $apmonth = 'Sept. ';
+    elseif ($month=='10') :
+        $apmonth = 'Oct. ';
+    elseif ($month=='11') :
+        $apmonth = 'Nov. ';
+    elseif ($month=='12') :
+        $apmonth = 'Dec. ';
+    endif;
+
+		echo $apmonth . ' ' . $day . ', ' . $year;
 
 			?>
 		</div><!-- .entry-meta -->
