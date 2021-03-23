@@ -28,33 +28,54 @@ if (!get_field('hide_page_title')) {
 	$month = substr($event_date, 3, 2);
 	$year = substr($event_date, 6, 4);
 
-	if ($month=='01') :
-        $apmonth = 'Jan. ';
-    elseif ($month=='02') :
-        $apmonth = 'Feb. ';
-	elseif ($month=='03') :
-		$apmonth = 'March ';
-	elseif ($month=='04') :
-		$apmonth = 'April ';
-	elseif ($month=='05') :
-		$apmonth = 'May ';
-	elseif ($month=='06') :
-		$apmonth = 'June ';
-	elseif ($month=='07') :
-		$apmonth = 'July ';
-    elseif ($month=='08') :
-        $apmonth = 'Aug. ';
-    elseif ($month=='09') :
-        $apmonth = 'Sept. ';
-    elseif ($month=='10') :
-        $apmonth = 'Oct. ';
-    elseif ($month=='11') :
-        $apmonth = 'Nov. ';
-    elseif ($month=='12') :
-        $apmonth = 'Dec. ';
-    endif;
+	switch ($month) {
+		case '01':
+			$apmonth = 'Jan. ';
+			break;
+		case '02':
+			$apmonth = 'Feb. ';
+			break;
+		case '03':
+			$apmonth = 'March ';
+			break;
+		case '04':
+			$apmonth = 'April ';
+		break;
+		case '05':
+			$apmonth = 'May ';
+			break;
+		case '06':
+			$apmonth = 'June ';
+			break;
+		case '07':
+			$apmonth = 'July ';
+			break;
+		case '08':
+			$apmonth = 'Aug. ';
+			break;
+		case '09':
+			$apmonth = 'Sept. ';
+			break;
+		case '10':
+			$apmonth = 'Oct. ';
+			break;
+		case '11':
+			$apmonth = 'Nov. ';
+			break;
+		case '12':
+			$apmonth = 'Dec. ';
+			break;						
+	}
 
-		echo $apmonth . ' ' . $day . ', ' . $year;
+	// drop leading zero on the day
+	if (substr($day, 0, 1) == '0') {
+		$day = substr($day, 1,1);
+	}
+
+	echo '<i class="fa fa-calendar" aria-hidden="true"></i> ';
+	echo $apmonth . ' ' . $day . ', ' . $year;
+
+
 
 			?>
 		</div><!-- .entry-meta -->
@@ -63,8 +84,21 @@ if (!get_field('hide_page_title')) {
 
 	<?php echo get_the_post_thumbnail($post->ID, 'large'); ?>
 
+	<?php
+	$youtube = get_field("youtube_url");
+	$gobbledygook = "/^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/";
+	//$gc = preg_quote($gobbledygook);
+	preg_match($gobbledygook, $youtube, $gobble);
+	//echo 'GOBBLEDY: ' . $gobble[1];
+	?>
+
 	<div class="entry-content">
 
+<div style="padding-top: 1rem; padding-bottom: 1rem;">
+	<div class="embed-responsive embed-responsive-16by9">
+	<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/<?php echo $gobble[1] ?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	</div>
+</div>
 		<?php the_content();?>
 
 		<?php
