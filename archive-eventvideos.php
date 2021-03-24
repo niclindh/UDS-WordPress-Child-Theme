@@ -28,11 +28,6 @@ get_header();
 
                 <p>Every semester, the Cronkite School invites thought leaders in journalism and communications to share their experiences with students and speak about careers in media, the future of journalism, and issues and trends in the industry. The recordings below capture some of these events. For a schedule of upcoming speakers at the Cronkite School, see our events page</p>
 
-					<?php
-					//the_archive_title( '<h1 class="article">', '</h1>' );
-					// the_archive_description( '<div class="taxonomy-description">', '</div>' );
-					?>
-
 				</header><!-- .page-header -->
 
 				<?php
