@@ -61,7 +61,7 @@ if (!function_exists('custom_post_type')) {
             'show_in_admin_bar' => true,
             'show_in_nav_menus' => false,
             'can_export' => true,
-            'has_archive' => true,
+            'has_archive' => 'eventvideos',
             'exclude_from_search' => false,
             'publicly_queryable' => true,
             'capability_type' => 'post',
