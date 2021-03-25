@@ -80,7 +80,7 @@
             "placeholder": "",
             "maxlength": "",
             "rows": "",
-            "new_lines": ""
+            "new_lines": "br"
         },
         {
             "key": "field_605b7db744587",
@@ -99,7 +99,7 @@
             "placeholder": "",
             "maxlength": "",
             "rows": 4,
-            "new_lines": ""
+            "new_lines": "br"
         }
     ],
     "location": [
@@ -118,6 +118,6 @@
     "instruction_placement": "label",
     "hide_on_screen": "",
     "active": true,
-    "description": "",
-    "modified": 1616608775
+    "description": "Fields for event posts",
+    "modified": 1616626209
 }
