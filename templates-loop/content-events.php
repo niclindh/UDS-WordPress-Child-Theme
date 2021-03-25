@@ -28,14 +28,15 @@ $event_end_time = get_field( "event_end_time" );
 $event_subhead = get_field( "event_subhead" );
 $event_location = get_field( "event_location" );  
 
-echo 'LENGTH: ' . strlen($event_start_time);
-//echo 'DEBUG: ' . var_dump($event_start_time);
+// 18 means no time before 10, 19 time after
+// useful for processing ap style dates
+//echo 'LENGTH: ' . strlen($event_start_time);
 
-echo 'START:' . $event_start_time . '<br />';
-echo 'SHOW END:' . $show_end_date . '<br />';
-echo 'END:' . $event_end_time . '<br />';
-echo 'SUBHEAD:' . $event_subhead . '<br />';
-echo 'LOCATION:' . $event_location . '<br />';
+// echo 'START:' . $event_start_time . '<br />';
+// echo 'SHOW END:' . $show_end_date . '<br />';
+// echo 'END:' . $event_end_time . '<br />';
+// echo 'SUBHEAD:' . $event_subhead . '<br />';
+// echo 'LOCATION:' . $event_location . '<br />';
 
 	// Fancy-pants AP Style  
 
@@ -87,9 +88,13 @@ echo 'LOCATION:' . $event_location . '<br />';
 	// 	$day = substr($day, 1,1);
 	// }
 
+// echo 'START:' . $event_start_time . '<br />';
+// echo 'SHOW END:' . $show_end_date . '<br />';
+// echo 'END:' . $event_end_time . '<br />';
+// echo 'SUBHEAD:' . $event_subhead . '<br />';
+// echo 'LOCATION:' . $event_location . '<br />';
 
-
-	echo '<i class="fa fa-calendar" aria-hidden="true"></i> ';
+	echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' .$event_end_time;
 	//echo $apmonth . ' ' . $day . ', ' . $year;
 
 
@@ -104,8 +109,12 @@ echo 'LOCATION:' . $event_location . '<br />';
 	<div class="entry-content">
 
 		<?php 
-        echo 'THE CONTENT: ';
-        the_content();?>
+        echo '<h3>' . $event_subhead . '</h3>';
+        the_content();
+		echo $event_location;
+		
+		?>
+
 
 		<?php
 wp_link_pages(
