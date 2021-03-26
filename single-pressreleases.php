@@ -1,0 +1,47 @@
+<?php
+/**
+ * The template for displaying all single event videos.
+ *
+ * This template includes an intrinsic Bootstrap container to make the process of
+ * content creation easier for the post author. To escape from the original container
+ * and layout other parts of the page, consider inserting a custom HTML block to deliver the closing <div>'s.
+ *
+ * @package uds-wordpress-theme
+ */
+
+// Exit if accessed directly.
+defined('ABSPATH') || exit;
+
+get_header();
+?>
+
+<main id="skip-to-content">
+
+	<?php
+
+while (have_posts()) {
+
+    the_post();
+
+    // Remove support for the global hero template part. Intended for pages, primarily.
+    // get_template_part( 'templates-global/hero' ); .
+
+    //get_template_part('templates-global/global-banner');
+
+    echo '<div class="container">';
+    echo '<div class="row">';
+    echo '<div class="col">';
+
+    get_template_part('templates-loop/content', 'pressreleases');
+
+    echo '</div>';
+    echo '</div>';
+    echo '</div>';
+
+}
+?>
+
+</main><!-- #main -->
+
+<?php
+get_footer();

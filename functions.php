@@ -14,6 +14,10 @@ add_theme_support('post-thumbnails');
 
 require get_stylesheet_directory() . '/inc/custom-post-types.php';
 
+require get_stylesheet_directory() . '/inc/custom-sort.php';
+
+
+
 /**
  * Enqueue child scripts and styles.
  */

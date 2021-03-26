@@ -13,32 +13,14 @@ defined('ABSPATH') || exit;
 
 	<header class="entry-header">
 
-		<?php
-if (!get_field('hide_page_title')) {
-    wptexturize(the_title('<h1 class="article">', '</h1>'));}
-?>
+<h3 style="padding-top: 2rem;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+
 
 		<div class="entry-meta">
 			
 <?php
-
-$event_start_time = get_field( "event_start_time" );
-$show_end_date = get_field( "show_end_date" );
-$event_end_time = get_field( "event_end_time" );
-$event_subhead = get_field( "event_subhead" );
-$event_location = get_field( "event_location" );  
-
-// 18 means no time before 10, 19 time after
-// useful for processing ap style dates
-//echo 'LENGTH: ' . strlen($event_start_time);
-
-// echo 'START:' . $event_start_time . '<br />';
-// echo 'SHOW END:' . $show_end_date . '<br />';
-// echo 'END:' . $event_end_time . '<br />';
-// echo 'SUBHEAD:' . $event_subhead . '<br />';
-// echo 'LOCATION:' . $event_location . '<br />';
-
-	// Fancy-pants AP Style  
+	// Fancy-pants AP Style
+	$event_date = get_the_date();
 
 	// $day = substr($event_date, 0, 2);
 	// $month = substr($event_date, 3, 2);
@@ -88,14 +70,8 @@ $event_location = get_field( "event_location" );
 	// 	$day = substr($day, 1,1);
 	// }
 
-// echo 'START:' . $event_start_time . '<br />';
-// echo 'SHOW END:' . $show_end_date . '<br />';
-// echo 'END:' . $event_end_time . '<br />';
-// echo 'SUBHEAD:' . $event_subhead . '<br />';
-// echo 'LOCATION:' . $event_location . '<br />';
-
-	echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' .$event_end_time;
-	//echo $apmonth . ' ' . $day . ', ' . $year;
+	echo '<i class="fa fa-calendar" aria-hidden="true"></i> ';
+	echo $event_date;
 
 
 
@@ -104,19 +80,11 @@ $event_location = get_field( "event_location" );
 
 	</header><!-- .entry-header -->
 
-	<?php echo get_the_post_thumbnail($post->ID, 'large', array( 'class' => 'img-fluid' )); ?>
-
 	<div class="entry-content">
-
-		<?php 
-        echo '<h3>' . $event_subhead . '</h3>';
-        the_content();
-		echo $event_location;
-		
-		?>
 
 
 		<?php
+        echo get_the_excerpt();
 wp_link_pages(
     array(
         'before' => '<div class="page-links">' . __('Pages:', 'uds-wordpress-theme'),
@@ -127,10 +95,6 @@ wp_link_pages(
 
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
 
-		<?php uds_wp_entry_footer();?>
-
-	</footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->

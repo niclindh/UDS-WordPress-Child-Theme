@@ -20,13 +20,7 @@ if (!get_field('hide_page_title')) {
 
 		<div class="entry-meta">
 			
-<?php
-
-$event_start_time = get_field( "event_start_time" );
-$show_end_date = get_field( "show_end_date" );
-$event_end_time = get_field( "event_end_time" );
-$event_subhead = get_field( "event_subhead" );
-$event_location = get_field( "event_location" );  
+<?php 
 
 // 18 means no time before 10, 19 time after
 // useful for processing ap style dates
@@ -94,7 +88,7 @@ $event_location = get_field( "event_location" );
 // echo 'SUBHEAD:' . $event_subhead . '<br />';
 // echo 'LOCATION:' . $event_location . '<br />';
 
-	echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' .$event_end_time;
+	echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . get_the_date();
 	//echo $apmonth . ' ' . $day . ', ' . $year;
 
 
@@ -104,15 +98,12 @@ $event_location = get_field( "event_location" );
 
 	</header><!-- .entry-header -->
 
-	<?php echo get_the_post_thumbnail($post->ID, 'large', array( 'class' => 'img-fluid' )); ?>
+	<!-- <?php echo get_the_post_thumbnail($post->ID, 'large', array( 'class' => 'img-fluid' )); ?> -->
 
 	<div class="entry-content">
 
 		<?php 
-        echo '<h3>' . $event_subhead . '</h3>';
         the_content();
-		echo $event_location;
-		
 		?>
 
 
