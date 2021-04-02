@@ -1,0 +1,43 @@
+{
+    "key": "group_60620faf4c308",
+    "title": "CRONKITE Press Releases",
+    "fields": [
+        {
+            "key": "field_60620fc508065",
+            "label": "Summary",
+            "name": "summary",
+            "type": "textarea",
+            "instructions": "A summary of this press release. Used in archive pages and on the home page",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": 4,
+            "new_lines": "wpautop"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "pressreleases"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1617039364
+}

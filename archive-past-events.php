@@ -27,16 +27,21 @@ get_header();
                     'post_type' => 'events',
                     'orderby' => 'meta_value',
                     'meta_key' => 'event_start_time',
-                    'order' => 'DESC',
-					'meta_value'   => date('Ymd'),
-					'meta_type' => 'datetime',
-					'meta_compare' => '<='
-                );
-                            
+                    'order' => 'ASC',
+					// 'meta_value'   => date('Ymd'),
+					// 'meta_type' => 'datetime',
+					// 'meta_compare' => '<='
+					'meta_query' => array(
+						array(
+							'key' => 'event_start_time',
+							'compare' => '<=',
+							'value'   => date('Ymd'),
+							'type'    => 'datetime',
+						)
+					) );  
             
             $past = new WP_Query($args);
-            //var_dump($past);
-			if ( $past->have_posts() ) {
+			
 
 				?>
 				<header class="page-header">
@@ -48,6 +53,8 @@ get_header();
 				</header><!-- .page-header -->
 
 				<?php
+
+if ( $past->have_posts() ) {
 
                 //var_dump($past);
                 // echo 'xx';

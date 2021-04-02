@@ -20,7 +20,7 @@ defined('ABSPATH') || exit;
 			
 <?php
 	// Fancy-pants AP Style
-	$event_date = get_the_date();
+	$release_date = get_the_date();
 
 	// $day = substr($event_date, 0, 2);
 	// $month = substr($event_date, 3, 2);
@@ -71,7 +71,7 @@ defined('ABSPATH') || exit;
 	// }
 
 	echo '<i class="fa fa-calendar" aria-hidden="true"></i> ';
-	echo $event_date;
+	echo $release_date;
 
 
 
@@ -84,7 +84,7 @@ defined('ABSPATH') || exit;
 
 
 		<?php
-        echo get_the_excerpt();
+        echo the_field( 'summary' );
 wp_link_pages(
     array(
         'before' => '<div class="page-links">' . __('Pages:', 'uds-wordpress-theme'),

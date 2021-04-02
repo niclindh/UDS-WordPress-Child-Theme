@@ -1,6 +1,7 @@
 <?php
 /**
- * The template for displaying archive pages
+ * Template Name: Events
+ * Template Post Type: events
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
@@ -19,59 +20,22 @@ get_header();
 		<div class="col">
 
 			<?php
-                // Start custom loop.
-				$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
-                $args = array(
-					'posts_per_page' => 3,
-					'paged' => $paged,
-                    'post_type' => 'events',
-                    'orderby' => 'meta_value',
-                    'meta_key' => 'event_start_time',
-                    'order' => 'DESC',
-					'meta_value'   => date('Ymd'),
-					'meta_type' => 'datetime',
-					'meta_compare' => '>='
-
-					// 'offset' => (max(1, get_query_var('paged')) - 1) * 2,
-                    // 'meta_query', array(
-                    //     array(
-					// 		'key' => 'event_start_time',
-					// 		'compare' => '<=',
-					// 		'value'   => date('Ymd') . '00:00:00',
-					// 		'type'    => 'DATETIME',
-                    //     ))
-                );
-
-				// 		$query->set('orderby', 'meta_value');	
-// 		$query->set('meta_key', 'event_start_time');	 
-// 		$query->set('order', 'ASC');  
-//         $query->set('meta_query', array(
-//             array(
-//                 'key' => 'event_start_time',
-//                 'compare' => '>=',
-//                 'value'   => date('Ymd'),
-//                 'type'    => 'datetime',
-//             )
-                            
-            
-            $future = new WP_Query($args);
-            //var_dump($past);
-			if ( $future->have_posts() ) {
+			if ( have_posts() ) {
 
 				?>
 				<header class="page-header">
 
-                <h1 class="article">Cronkite events</h1>
+					<h1 class="article">Cronkite events</h1>
 
-                <p><strong>Paragraph about the upcoming events.</strong> Skateboard sriracha jean shorts, mlkshk 3 wolf moon prism gluten-free. Asymmetrical drinking vinegar palo santo vinyl, 90's ennui single-origin coffee pinterest bespoke listicle organic meggings la croix. Pabst bitters polaroid franzen, readymade pok pok copper mug semiotics lumbersexual fashion axe af. Messenger bag polaroid DIY woke tbh, literally paleo gastropub tofu kinfolk hot chicken poutine intelligentsia.</p>
+					<p>Paragraph about the upcoming events.  Skateboard sriracha jean shorts, mlkshk 3 wolf moon prism gluten-free. Asymmetrical drinking vinegar palo santo vinyl, 90's ennui single-origin coffee pinterest bespoke listicle organic meggings la croix.</p>
+					<p><a href="/past-events">View past Cronkite School events.</a></p>
 
-				</header><!-- .page-header -->
+					</header><!-- .page-header -->
 
 				<?php
 				// Start the loop.
-				//echo '<pre>' . var_dump($future) . '</pre>';
-				while ( $future->have_posts() ) {
-					$future->the_post();
+				while ( have_posts() ) {
+					the_post();
 
 					/*
 					* Include the Post-Format-specific template for the content.

@@ -1,5 +1,9 @@
 ☐ add smart quotes to all titles
 ☐ add ap style to event dates
 ☐ fix event pagination (both future and past)
+☐ add storybook css classes to figcaptions (in functions.php?)
+☐ add footer menu
+☐ check if engineering will implement breadcrumbs. do we need them?
+☐ faculty pages need pronouncers (audio file) and pronouns
 ✔ add past events page @done(21-03-26 13:22)
 ✔ add pagination to eventvideos archive @done(21-03-24 09:28)
