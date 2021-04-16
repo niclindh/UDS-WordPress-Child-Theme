@@ -93,8 +93,6 @@ echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . 
     the_content();?>
 	</div>
 	<div class="col-md-4">
-
-    <?php echo get_the_post_thumbnail($post->ID, 'large', array( 'class' => 'img-fluid' )); ?>
     
 		</div>
 	</div>

@@ -97,14 +97,12 @@ $event_location = get_field( "event_location" );
 	echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' .$event_end_time;
 	//echo $apmonth . ' ' . $day . ', ' . $year;
 
-
-
 			?>
 		</div><!-- .entry-meta -->
 
 	</header><!-- .entry-header -->
 
-	<?php echo get_the_post_thumbnail($post->ID, 'large', array( 'class' => 'img-fluid' )); ?>
+	
 
 	<div class="entry-content">
 

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all single event videos.
  *
@@ -17,29 +18,28 @@ get_header();
 
 <main id="skip-to-content">
 
-	<?php
+    <?php
 
-while (have_posts()) {
+    while (have_posts()) {
 
-    the_post();
+        the_post();
 
-    // Remove support for the global hero template part. Intended for pages, primarily.
-    // get_template_part( 'templates-global/hero' ); .
+        // Remove support for the global hero template part. Intended for pages, primarily.
+        // get_template_part( 'templates-global/hero' ); .
 
-    //get_template_part('templates-global/global-banner');
+        //get_template_part('templates-global/global-banner');
 
-    echo '<div class="container">';
-    echo '<div class="row">';
-    echo '<div class="col">';
+        echo '<div class="container">';
+        echo '<div class="row">';
+        echo '<div class="col">';
 
-    get_template_part('templates-loop/content', 'events');
+        get_template_part('templates-loop/content', 'events');
 
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
-
-}
-?>
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+    }
+    ?>
 
 </main><!-- #main -->
 

@@ -1,7 +1,6 @@
 <?php
 /**
- * Template Name: Events
- * Template Post Type: events
+ * Template Name: Future Events
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
