@@ -1,3 +1,10 @@
+☐ press release page like https://xd.adobe.com/view/1259c9cc-eb35-4061-ad48-a570054004a7-470a/screen/6d11f6b4-82f9-4324-a6d5-02c429679aab/
+☐ press releases alternate heds for homepage
+☐ press releases alternate descriptions for homepage?
+☐ department page add hero image like in xd file
+☐ department page add row for top numbers at bottom of page
+☐ department page use pattern for background instead of image to see how that looks
+☐ programs page auto feed from press releases like on front page (based on tags or categories?)
 ☐ add smart quotes to all titles
 ☐ add ap style to event dates
 ☐ fix event pagination on past events
@@ -5,11 +12,15 @@
 ☐ faculty pages need pronouncers (audio file) and pronouns
 ☐ sort events by category
 ☐ display category for each event
-✔ remove featured image from events @done(21-04-08 11:16)
-✔ add past events page @done(21-03-26 13:22)
-✔ add pagination to eventvideos archive @done(21-03-24 09:28)
 
-## Check with Fulton
+## Check with upstream
 
 ☐ will breadcrumbs be implemented? do we need them?
 ☐ will storybook css classes be added to figcaptions?
+Archive:
+  ✔ homepage parham quote on background @done(21-04-20 16:58)
+  ✔ homepage add padding over "featured news" @done(21-04-20 16:58)
+  ✔ homepage spot for news we want to feature a long time (category?) under featured news @done(21-04-20 16:58)
+  ✔ remove featured image from events @done(21-04-08 11:16)
+  ✔ add past events page @done(21-03-26 13:22)
+  ✔ add pagination to eventvideos archive @done(21-03-24 09:28)
