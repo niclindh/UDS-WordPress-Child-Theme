@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying archive pages
  *
@@ -8,31 +9,31 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 get_header();
 ?>
 
-<main id="skip-to-content" <?php post_class( 'container' ); ?>>
+<main id="skip-to-content" <?php post_class('container'); ?>>
 
 	<div class="row">
 		<div class="col">
 
 			<?php
-			if ( have_posts() ) {
+			if (have_posts()) {
 
-				?>
+			?>
 				<header class="page-header">
 
-                <h1 class="article">News from the Cronkite School</h1>
+					<h1 class="article">News from the Cronkite School</h1>
 
-                <p>A paragraph about this page and our press releases.</p>
+					<p>A paragraph about this page and our press releases.</p>
 
 				</header><!-- .page-header -->
 
-				<?php
+			<?php
 				// Start the loop.
-				while ( have_posts() ) {
+				while (have_posts()) {
 					the_post();
 
 					/*
@@ -40,12 +41,14 @@ get_header();
 					* If you want to override this in a child theme, then include a file
 					* called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					*/
-					get_template_part( 'templates-loop/content', 'pressreleases-archive' );
 
-                    //echo 'HHHH ' . get_post_format();
+					// TODO: change to cards
+					get_template_part('templates-loop/content', 'pressreleases-archive');
+
+					//echo 'HHHH ' . get_post_format();
 				}
 			} else {
-				get_template_part( 'templates-loop/content', 'none' );
+				get_template_part('templates-loop/content', 'none');
 			}
 			?>
 

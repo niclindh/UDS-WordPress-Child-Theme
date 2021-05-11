@@ -19,8 +19,8 @@ defined('ABSPATH') || exit;
 
 echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . get_the_date();
 
-if (!get_field('hide_page_title')) {
-    wptexturize(the_title('<h1 class="article">', '</h1>'));}
+// if (!get_field('hide_page_title')) {
+//     wptexturize(the_title('<h1 class="article">', '</h1>'));}
 ?>
 
 		<div class="entry-meta">
