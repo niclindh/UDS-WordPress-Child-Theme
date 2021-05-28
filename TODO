@@ -1,14 +1,20 @@
 ☐ resize images (1920 by 1080) and (1280 by 720)
 ☐ press releases alternate heds for homepage
 ☐ make press release slugged with category link to program page on story page
+☐ press release category sidebar menu
+☐ events category sidebar menu
+☐ make body content go md-6 (hentry p?)
 ☐ link to all press release categories
-☐ programs page auto feed from press releases like on front page (based on tags or categories?)
 ☐ add smart quotes to all titles
 ☐ add ap style to event dates
-☐ add footer menu
+✔ add footer menu @done(21-05-28 15:59)
 ☐ faculty pages need pronouncers (audio file) and pronouns
 ☐ sort events by category
 ☐ display category for each event
+☐ events alternate sub-heads for cards
+☐ events alternate titles for cards
+☐ add yoast breadcrumbs to templates
+☐ create pages for all organization breadcrumbs, like student-life, professional-programs
 
 ## Check with upstream
 
