@@ -13,10 +13,8 @@ if (!defined('ABSPATH')) {
 add_theme_support('post-thumbnails');
 
 require get_stylesheet_directory() . '/inc/custom-post-types.php';
-
 require get_stylesheet_directory() . '/inc/custom-sort.php';
-
-
+require get_stylesheet_directory() . '/inc/acf-register.php';
 
 /**
  * Enqueue child scripts and styles.
@@ -33,6 +31,7 @@ function uds_wordpress_child_scripts()
     $js_child_version = $theme_version . '.' . filemtime(get_stylesheet_directory() . '/js/child-theme.js');
     wp_enqueue_style('uds-wordpress-child-styles', get_stylesheet_directory_uri() . '/js/child-theme.js', array('jquery'), $js_child_version);
 }
+
 add_action('wp_enqueue_scripts', 'uds_wordpress_child_scripts');
 
 // from https://www.advancedcustomfields.com/resources/local-json/
@@ -45,6 +44,15 @@ function parent_theme_field_groups($paths)
     $paths[] = $path;
     return $paths;
 }
+
+/**
+ * Enqueue the child-theme.css into the editor.
+ */
+function uds_wp_gutenberg_child_css() {
+	add_theme_support( 'editor-styles' );
+	add_editor_style( 'css/child-theme.min.css' );
+}
+add_action( 'after_setup_theme', 'uds_wp_gutenberg_child_css' );
 
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
 function my_acf_json_save_point($path)
@@ -100,4 +108,6 @@ function ap_date_no_weekday() { // ap-formats date of post
     $thedate = $apmonth . ' ' . get_the_time('j') . ', ' . get_the_time('Y');
     return $thedate;
   }
-  
+
+add_action( 'wp_enqueue_scripts', 'uds_wordpress_child_scripts' );
+
