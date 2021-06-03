@@ -1,6 +1,6 @@
 {
     "key": "group_6042b688892d0",
-    "title": "CRONKITE Event Video",
+    "title": "CS Event Video",
     "fields": [
         {
             "key": "field_6042b6a6cef56",
@@ -56,5 +56,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for event video posts",
-    "modified": 1616624355
+    "modified": 1622752859
 }

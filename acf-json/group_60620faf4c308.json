@@ -1,13 +1,13 @@
 {
     "key": "group_60620faf4c308",
-    "title": "CRONKITE Press Releases",
+    "title": "CS Press Releases",
     "fields": [
         {
             "key": "field_6093280ff3030",
-            "label": "Distribution Title",
-            "name": "distribution_title",
+            "label": "Card Title",
+            "name": "card_title",
             "type": "text",
-            "instructions": "",
+            "instructions": "Shorter title used for cards",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -23,8 +23,8 @@
         },
         {
             "key": "field_60620fc508065",
-            "label": "Summary",
-            "name": "summary",
+            "label": "Card Description",
+            "name": "card_description",
             "type": "textarea",
             "instructions": "A summary of this press release. Used in archive pages and on the home page",
             "required": 1,
@@ -36,7 +36,7 @@
             },
             "default_value": "",
             "placeholder": "",
-            "maxlength": "",
+            "maxlength": 200,
             "rows": 4,
             "new_lines": "wpautop"
         },
@@ -77,5 +77,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1620321588
+    "modified": 1622753016
 }

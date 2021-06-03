@@ -1,7 +1,45 @@
 {
     "key": "group_605b7ac29ba89",
-    "title": "CRONKITE Events",
+    "title": "CS Events",
     "fields": [
+        {
+            "key": "field_60b9228426b6e",
+            "label": "Card title",
+            "name": "card_title",
+            "type": "text",
+            "instructions": "Title shown in card views of the events",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 100
+        },
+        {
+            "key": "field_60b922b126b6f",
+            "label": "Card Description",
+            "name": "card_description",
+            "type": "text",
+            "instructions": "Description shown in card views of the event",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 200
+        },
         {
             "key": "field_605b7c9744583",
             "label": "Event Start Time",
@@ -119,5 +157,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for event posts",
-    "modified": 1616626209
+    "modified": 1622752875
 }
