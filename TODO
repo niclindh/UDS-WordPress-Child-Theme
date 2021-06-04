@@ -1,4 +1,4 @@
-☐ resize images (1920 by 1080) and (1280 by 720)
+☐ create breadcrumbs (figure out if yoast or something else since the yoast ones are so broken)
 ☐ press releases alternate heds for homepage
 ☐ make press release slugged with category link to program page on story page
 ☐ press release category sidebar menu
@@ -15,6 +15,9 @@
 ☐ events alternate titles for cards
 ☐ add yoast breadcrumbs to templates
 ☐ create pages for all organization breadcrumbs, like student-life, professional-programs
+☐ resize images (1920 by 1080) and (1280 by 720)
+☐ resize images to smaller size like 800 by whatever?
+☐ remove standard image resizing since they just take up disk space?
 
 ## Check with upstream
 

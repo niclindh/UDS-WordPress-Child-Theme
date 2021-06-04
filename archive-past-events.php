@@ -1,7 +1,7 @@
 <?php
 
 /**
- Template Name: Past Events
+ * Template Name: Past Events
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
@@ -45,11 +45,11 @@ get_header();
 
 			$args = array(
 				'post_type' => 'events',
-				'ispast' => 'past',
+				'ispast' => 'past', // used a query argument to filter out past events in pre_get_posts for future events
 				'orderby' => 'meta_value',
 				'meta_key' => 'event_start_time',
 				'order' => 'DESC',
-				'post_per_page' => '2',
+				'posts_per_page' => '2',
 				'meta_query' => array(
 					'key' => 'event_start_time',
 					'compare' => '<=',
@@ -84,6 +84,7 @@ get_header();
 	<div class="row">
 		<div class="col">
 			<!-- The pagination component -->
+			pagination goes here
 			<?php uds_wp_pagination(); ?>
 		</div>
 	</div>

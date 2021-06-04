@@ -5,7 +5,7 @@
  * Includes options for where to draw the sidebar's content and in what position to place the sidebar.
  *
  * @package uds-wordpress-theme
- * Template Name: No Hero
+ * Template Name: Homepage
  */
 
 // Exit if accessed directly.
@@ -13,6 +13,7 @@ defined('ABSPATH') || exit;
 
 get_header();
 ?>
+
 	<main id="skip-to-content" <?php post_class();?>>
 
 		<?php

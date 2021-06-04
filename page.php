@@ -14,7 +14,7 @@ get_header();
 ?>
 
 	<main id="skip-to-content" <?php post_class();?>>
-
+    
 		<?php
 
 while (have_posts()) {
@@ -24,6 +24,24 @@ while (have_posts()) {
     get_template_part('templates-global/hero');
 
     get_template_part('templates-global/global-banner');
+
+if ( function_exists('yoast_breadcrumb') ) {
+    ?>
+    <div class="container">
+    <div class="row">
+        <nav aria-label="breadcrumbs">
+        
+            <?php
+            yoast_breadcrumb( '<ol class="breadcrumb bg-white">','</ol>' );
+            ?>
+        
+        </nav>
+    </div>
+    </div>
+<?php
+  
+}
+
 
     the_content();
 
