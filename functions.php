@@ -1,4 +1,5 @@
 <?php
+
 /**
  * UDS WordPress Child Theme functions and definitions
  *
@@ -48,11 +49,12 @@ function parent_theme_field_groups($paths)
 /**
  * Enqueue the child-theme.css into the editor.
  */
-function uds_wp_gutenberg_child_css() {
-	add_theme_support( 'editor-styles' );
-	add_editor_style( 'css/child-theme.min.css' );
+function uds_wp_gutenberg_child_css()
+{
+    add_theme_support('editor-styles');
+    add_editor_style('css/child-theme.min.css');
 }
-add_action( 'after_setup_theme', 'uds_wp_gutenberg_child_css' );
+add_action('after_setup_theme', 'uds_wp_gutenberg_child_css');
 
 add_filter('acf/settings/save_json', 'my_acf_json_save_point');
 function my_acf_json_save_point($path)
@@ -64,22 +66,23 @@ function my_acf_json_save_point($path)
 }
 
 // Make months AP style
-function ap_date() { // ap-formats date of post
-    if (get_the_time('m')=='01') :
+function ap_date()
+{ // ap-formats date of post
+    if (get_the_time('m') == '01') :
         $apmonth = 'Jan. ';
-    elseif (get_the_time('m')=='02') :
+    elseif (get_the_time('m') == '02') :
         $apmonth = 'Feb. ';
-    elseif (get_the_time('m')=='08') :
+    elseif (get_the_time('m') == '08') :
         $apmonth = 'Aug. ';
-    elseif (get_the_time('m')=='09') :
+    elseif (get_the_time('m') == '09') :
         $apmonth = 'Sept. ';
-    elseif (get_the_time('m')=='10') :
+    elseif (get_the_time('m') == '10') :
         $apmonth = 'Oct. ';
-    elseif (get_the_time('m')=='11') :
+    elseif (get_the_time('m') == '11') :
         $apmonth = 'Nov. ';
-    elseif (get_the_time('m')=='12') :
+    elseif (get_the_time('m') == '12') :
         $apmonth = 'Dec. ';
-    else:
+    else :
         $apmonth = (get_the_time('F'));
     endif;
     $thedate = get_the_time('l') . ', ' . $apmonth . ' ' . get_the_time('j') . ', ' . get_the_time('Y');
@@ -87,27 +90,27 @@ function ap_date() { // ap-formats date of post
 }
 
 // Make months AP style, no weekday
-function ap_date_no_weekday() { // ap-formats date of post
-    if (get_the_time('m')=='01') :
+function ap_date_no_weekday()
+{ // ap-formats date of post
+    if (get_the_time('m') == '01') :
         $apmonth = 'Jan. ';
-    elseif (get_the_time('m')=='02') :
+    elseif (get_the_time('m') == '02') :
         $apmonth = 'Feb. ';
-    elseif (get_the_time('m')=='08') :
+    elseif (get_the_time('m') == '08') :
         $apmonth = 'Aug. ';
-    elseif (get_the_time('m')=='09') :
+    elseif (get_the_time('m') == '09') :
         $apmonth = 'Sept. ';
-    elseif (get_the_time('m')=='10') :
+    elseif (get_the_time('m') == '10') :
         $apmonth = 'Oct. ';
-    elseif (get_the_time('m')=='11') :
+    elseif (get_the_time('m') == '11') :
         $apmonth = 'Nov. ';
-    elseif (get_the_time('m')=='12') :
+    elseif (get_the_time('m') == '12') :
         $apmonth = 'Dec. ';
-    else:
+    else :
         $apmonth = (get_the_time('F'));
     endif;
     $thedate = $apmonth . ' ' . get_the_time('j') . ', ' . get_the_time('Y');
     return $thedate;
-  }
+}
 
-add_action( 'wp_enqueue_scripts', 'uds_wordpress_child_scripts' );
-
+add_action('wp_enqueue_scripts', 'uds_wordpress_child_scripts');
