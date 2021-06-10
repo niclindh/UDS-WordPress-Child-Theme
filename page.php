@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * Displays all content within a dedicated col-8 area. Intended to be compatible with most native WP blocks.
@@ -13,47 +14,42 @@ defined('ABSPATH') || exit;
 get_header();
 ?>
 
-	<main id="skip-to-content" <?php post_class();?>>
-    
-		<?php
+<main id="skip-to-content" <?php post_class(); ?>>
 
-while (have_posts()) {
+    <?php
 
-    the_post();
+    while (have_posts()) {
 
-    get_template_part('templates-global/hero');
+        the_post();
 
-    get_template_part('templates-global/global-banner');
+        get_template_part('templates-global/hero');
 
-if ( function_exists('yoast_breadcrumb') ) {
+        get_template_part('templates-global/global-banner');
+
+        if (function_exists('yoast_breadcrumb')) {
     ?>
-    <div class="container">
-    <div class="row">
-        <nav aria-label="breadcrumbs">
-        
-            <?php
-            yoast_breadcrumb( '<ol class="breadcrumb bg-white">','</ol>' );
-            ?>
-        
-        </nav>
-    </div>
-    </div>
-<?php
-  
-}
+            <div class="container">
+                <nav aria-label="breadcrumbs">
+                    <?php
+                    yoast_breadcrumb('<ol class="breadcrumb bg-white">', '</ol>');
+                    ?>
+                </nav>
+            </div>
+    <?php
 
+        }
 
-    the_content();
+        the_content();
 
-    // Display the edit post button to logged in users.
-    echo '<footer class="entry-footer"><div class="container mb-2"><div class="row"><div class="col-md-12">';
-    edit_post_link(__('Edit', 'uds-wordpress-theme'), '<span class="edit-link">', '</span>');
-    echo '</div></div></div></footer><!-- end .entry-footer -->';
-}
+        // Display the edit post button to logged in users.
+        echo '<footer class="entry-footer"><div class="container mb-2"><div class="row"><div class="col-md-12">';
+        edit_post_link(__('Edit', 'uds-wordpress-theme'), '<span class="edit-link">', '</span>');
+        echo '</div></div></div></footer><!-- end .entry-footer -->';
+    }
 
-?>
+    ?>
 
-	</main><!-- #main -->
+</main><!-- #main -->
 
 <?php
 get_footer();

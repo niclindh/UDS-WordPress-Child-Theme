@@ -12,16 +12,35 @@
 defined('ABSPATH') || exit;
 
 get_header();
+
+get_template_part('templates-global/hero');
+
+get_template_part('templates-global/global-banner');
+
 ?>
 
 <main id="skip-to-content" <?php post_class('container'); ?>>
+
+	<?php
+	if (function_exists('yoast_breadcrumb')) {
+	?>
+		<div class="container">
+			<nav aria-label="breadcrumbs">
+				<?php
+				yoast_breadcrumb('<ol class="breadcrumb bg-white">', '</ol>');
+				?>
+			</nav>
+		</div>
+
+	<?php
+	}
+	?>
+
 
 	<div class="row">
 		<div class="col">
 
 			<header class="page-header">
-
-				<h1 class="article">Past Cronkite events</h1>
 
 				<p><strong>Paragraph about why you should care.</strong> Skateboard sriracha jean shorts, mlkshk 3 wolf moon prism gluten-free. Asymmetrical drinking vinegar palo santo vinyl, 90's ennui single-origin coffee pinterest bespoke listicle organic meggings la croix. Pabst bitters polaroid franzen, readymade pok pok copper mug semiotics lumbersexual fashion axe af. Messenger bag polaroid DIY woke tbh, literally paleo gastropub tofu kinfolk hot chicken poutine intelligentsia.</p>
 
@@ -29,7 +48,6 @@ get_header();
 
 			<?php
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-			echo 'PAGED: ' . $paged;
 
 			// the rest of the args are in /inc/custom-sort.php
 			$args = array(

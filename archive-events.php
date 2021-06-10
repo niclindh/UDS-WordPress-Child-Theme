@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Future Events
+ * Template Name: Upcoming Events
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
@@ -12,44 +12,69 @@
 defined('ABSPATH') || exit;
 
 get_header();
+
+get_template_part('templates-global/hero');
+
+get_template_part('templates-global/global-banner');
+
 ?>
 
 <main id="skip-to-content" <?php post_class('container'); ?>>
 
+	<?php
+	if (function_exists('yoast_breadcrumb')) {
+	?>
+		<div class="container">
+			<nav aria-label="breadcrumbs">
+				<?php
+				yoast_breadcrumb('<ol class="breadcrumb bg-white">', '</ol>');
+				?>
+			</nav>
+		</div>
+
+	<?php
+	}
+	?>
+
+
 	<div class="row">
 		<div class="col">
 
-			<?php
-			if (have_posts()) {
+			<header class="page-header">
 
-			?>
-				<header class="page-header">
+				<p><strong>A paragraph about why you should care.</strong> Skateboard sriracha jean shorts, mlkshk 3 wolf moon prism gluten-free. Asymmetrical drinking vinegar palo santo vinyl, 90's ennui single-origin coffee pinterest bespoke listicle organic meggings la croix. Pabst bitters polaroid franzen, readymade pok pok copper mug semiotics lumbersexual fashion axe af. Messenger bag polaroid DIY woke tbh, literally paleo gastropub tofu kinfolk hot chicken poutine intelligentsia.</p>
 
-					<h1 class="article">Cronkite events</h1>
+				<p><a href="/cronkite-events/past-events">View past Cronkite School events.</a></p>
 
-					<p>Paragraph about the upcoming events. Skateboard sriracha jean shorts, mlkshk 3 wolf moon prism gluten-free. Asymmetrical drinking vinegar palo santo vinyl, 90's ennui single-origin coffee pinterest bespoke listicle organic meggings la croix.</p>
-					<p><a href="/events/past-events">View past Cronkite School events.</a></p>
-					<p>List the events categories and link to them</p>
+				<p>List the events categories and link to them</p>
 
-				</header><!-- .page-header -->
+			</header><!-- .page-header -->
 
 			<?php
-				// Start the loop.
-				while (have_posts()) {
-					the_post();
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-					/*
-					* Include the Post-Format-specific template for the content.
-					* If you want to override this in a child theme, then include a file
-					* called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					*/
+			// the rest of the args are in /inc/custom-sort.php
+			$args = array(
+				'post_type' => 'events',
+				'ispast' => 'no', // used a query argument to filter out past events in pre_get_posts for future events
+				'paged' => $paged
+			);
+
+			$wp_query = new WP_Query($args);
+
+			if ($wp_query->have_posts()) {
+
+				while ($wp_query->have_posts()) {
+					$wp_query->the_post();
+
 					get_template_part('templates-loop/content', 'events-archive');
-
-					//echo 'HHHH ' . get_post_format();
 				}
 			} else {
 				get_template_part('templates-loop/content', 'none');
 			}
+
+			wp_reset_postdata();
+
 			?>
 
 		</div>
