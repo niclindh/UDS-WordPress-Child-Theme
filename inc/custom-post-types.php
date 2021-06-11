@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Declare custom post types for the theme. 
  * Yes, this is "supposed" to be in a plugin. ¯\_(ツ)_/¯
@@ -46,7 +47,7 @@ function pressreleases_post_type()
         'description' => __('Cronkite Press Releases', 'uds-wordpress-theme-child'),
         'labels' => $labels,
         'supports' => array('title', 'editor', 'thumbnail', 'revisions', 'custom-fields'),
-        'taxonomies' => array('category', 'post_tag'),
+        //'taxonomies' => array('category', 'post_tag'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
@@ -64,56 +65,56 @@ function pressreleases_post_type()
         'rewrite' => array('slug' => 'news/%year%', 'with_front' => false),
     );
     register_post_type('pressreleases', $args);
-
 }
 add_action('init', 'pressreleases_post_type', 0);
 
 function pressreleases_permalink($url, $post)
 {
-if ('pressreleases' == get_post_type($post)) {
-    $url = str_replace("%year%", get_the_date('Y'), $url);
-}
-return $url;
+    if ('pressreleases' == get_post_type($post)) {
+        $url = str_replace("%year%", get_the_date('Y'), $url);
+    }
+    return $url;
 }
 add_filter('post_type_link', 'pressreleases_permalink', 10, 2);
 
-function events_post_type() {
+function events_post_type()
+{
 
-	$labels = array(
-		'name'                  => _x( 'Events', 'Post Type General Name', 'uds-wordpress-theme-child' ),
-		'singular_name'         => _x( 'Event', 'Post Type Singular Name', 'uds-wordpress-theme-child' ),
-		'menu_name'             => __( 'Events', 'uds-wordpress-theme-child' ),
-		'name_admin_bar'        => __( 'Event', 'uds-wordpress-theme-child' ),
-		'archives'              => __( 'Event Archives', 'uds-wordpress-theme-child' ),
-		'attributes'            => __( 'Event Attributes', 'uds-wordpress-theme-child' ),
-		'parent_item_colon'     => __( 'Parent Event:', 'uds-wordpress-theme-child' ),
-		'all_items'             => __( 'All Events', 'uds-wordpress-theme-child' ),
-		'add_new_item'          => __( 'Add New Event', 'uds-wordpress-theme-child' ),
-		'add_new'               => __( 'Add New', 'uds-wordpress-theme-child' ),
-		'new_item'              => __( 'New Event', 'uds-wordpress-theme-child' ),
-		'edit_item'             => __( 'Edit Event', 'uds-wordpress-theme-child' ),
-		'update_item'           => __( 'Update Event', 'uds-wordpress-theme-child' ),
-		'view_item'             => __( 'View Event', 'uds-wordpress-theme-child' ),
-		'view_items'            => __( 'View Events', 'uds-wordpress-theme-child' ),
-		'search_items'          => __( 'Search Event', 'uds-wordpress-theme-child' ),
-		'not_found'             => __( 'Not found', 'uds-wordpress-theme-child' ),
-		'not_found_in_trash'    => __( 'Not found in Trash', 'uds-wordpress-theme-child' ),
-		'featured_image'        => __( 'Featured Image', 'uds-wordpress-theme-child' ),
-		'set_featured_image'    => __( 'Set featured image', 'uds-wordpress-theme-child' ),
-		'remove_featured_image' => __( 'Remove featured image', 'uds-wordpress-theme-child' ),
-		'use_featured_image'    => __( 'Use as featured image', 'uds-wordpress-theme-child' ),
-		'insert_into_item'      => __( 'Insert into Event', 'uds-wordpress-theme-child' ),
-		'uploaded_to_this_item' => __( 'Uploaded to this Event', 'uds-wordpress-theme-child' ),
-		'items_list'            => __( 'Events list', 'uds-wordpress-theme-child' ),
-		'items_list_navigation' => __( 'Events list navigation', 'uds-wordpress-theme-child' ),
-		'filter_items_list'     => __( 'Filter Events list', 'uds-wordpress-theme-child' ),
-	);
-	$args = array(
+    $labels = array(
+        'name'                  => _x('Events', 'Post Type General Name', 'uds-wordpress-theme-child'),
+        'singular_name'         => _x('Event', 'Post Type Singular Name', 'uds-wordpress-theme-child'),
+        'menu_name'             => __('Events', 'uds-wordpress-theme-child'),
+        'name_admin_bar'        => __('Event', 'uds-wordpress-theme-child'),
+        'archives'              => __('Event Archives', 'uds-wordpress-theme-child'),
+        'attributes'            => __('Event Attributes', 'uds-wordpress-theme-child'),
+        'parent_item_colon'     => __('Parent Event:', 'uds-wordpress-theme-child'),
+        'all_items'             => __('All Events', 'uds-wordpress-theme-child'),
+        'add_new_item'          => __('Add New Event', 'uds-wordpress-theme-child'),
+        'add_new'               => __('Add New', 'uds-wordpress-theme-child'),
+        'new_item'              => __('New Event', 'uds-wordpress-theme-child'),
+        'edit_item'             => __('Edit Event', 'uds-wordpress-theme-child'),
+        'update_item'           => __('Update Event', 'uds-wordpress-theme-child'),
+        'view_item'             => __('View Event', 'uds-wordpress-theme-child'),
+        'view_items'            => __('View Events', 'uds-wordpress-theme-child'),
+        'search_items'          => __('Search Event', 'uds-wordpress-theme-child'),
+        'not_found'             => __('Not found', 'uds-wordpress-theme-child'),
+        'not_found_in_trash'    => __('Not found in Trash', 'uds-wordpress-theme-child'),
+        'featured_image'        => __('Featured Image', 'uds-wordpress-theme-child'),
+        'set_featured_image'    => __('Set featured image', 'uds-wordpress-theme-child'),
+        'remove_featured_image' => __('Remove featured image', 'uds-wordpress-theme-child'),
+        'use_featured_image'    => __('Use as featured image', 'uds-wordpress-theme-child'),
+        'insert_into_item'      => __('Insert into Event', 'uds-wordpress-theme-child'),
+        'uploaded_to_this_item' => __('Uploaded to this Event', 'uds-wordpress-theme-child'),
+        'items_list'            => __('Events list', 'uds-wordpress-theme-child'),
+        'items_list_navigation' => __('Events list navigation', 'uds-wordpress-theme-child'),
+        'filter_items_list'     => __('Filter Events list', 'uds-wordpress-theme-child'),
+    );
+    $args = array(
         'label' => __('Events', 'uds-wordpress-theme-child'),
         'description' => __('Cronkite events', 'uds-wordpress-theme-child'),
         'labels' => $labels,
         'supports' => array('title', 'editor', 'thumbnail', 'revisions', 'custom-fields'),
-        'taxonomies' => array('category', 'post_tag'),
+        //'taxonomies' => array('category', 'post_tag'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
@@ -130,17 +131,16 @@ function events_post_type() {
         'capability_type' => 'post',
         'show_in_rest' => true,
         'rewrite' => array('slug' => 'events/%year%', 'with_front' => false),
-	);
-	register_post_type( 'events', $args );
-
+    );
+    register_post_type('events', $args);
 }
-add_action( 'init', 'events_post_type', 0 );
+add_action('init', 'events_post_type', 0);
 
 function events_permalink($url, $post)
 {
-if ('events' == get_post_type($post)) {
-    $url = str_replace("%year%", get_the_date('Y'), $url);
-}
-return $url;
+    if ('events' == get_post_type($post)) {
+        $url = str_replace("%year%", get_the_date('Y'), $url);
+    }
+    return $url;
 }
 add_filter('post_type_link', 'events_permalink', 10, 2);
