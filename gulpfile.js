@@ -77,34 +77,32 @@ gulp.task("imagemin", () =>
  *
  * Run: gulp minifycss
  */
-gulp.task( 'minifycss', function() {
-	return gulp
-		.src( [
-			paths.css + '/child-theme.css',
-		] )
-		.pipe(
-			sourcemaps.init( {
-				loadMaps: true,
-			} )
-		)
-		.pipe(
-			cleanCSS( {
-				compatibility: '*',
-			} )
-		)
-		.pipe(
-			plumber( {
-				errorHandler( err ) {
-					console.log( err );
-					this.emit( 'end' );
-				},
-			} )
-		)
-		.pipe( rename( { suffix: '.min' } ) )
-		.pipe( sourcemaps.write( './' ) )
-		.pipe( gulp.dest( paths.css ) )
+gulp.task("minifycss", function () {
+  return gulp
+    .src([paths.css + "/child-theme.css"])
+    .pipe(
+      sourcemaps.init({
+        loadMaps: true,
+      })
+    )
+    .pipe(
+      cleanCSS({
+        compatibility: "*",
+      })
+    )
+    .pipe(
+      plumber({
+        errorHandler(err) {
+          console.log(err);
+          this.emit("end");
+        },
+      })
+    )
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(sourcemaps.write("./"))
+    .pipe(gulp.dest(paths.css))
     .pipe(browserSync.reload({ stream: true }));
-} );
+});
 
 /**
  * Delete minified CSS files and their maps
@@ -202,22 +200,13 @@ gulp.task("scripts", function () {
     .pipe(uglify())
     .pipe(gulp.dest(paths.js));
 
-<<<<<<< HEAD
   return gulp
     .src(scripts, { allowEmpty: true })
     .pipe(babel())
     .pipe(concat("theme.js"))
-    .pipe(gulp.dest(paths.js));
-});
-=======
-	return gulp
-		.src( scripts, { allowEmpty: true } )
-		.pipe( babel() )
-		.pipe( concat( 'theme.js' ) )
-		.pipe( gulp.dest( paths.js ) )
+    .pipe(gulp.dest(paths.js))
     .pipe(browserSync.reload({ stream: true }));
-} );
->>>>>>> be6cbedc366e230008ef7b829af7e79b28170a39
+});
 
 // Deleting any file inside the /src folder
 gulp.task("clean-source", function () {

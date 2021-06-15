@@ -90,11 +90,11 @@ defined('ABSPATH') || exit;
 			// 	$day = substr($day, 1,1);
 			// }
 
-			// echo 'START:' . $event_start_time . '<br />';
-			// echo 'SHOW END:' . $show_end_date . '<br />';
-			// echo 'END:' . $event_end_time . '<br />';
-			// echo 'SUBHEAD:' . $event_subhead . '<br />';
-			// echo 'LOCATION:' . $event_location . '<br />';
+			echo 'START:' . $event_start_time . '<br />';
+			echo 'SHOW END:' . $show_end_date . '<br />';
+			echo 'END:' . $event_end_time . '<br />';
+			echo 'SUBHEAD:' . $event_subhead . '<br />';
+			echo 'LOCATION:' . $event_location . '<br />';
 
 			echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' . $event_end_time;
 			//echo $apmonth . ' ' . $day . ', ' . $year;

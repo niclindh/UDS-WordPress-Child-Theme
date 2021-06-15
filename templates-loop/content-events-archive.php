@@ -10,105 +10,152 @@
 defined('ABSPATH') || exit;
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<?php
+// Fancy-pants AP Style
+// $event_date = get_field( "event_date" );
 
-	<header class="entry-header">
+// $day = substr($event_date, 0, 2);
+// $month = substr($event_date, 3, 2);
+// $year = substr($event_date, 6, 4);
 
-		<h3 style="padding-top: 2rem;"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+// switch ($month) {
+// 	case '01':
+// 		$apmonth = 'Jan. ';
+// 		break;
+// 	case '02':
+// 		$apmonth = 'Feb. ';
+// 		break;
+// 	case '03':
+// 		$apmonth = 'March ';
+// 		break;
+// 	case '04':
+// 		$apmonth = 'April ';
+// 	break;
+// 	case '05':
+// 		$apmonth = 'May ';
+// 		break;
+// 	case '06':
+// 		$apmonth = 'June ';
+// 		break;
+// 	case '07':
+// 		$apmonth = 'July ';
+// 		break;
+// 	case '08':
+// 		$apmonth = 'Aug. ';
+// 		break;
+// 	case '09':
+// 		$apmonth = 'Sept. ';
+// 		break;
+// 	case '10':
+// 		$apmonth = 'Oct. ';
+// 		break;
+// 	case '11':
+// 		$apmonth = 'Nov. ';
+// 		break;
+// 	case '12':
+// 		$apmonth = 'Dec. ';
+// 		break;						
+// }
+
+// // drop leading zero on the day
+// if (substr($day, 0, 1) == '0') {
+// 	$day = substr($day, 1,1);
+// }
+
+$thumb_id = get_post_thumbnail_id();
+$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
+$thumb_url = $thumb_url_array[0];
+
+// print_r($thumb_url_array);
+
+// TODO code to check for featured image and if it doesn't exist find the category and insert the generic image for that category
+
+// echo 'IMAGE: ' . $thumb_url;
+
+$event_start_time = get_field("event_start_time");
+$show_end_date = get_field("show_end_date");
+$event_end_time = get_field("event_end_time");
+$event_description = get_field("card_description");
+$event_title = get_field("card_title");
+$event_subhead = get_field("event_subhead");
+$event_location = get_field("event_location");
 
 
-		<div class="entry-meta">
 
-			<?php
-			// Fancy-pants AP Style
-			// $event_date = get_field( "event_date" );
+// echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' . $event_end_time;
 
-			// $day = substr($event_date, 0, 2);
-			// $month = substr($event_date, 3, 2);
-			// $year = substr($event_date, 6, 4);
+//echo 'DATE: ' . date('d-m-Y');
 
-			// switch ($month) {
-			// 	case '01':
-			// 		$apmonth = 'Jan. ';
-			// 		break;
-			// 	case '02':
-			// 		$apmonth = 'Feb. ';
-			// 		break;
-			// 	case '03':
-			// 		$apmonth = 'March ';
-			// 		break;
-			// 	case '04':
-			// 		$apmonth = 'April ';
-			// 	break;
-			// 	case '05':
-			// 		$apmonth = 'May ';
-			// 		break;
-			// 	case '06':
-			// 		$apmonth = 'June ';
-			// 		break;
-			// 	case '07':
-			// 		$apmonth = 'July ';
-			// 		break;
-			// 	case '08':
-			// 		$apmonth = 'Aug. ';
-			// 		break;
-			// 	case '09':
-			// 		$apmonth = 'Sept. ';
-			// 		break;
-			// 	case '10':
-			// 		$apmonth = 'Oct. ';
-			// 		break;
-			// 	case '11':
-			// 		$apmonth = 'Nov. ';
-			// 		break;
-			// 	case '12':
-			// 		$apmonth = 'Dec. ';
-			// 		break;						
-			// }
+?>
 
-			// // drop leading zero on the day
-			// if (substr($day, 0, 1) == '0') {
-			// 	$day = substr($day, 1,1);
-			// }
+<div class="pb-md-6 pb-sm-3">
+	<div class="card card-event card-horizontal">
+		<img class="card-img-top" src="<?php echo $thumb_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+		<div class="card-content-wrapper">
+			<div class="card-header">
+				<h3 class="card-title">
+					<?php
+					if ($event_title) {
+						echo $event_title;
+					} else the_title();
+					?></h3>
+			</div>
+			<div class="card-body">
+				<p class="card-text">
+					<?php
+					if ($event_description) {
+						echo $event_description;
+					} else the_content();
+					?>
+				</p>
+			</div>
 
-			$event_start_time = get_field("event_start_time");
-			$show_end_date = get_field("show_end_date");
-			$event_end_time = get_field("event_end_time");
-			//$event_subhead = get_field( "event_subhead" );
-			//$event_location = get_field( "event_location" );  
+			<div class="row">
+				<div class="col-6">
+					<div class="card-event-details">
+						<div class="card-event-icons">
+							<div><svg class="svg-inline--fa fa-calendar fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+									<path fill="currentColor" d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z"></path>
+								</svg>
+							</div>
+							<div>
 
-			echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' . $event_end_time;
-
-			//echo 'DATE: ' . date('d-m-Y');
-
-			?>
-		</div><!-- .entry-meta -->
-
-	</header><!-- .entry-header -->
-
-	<div class="entry-content">
-		<div class="row">
-			<div class="col-md-8">
+								<?php
+								// TODO AP Style dates
+								echo $event_start_time;
+								if ($show_end_date) {
+									echo ' – ' . $event_end_time;
+								}
+								?>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-6">
+					<div class="card-event-details">
+						<div class="card-event-icons">
+							<div><svg class="svg-inline--fa fa-map-marker-alt fa-w-12" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" data-fa-i2svg="">
+									<path fill="currentColor" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path>
+								</svg><!-- <i class="fas fa-map-marker-alt"></i> Font Awesome fontawesome.com -->
+							</div>
+							<div><?php echo $event_location; ?></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="card-link">
+				<a href="<?php the_permalink(); ?>">More Information</a>
+			</div>
+			<div class="card-tags">
 				<?php
-				echo '<h3>' . $event_subhead . '</h3>';
-				the_content(); ?>
+				// get custom categories
+				$terms = wp_get_post_terms($post->ID, 'kinds');
+				foreach ($terms as $term) {
+					$term_link = get_term_link($term);
+					echo '<a class="btn btn-tag btn-tag-alt-white" href="' . $term_link . '">' . $term->name . '</a>' . ' ';
+				}
+				?>
 			</div>
-			<div class="col-md-4">
-
-			</div>
-		</div>
-
-		<?php
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . __('Pages:', 'uds-wordpress-theme'),
-				'after' => '</div>',
-			)
-		);
-		?>
-
-	</div><!-- .entry-content -->
-
-
-
-</article><!-- #post-## -->
+		</div> <!-- close horizontal content -->
+	</div>
+</div>
