@@ -24,31 +24,21 @@ get_template_part('templates-global/global-banner');
 	<?php
 	if (function_exists('yoast_breadcrumb')) {
 	?>
-		<div class="container">
-			<nav aria-label="breadcrumbs">
-				<?php
-				yoast_breadcrumb('<ol class="breadcrumb bg-white">', '</ol>');
-				?>
-			</nav>
-		</div>
+
+		<nav aria-label="breadcrumbs">
+			<?php
+			yoast_breadcrumb('<ol class="breadcrumb bg-white">', '</ol>');
+			?>
+		</nav>
+
 
 	<?php
 	}
 	?>
 
-
 	<div class="row">
-		<div class="col">
 
-			<header class="page-header">
-
-				<p><strong>A paragraph about why you should care.</strong> Skateboard sriracha jean shorts, mlkshk 3 wolf moon prism gluten-free. Asymmetrical drinking vinegar palo santo vinyl, 90's ennui single-origin coffee pinterest bespoke listicle organic meggings la croix. Pabst bitters polaroid franzen, readymade pok pok copper mug semiotics lumbersexual fashion axe af. Messenger bag polaroid DIY woke tbh, literally paleo gastropub tofu kinfolk hot chicken poutine intelligentsia.</p>
-
-				<p><a href="/cronkite-events/past-events">View past Cronkite School events.</a></p>
-
-				<p>List the events categories and link to them</p>
-
-			</header><!-- .page-header -->
+		<div class="col-md-8">
 
 			<?php
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -76,6 +66,27 @@ get_template_part('templates-global/global-banner');
 			wp_reset_postdata();
 
 			?>
+
+		</div>
+		<div class="col-md-4">
+
+			<!-- <h3>Kinds of events</h3> -->
+			<nav id="sidebar-left" class="sidebar accordion" aria-label="Secondary">
+				<?php
+
+				$taxonomy = 'kinds';
+				$terms = get_terms($taxonomy); // Get all terms of a taxonomy
+
+				if ($terms && !is_wp_error($terms)) :
+				?>
+					<!-- use class "active" for the active link -->
+					<?php foreach ($terms as $term) { ?>
+						<a class="nav-link" href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a>
+					<?php } ?>
+				<?php endif; ?>
+				<a class="nav-link" href="/cronkite-events/past-events">Past Events</a>
+			</nav><!-- end .sidebar -->
+
 
 		</div>
 	</div>
