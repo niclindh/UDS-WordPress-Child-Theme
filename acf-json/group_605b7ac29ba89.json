@@ -118,7 +118,7 @@
             "placeholder": "",
             "maxlength": "",
             "rows": "",
-            "new_lines": "br"
+            "new_lines": "wpautop"
         },
         {
             "key": "field_605b7db744587",
@@ -137,7 +137,7 @@
             "placeholder": "",
             "maxlength": "",
             "rows": 4,
-            "new_lines": "br"
+            "new_lines": "wpautop"
         }
     ],
     "location": [
@@ -157,5 +157,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for event posts",
-    "modified": 1622752875
+    "modified": 1623965609
 }
