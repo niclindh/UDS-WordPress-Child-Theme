@@ -17,9 +17,9 @@ defined('ABSPATH') || exit;
 
 	<div class="container">
 		<div class="row">
-			<div class="col-md-7">
+			<div class="col-md-10">
 				<?php
-			wptexturize(the_title('<h2>', '</h2>'));
+			wptexturize(the_title('<h1 class="article">', '</h1>'));
 		?>
 
 			</div>
@@ -96,30 +96,24 @@ defined('ABSPATH') || exit;
 			// 	$day = substr($day, 1,1);
 			// }
 
-			echo 'START:' . $event_start_time . '<br />';
-			echo 'SHOW END:' . $show_end_date . '<br />';
-			echo 'END:' . $event_end_time . '<br />';
-			echo 'SUBHEAD:' . $event_subhead . '<br />';
-			echo 'LOCATION:' . $event_location . '<br />';
-
-			//echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' . $event_end_time;
+			
 			//echo $apmonth . ' ' . $day . ', ' . $year;
 
 			?>
 
 	<div class="entry-content">
 
-		<div class="container">
+		<div class="container pt-md-6 pt-sm-3">
 			<div class="row">
 				<div class="col-md-4">
-					<p style="font-weight: bold;"><i class="fa fa-calendar" aria-hidden="true"></i> Date and Time:</p>
+					<h4><i class="fa fa-calendar" aria-hidden="true"></i> Date and Time:</h4>
 					<?php
 					echo $event_start_time . ' - ' . $event_end_time;
 					?>
 
 				</div>
 				<div class="col-md-4">
-					<p style="font-weight: bold;"><i class="fa fa-map-marker-alt" aria-hidden="true"></i> Location:</p>
+					<h4><i class="fa fa-map-marker-alt" aria-hidden="true"></i> Location:</h4>
 					<?php
 					echo $event_location;
 					?>
@@ -135,27 +129,41 @@ defined('ABSPATH') || exit;
 						$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
 						$thumb_url = $thumb_url_array[0];
 ?>
-					<img class="img-fluid" src="<?php echo $thumb_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+					<img class="img-fluid" style="width: 100%;" src="<?php echo $thumb_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
 				</div>
 			</div>
 		</div>
 
-		<?php
+		<div class="container pt-md-6 pt-sm-3 pb-md-6 pb-sm-3">
+			<div class="row">
+				<div class="col-md-6">
+					<?php
 		echo '<h4>' . $event_subhead . '</h4>';
 		the_content();
-		echo $event_location;
-
 		?>
 
 
-		<?php
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . __('Pages:', 'uds-wordpress-theme'),
-				'after' => '</div>',
-			)
-		);
+					<?php
+		// get custom categories
+		$terms = wp_get_post_terms($post->ID, 'kinds');
+		foreach ($terms as $term) {
+			$term_link = get_term_link($term);
+			echo '<a class="btn btn-tag btn-tag-alt-white" href="' . $term_link . '">' . $term->name . '</a>' . ' ';
+		}
 		?>
+
+				</div>
+			</div>
+			<div class="row  pt-md-6 pt-sm-3">
+				<div class="col-md-4">
+					DO WE WANT CONTACT INFORMATION?
+				</div>
+				<div class="col-md-8">
+					<h4>Share this event:</h4>
+					SHARE ICONS
+				</div>
+			</div>
+		</div>
 
 	</div><!-- .entry-content -->
 

@@ -11,16 +11,6 @@ function events_pre_get_posts($query)
 		return $query;
 	}
 
-	// if ($query->query_vars['pagename'] == 'past-events') {
-	// 	// echo 'RETURN';
-	// 	// return $query;
-	// 	// $query->set('exclude', 'yes');
-	// 	$exclude = 'yes';
-	//}
-	// print_r($query->query_vars);
-	//  && $query->query_vars['pagename'] <> 'past-events'
-	// && $query->query_vars['is_single'] == 'false'
-
 	// ispast query_var is set by the query loop on past events page
 	// checking for name == '' avoids filtering individual events
 	// which made past events throw 404s as they were filtered out
@@ -36,7 +26,7 @@ function events_pre_get_posts($query)
 		$query->set('kinds', $query->query_vars['the_kind']);
 		$query->set('meta_key', 'event_start_time');
 		$query->set('order', 'ASC');
-		$query->set('posts_per_page', '2'); // very low number just to test pagination
+		$query->set('posts_per_page', '5'); // very low number just to test pagination
 		$query->set('meta_query', array(
 			array(
 				'key' => 'event_start_time',
@@ -52,7 +42,7 @@ function events_pre_get_posts($query)
 		$query->set('orderby', 'meta_value');
 		$query->set('meta_key', 'event_start_time');
 		$query->set('order', 'ASC');
-		$query->set('posts_per_page', '2'); // very low number just to test pagination
+		$query->set('posts_per_page', '5'); // very low number just to test pagination
 		$query->set('meta_query', array(
 			array(
 				'key' => 'event_start_time',
@@ -67,7 +57,7 @@ function events_pre_get_posts($query)
 		$query->set('orderby', 'meta_value');
 		$query->set('meta_key', 'event_start_time');
 		$query->set('order', 'DESC');
-		$query->set('posts_per_page', '2'); // very low number just to test pagination
+		$query->set('posts_per_page', '5'); // very low number just to test pagination
 		$query->set('meta_query', array(
 			array(
 				'key' => 'event_start_time',
