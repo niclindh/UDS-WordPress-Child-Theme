@@ -10,19 +10,25 @@
 defined('ABSPATH') || exit;
 ?>
 
-<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+<article <?php post_class(); ?> id="post-
+	<?php the_ID(); ?>">
 
-	<header class="entry-header">
 
-		<?php
-		if (!get_field('hide_page_title')) {
-			wptexturize(the_title('<h1 class="article">', '</h1>'));
-		}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-7">
+				<?php
+			wptexturize(the_title('<h2>', '</h2>'));
 		?>
 
-		<div class="entry-meta">
+			</div>
+		</div>
+	</div>
 
-			<?php
+
+
+	<?php
 
 			$event_start_time = get_field("event_start_time");
 			$show_end_date = get_field("show_end_date");
@@ -96,20 +102,46 @@ defined('ABSPATH') || exit;
 			echo 'SUBHEAD:' . $event_subhead . '<br />';
 			echo 'LOCATION:' . $event_location . '<br />';
 
-			echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' . $event_end_time;
+			//echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' . $event_end_time;
 			//echo $apmonth . ' ' . $day . ', ' . $year;
 
 			?>
-		</div><!-- .entry-meta -->
-
-	</header><!-- .entry-header -->
-
-
 
 	<div class="entry-content">
 
+		<div class="container">
+			<div class="row">
+				<div class="col-md-4">
+					<p style="font-weight: bold;"><i class="fa fa-calendar" aria-hidden="true"></i> Date and Time:</p>
+					<?php
+					echo $event_start_time . ' - ' . $event_end_time;
+					?>
+
+				</div>
+				<div class="col-md-4">
+					<p style="font-weight: bold;"><i class="fa fa-map-marker-alt" aria-hidden="true"></i> Location:</p>
+					<?php
+					echo $event_location;
+					?>
+				</div>
+			</div>
+		</div>
+
+		<div class="container pt-md-6 pt-sm-3">
+			<div class="row">
+				<div class="col-md-10">
+					<?php
+						$thumb_id = get_post_thumbnail_id();
+						$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
+						$thumb_url = $thumb_url_array[0];
+?>
+					<img class="img-fluid" src="<?php echo $thumb_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+				</div>
+			</div>
+		</div>
+
 		<?php
-		echo '<h3>' . $event_subhead . '</h3>';
+		echo '<h4>' . $event_subhead . '</h4>';
 		the_content();
 		echo $event_location;
 

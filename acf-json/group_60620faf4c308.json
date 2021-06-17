@@ -1,0 +1,81 @@
+{
+    "key": "group_60620faf4c308",
+    "title": "CS Press Releases",
+    "fields": [
+        {
+            "key": "field_6093280ff3030",
+            "label": "Card Title",
+            "name": "card_title",
+            "type": "text",
+            "instructions": "Shorter title used for cards",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": 100
+        },
+        {
+            "key": "field_60620fc508065",
+            "label": "Card Description",
+            "name": "card_description",
+            "type": "textarea",
+            "instructions": "A summary of this press release. Used in archive pages and on the home page",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": 200,
+            "rows": 4,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_60942511367f6",
+            "label": "Author",
+            "name": "author",
+            "type": "text",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "pressreleases"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "modified": 1623452846
+}
