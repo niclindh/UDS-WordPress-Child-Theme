@@ -11,62 +11,116 @@ defined('ABSPATH') || exit;
 ?>
 
 <?php
-// Fancy-pants AP Style
-// $event_date = get_field( "event_date" );
+if (!function_exists('apstyle_event_date')) {
+function apstyle_event_date($event_date) {
+	
+	$day = substr($event_date, 0, 2);
+	$month = substr($event_date, 3, 2);
+	$year = substr($event_date, 6, 4);
+	$hour = substr($event_date, 11, 8);
+	
+	// drop leading zero on the day
+	if (substr($day, 0, 1) == '0') {
+		$day = substr($day, 1,1);
+	}
+	
+	// use a.m. and p.m. like civilized humans
+	$hour = str_replace('pm', 'p.m.', $hour);
+	$hour = str_replace('am', 'a.m.', $hour);
 
-// $day = substr($event_date, 0, 2);
-// $month = substr($event_date, 3, 2);
-// $year = substr($event_date, 6, 4);
+	
+	// change 12 p.m. to noon
+	if ($hour == '12:00 p.m.') {
+		$hour = 'Noon';
+	}
+	
+	// change 12 a.m. to midnight
+	if ($hour == '12:00 a.m.') {
+		$hour = 'Midnight';
+	}
 
-// switch ($month) {
-// 	case '01':
-// 		$apmonth = 'Jan. ';
-// 		break;
-// 	case '02':
-// 		$apmonth = 'Feb. ';
-// 		break;
-// 	case '03':
-// 		$apmonth = 'March ';
-// 		break;
-// 	case '04':
-// 		$apmonth = 'April ';
-// 	break;
-// 	case '05':
-// 		$apmonth = 'May ';
-// 		break;
-// 	case '06':
-// 		$apmonth = 'June ';
-// 		break;
-// 	case '07':
-// 		$apmonth = 'July ';
-// 		break;
-// 	case '08':
-// 		$apmonth = 'Aug. ';
-// 		break;
-// 	case '09':
-// 		$apmonth = 'Sept. ';
-// 		break;
-// 	case '10':
-// 		$apmonth = 'Oct. ';
-// 		break;
-// 	case '11':
-// 		$apmonth = 'Nov. ';
-// 		break;
-// 	case '12':
-// 		$apmonth = 'Dec. ';
-// 		break;						
-// }
+	// strip :00 from hours
+	$hour = str_replace(':00', '', $hour);
 
-// // drop leading zero on the day
-// if (substr($day, 0, 1) == '0') {
-// 	$day = substr($day, 1,1);
-// }
+	switch ($month) {
+		case '01':
+			$month = 'Jan. ';
+			break;
+		case '02':
+			$month = 'Feb. ';
+			break;
+		case '03':
+			$month = 'March ';
+			break;
+		case '04':
+			$month = 'April ';
+		break;
+		case '05':
+			$month = 'May ';
+			break;
+		case '06':
+			$month = 'June ';
+			break;
+		case '07':
+			$month = 'July ';
+			break;
+		case '08':
+			$month = 'Aug. ';
+			break;
+		case '09':
+			$month = 'Sept. ';
+			break;
+		case '10':
+			$month = 'Oct. ';
+			break;
+		case '11':
+			$month = 'Nov. ';
+			break;
+		case '12':
+			$month = 'Dec. ';
+			break;						
+	}
+	
+	$currentyear = date("Y");
+	
+	// dont't print the year if same as current
+	if ($currentyear == $year) {
+		$year = '';
+	}
+	
+	// echo 'CURRENT: ' . $currentyear . ' ';
+	
+	// echo 'HOUR: ' . $hour . ' DAY: ' . $day . ' MONTH: ' . $month . ' YEAR: ' . $year;
+	
+	// only print year if different than current year
+	if ($year) {
+	$event_formatted = $month . ' ' . $day . ', ' . $year;
+	}
+	
+	else {
+		$event_formatted = $month . ' ' . $day;
+	}
+	
+	return $the_event = array(
+		'date' => $event_formatted,
+		'time' => $hour
+	);
+
+	//  $the_event;
+
+// return $event_formatted;
+
+}
+}
+
+?>
+
+
+<?php
 
 $thumb_id = get_post_thumbnail_id();
 $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
 $thumb_url = $thumb_url_array[0];
-
-// print_r($thumb_url_array);
 
 // TODO code to check for featured image and if it doesn't exist find the category and insert the generic image for that category
 
@@ -81,6 +135,35 @@ $event_subhead = get_field("event_subhead");
 $event_location = get_field("event_location");
 
 
+// get AP Style array
+// 'date' and 'time'
+$event_start_date = apstyle_event_date(get_field( "event_start_time" ));
+$event_end_date = apstyle_event_date(get_field( "event_end_time" ));
+
+// echo 'EVENTDATE: ' . $event_start_date['date']; //print_r($event_date);
+// echo 'EVENT END DATE: ' . $event_end_date['date']; //print_r($event_date);
+
+
+// if end time is not shown
+if (!$show_end_date) {
+	$show_time = $event_start_date['date'] . ' – ' . $event_start_date['time'];
+}
+
+// if end time is shown
+if ($show_end_date) {
+	$show_time = 'COMING';
+	// if start and end are on the same date AND the same meridian
+
+
+	// if start and end are on the same date but different meridians
+
+
+	// if start and end are on different dates
+
+}
+
+// echo 'START LENGTH: ' . strlen($event_start_time);
+// echo 'END LENGTH: ' . strlen($event_end_time);
 
 // echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' . $event_end_time;
 
@@ -122,10 +205,7 @@ $event_location = get_field("event_location");
 
 								<?php
 								// TODO AP Style dates
-								echo $event_start_time;
-								if ($show_end_date) {
-									echo ' – ' . $event_end_time;
-								}
+								echo $show_time;
 								?>
 							</div>
 						</div>
