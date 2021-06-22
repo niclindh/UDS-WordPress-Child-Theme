@@ -13,6 +13,10 @@ defined('ABSPATH') || exit;
 <?php
 if (!function_exists('apstyle_event_date')) {
 function apstyle_event_date($event_date) {
+
+	// echo 'DATE: ' . $event_date . '<br />';
+
+	$day_of_week = DateTime::createFromFormat('d/m/Y g:i a', $event_date)->format('l');
 	
 	$day = substr($event_date, 0, 2);
 	$month = substr($event_date, 3, 2);
@@ -27,12 +31,6 @@ function apstyle_event_date($event_date) {
 	// use a.m. and p.m. like civilized humans
 	$hour = str_replace('pm', 'p.m.', $hour);
 	$hour = str_replace('am', 'a.m.', $hour);
-
-	
-	// change 12 p.m. to noon
-	if ($hour == '12:00 p.m.') {
-		$hour = 'Noon';
-	}
 	
 	// change 12 a.m. to midnight
 	if ($hour == '12:00 a.m.') {
@@ -88,10 +86,6 @@ function apstyle_event_date($event_date) {
 		$year = '';
 	}
 	
-	// echo 'CURRENT: ' . $currentyear . ' ';
-	
-	// echo 'HOUR: ' . $hour . ' DAY: ' . $day . ' MONTH: ' . $month . ' YEAR: ' . $year;
-	
 	// only print year if different than current year
 	if ($year) {
 	$event_formatted = $month . ' ' . $day . ', ' . $year;
@@ -103,14 +97,11 @@ function apstyle_event_date($event_date) {
 	
 	return $the_event = array(
 		'date' => $event_formatted,
-		'time' => $hour
+		'time' => $hour,
+		'weekday' => $day_of_week
 	);
 
-	//  $the_event;
-
-// return $event_formatted;
-
-}
+	}
 }
 
 ?>
@@ -136,38 +127,61 @@ $event_location = get_field("event_location");
 
 
 // get AP Style array
-// 'date' and 'time'
+// 'date', 'time', 'weekday'
 $event_start_date = apstyle_event_date(get_field( "event_start_time" ));
-$event_end_date = apstyle_event_date(get_field( "event_end_time" ));
+if (get_field( "event_end_time" )) {
+	$event_end_date = apstyle_event_date(get_field( "event_end_time" ));
+}
 
-// echo 'EVENTDATE: ' . $event_start_date['date']; //print_r($event_date);
-// echo 'EVENT END DATE: ' . $event_end_date['date']; //print_r($event_date);
+// Get the times and offsets
+$start_pm = strpos($event_start_date['time'], 'p.m.'); 
+$end_pm = strpos($event_end_date['time'], 'p.m.');
+$start_am = strpos($event_start_date['time'], 'a.m.'); 
+$end_am = strpos($event_end_date['time'], 'a.m.');
 
+// echo 'START: ' . $event_start_date['date'];
+// echo '<br />END: ' . $event_end_date['date'];
+
+// TODO figure out how to handle midnight
 
 // if end time is not shown
 if (!$show_end_date) {
-	$show_time = $event_start_date['date'] . ' – ' . $event_start_date['time'];
+	$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ' at ' . $event_start_date['time'];
 }
 
 // if end time is shown
 if ($show_end_date) {
-	$show_time = 'COMING';
-	// if start and end are on the same date AND the same meridian
 
+	if ($event_start_date['date'] != $event_end_date['date']) {
+		$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ' at ' . $event_start_date['time'] . ' to ' . $event_end_date['weekday'] . ', ' . $event_end_date['date'] . ' at ' . $event_end_date['time'];
+	}
 
-	// if start and end are on the same date but different meridians
+	// p.m. event
+	elseif ($start_pm !== false && $end_pm !== false) { 
+		if ($event_start_date['time'] == '12 p.m.') {
+			$start_it = 'Noon';
+		}
+		else {
+			$start_it = substr($event_start_date['time'], 0, ($start_pm - 1));
+		}
+		$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ', ' . $start_it . ' - ' . $event_end_date['time'];
+		// echo 'TIME: ' . $event_time;
+	}
 
+	// a.m. event
+	elseif ($start_am !== false && $end_am !== false) { 
+		$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ', ' . substr($event_start_date['time'], 0, ($start_am - 1)) . ' - ' . $event_end_date['time'];
+		// echo 'TIME: ' . $event_time;
+	}
 
-	// if start and end are on different dates
+	elseif ($start_am !==false && $end_pm !== false) {
+		$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ', ' . $event_start_date['time'] . ' - ' . $event_end_date['time'];
+		// echo 'xTIME: ' . $event_time;
+	}
+
 
 }
 
-// echo 'START LENGTH: ' . strlen($event_start_time);
-// echo 'END LENGTH: ' . strlen($event_end_time);
-
-// echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . $event_start_time . ' - ' . $event_end_time;
-
-//echo 'DATE: ' . date('d-m-Y');
 
 ?>
 
@@ -205,7 +219,7 @@ if ($show_end_date) {
 
 								<?php
 								// TODO AP Style dates
-								echo $show_time;
+								echo $event_time;
 								?>
 							</div>
 						</div>
