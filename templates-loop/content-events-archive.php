@@ -13,12 +13,15 @@ defined('ABSPATH') || exit;
 <?php
 
 $thumb_id = get_post_thumbnail_id();
-$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', true);
+$thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', false);
 $thumb_url = $thumb_url_array[0];
 
-// TODO code to check for featured image and if it doesn't exist find the category and insert the generic image for that category
+// somebody forgot to add a thumbnail and should feel bad about themselves
+if ($thumb_url == '') {
+	$thumb_url = get_stylesheet_directory_uri() . '/img/generic-event-image.jpg';
+}
 
-// echo 'IMAGE: ' . $thumb_url;
+// TODO code to check for featured image and if it doesn't exist find the category and insert the generic image for that category
 
 $event_start_time = get_field("event_start_time");
 $show_end_date = get_field("show_end_date");
@@ -28,70 +31,7 @@ $event_title = get_field("card_title");
 $event_subhead = get_field("event_subhead");
 $event_location = get_field("event_location");
 
-
-// get AP Style array
-// 'date', 'time', 'weekday'
-// $event_start_date = apstyle_event_date(get_field("event_start_time"));
-// if (get_field("event_end_time")) {
-// 	$event_end_date = apstyle_event_date(get_field("event_end_time"));
-// }
 $event_time = apstyle_event_date(get_field("event_start_time"), get_field("event_end_time"), $show_end_date);
-
-// // Get the times and offsets
-// $start_pm = strpos($event_start_date['time'], 'p.m.');
-// $end_pm = strpos($event_end_date['time'], 'p.m.');
-// $start_am = strpos($event_start_date['time'], 'a.m.');
-// $end_am = strpos($event_end_date['time'], 'a.m.');
-
-// // echo 'START: ' . $event_start_date['date'];
-// // echo '<br />END: ' . $event_end_date['date'];
-
-// // TODO figure out how to handle midnight
-
-// // if end time is not shown
-// if (!$show_end_date) {
-// 	$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ' at ' . $event_start_date['time'];
-// }
-
-// // if end time is shown
-// if ($show_end_date) {
-
-// 	// event runs over seveeral days
-// 	if ($event_start_date['date'] != $event_end_date['date']) {
-// 		if ($event_start_date['time'] == '12 a.m.') {
-// 			$event_start_date['time'] = "Midnight";
-// 		}
-// 		$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ' at ' . $event_start_date['time'] . ' to ' . $event_end_date['weekday'] . ', ' . $event_end_date['date'] . ' at ' . $event_end_date['time'];
-// 	}
-
-// 	// p.m. event
-// 	elseif ($start_pm !== false && $end_pm !== false) {
-// 		if ($event_start_date['time'] == '12 p.m.') {
-// 			// echo 'NOON: ' . $event_start_date['time'];
-// 			$start_it = 'Noon';
-// 		} else {
-// 			$start_it = substr($event_start_date['time'], 0, ($start_pm - 1));
-// 		}
-// 		$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ', ' . $start_it . ' - ' . $event_end_date['time'];
-// 		// echo 'TIME: ' . $event_time;
-// 	}
-
-// 	// a.m. event
-// 	elseif ($start_am !== false && $end_am !== false) {
-// 		if ($event_start_date['time'] == '12 a.m.') {
-// 			$event_start_date['time'] = "Midnight";
-// 		}
-// 		$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ', ' . substr($event_start_date['time'], 0, ($start_am - 1)) . ' - ' . $event_end_date['time'];
-// 		// echo 'TIME: ' . $event_time;
-// 	} elseif ($start_am !== false && $end_pm !== false) {
-// 		if ($event_start_date['time'] == '12 a.m.') {
-// 			$event_start_date['time'] = "Midnight";
-// 		}
-// 		$event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ', ' . $event_start_date['time'] . ' - ' . $event_end_date['time'];
-// 		// echo 'xTIME: ' . $event_time;
-// 	}
-// }
-
 
 ?>
 

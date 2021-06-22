@@ -24,10 +24,6 @@ get_header();
 
         the_post();
 
-        // Remove support for the global hero template part. Intended for pages, primarily.
-        // get_template_part( 'templates-global/hero' ); .
-
-        //get_template_part('templates-global/global-banner');
 
         echo '<div class="container">';
         echo '<div class="row">';
