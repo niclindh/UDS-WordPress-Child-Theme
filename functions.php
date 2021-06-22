@@ -17,6 +17,7 @@ require get_stylesheet_directory() . '/inc/custom-post-types.php';
 require get_stylesheet_directory() . '/inc/taxonomies.php';
 require get_stylesheet_directory() . '/inc/custom-sort.php';
 require get_stylesheet_directory() . '/inc/acf-register.php';
+require get_stylesheet_directory() . '/inc/ap-style-events.php';
 
 /**
  * Enqueue child scripts and styles.
