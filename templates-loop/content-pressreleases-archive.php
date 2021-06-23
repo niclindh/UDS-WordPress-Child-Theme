@@ -23,53 +23,6 @@ defined('ABSPATH') || exit;
 			// Fancy-pants AP Style
 			$release_date = get_the_date();
 
-			// $day = substr($event_date, 0, 2);
-			// $month = substr($event_date, 3, 2);
-			// $year = substr($event_date, 6, 4);
-
-			// switch ($month) {
-			// 	case '01':
-			// 		$apmonth = 'Jan. ';
-			// 		break;
-			// 	case '02':
-			// 		$apmonth = 'Feb. ';
-			// 		break;
-			// 	case '03':
-			// 		$apmonth = 'March ';
-			// 		break;
-			// 	case '04':
-			// 		$apmonth = 'April ';
-			// 	break;
-			// 	case '05':
-			// 		$apmonth = 'May ';
-			// 		break;
-			// 	case '06':
-			// 		$apmonth = 'June ';
-			// 		break;
-			// 	case '07':
-			// 		$apmonth = 'July ';
-			// 		break;
-			// 	case '08':
-			// 		$apmonth = 'Aug. ';
-			// 		break;
-			// 	case '09':
-			// 		$apmonth = 'Sept. ';
-			// 		break;
-			// 	case '10':
-			// 		$apmonth = 'Oct. ';
-			// 		break;
-			// 	case '11':
-			// 		$apmonth = 'Nov. ';
-			// 		break;
-			// 	case '12':
-			// 		$apmonth = 'Dec. ';
-			// 		break;						
-			// }
-
-			// // drop leading zero on the day
-			// if (substr($day, 0, 1) == '0') {
-			// 	$day = substr($day, 1,1);
-			// }
 
 			echo '<i class="fa fa-calendar" aria-hidden="true"></i> ';
 			echo $release_date;
