@@ -22,7 +22,7 @@ get_template_part('templates-global/global-banner');
 <main id="skip-to-content" <?php post_class('container'); ?>>
 
     <div class="container py-6">
-        <?php the_archive_title('<h2 class="page-title mb-6">', ' events</h2>');
+        <?php the_archive_title('<h1 class="page-title mb-6">', ' events</h2>');
         ?>
 
         <div class="row">
@@ -52,7 +52,7 @@ get_template_part('templates-global/global-banner');
                         get_template_part('templates-loop/content', 'events-archive');
                     }
                 } else {
-                    get_template_part('templates-loop/content', 'none');
+                    get_template_part('templates-loop/content', 'events-none');
                 }
 
                 wp_reset_postdata();

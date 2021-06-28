@@ -1,5 +1,74 @@
 <?php
 
+// AP Style dates for posts
+// v 0.1 Nic Lindh June 28, 2021
+//
+// Uses the post date and expects to be called with 
+// apstyle_post_date(get_the_date('l'), get_the_date('j'), get_the_date('m'), get_the_date('Y'));
+//
+// Easier to get the pieces in the call than to explode a time object
+
+if (!function_exists('apstyle_post_date')) {
+    function apstyle_post_date($post_day, $post_daynum, $post_month, $post_year)
+    {
+
+        // drop leading zero on the day
+        if (substr($post_daynum, 0, 1) == '0') {
+            $post_daynum = substr($day, 1, 1);
+        }
+
+        // format months according to arcance rules
+        switch ($post_month) {
+            case '01':
+                $post_month = 'Jan. ';
+                break;
+            case '02':
+                $post_month = 'Feb. ';
+                break;
+            case '03':
+                $post_month = 'March ';
+                break;
+            case '04':
+                $post_month = 'April ';
+                break;
+            case '05':
+                $post_month = 'May ';
+                break;
+            case '06':
+                $post_month = 'June ';
+                break;
+            case '07':
+                $post_month = 'July ';
+                break;
+            case '08':
+                $post_month = 'Aug. ';
+                break;
+            case '09':
+                $post_month = 'Sept. ';
+                break;
+            case '10':
+                $post_month = 'Oct. ';
+                break;
+            case '11':
+                $post_month = 'Nov. ';
+                break;
+            case '12':
+                $post_month = 'Dec. ';
+                break;
+        }
+
+        $currentyear = date("Y");
+
+        // dont't print the year if same as current
+        if ($currentyear == $post_year) {
+            $apstyle = $post_day . ', ' . $post_month . ' ' . $post_daynum;
+        } else {
+            $apstyle = $post_day . ', ' . $post_month . ' ' . $post_daynum . ', ' . $post_year;
+        }
+
+        return $apstyle;
+    }
+}
 // Formats events dates and times according to AP Style
 // 
 // v 0.9 Nic Lindh June 22, 2022

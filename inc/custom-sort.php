@@ -15,11 +15,10 @@ function events_pre_get_posts($query)
 	// checking for name == '' avoids filtering individual events
 	// which made past events throw 404s as they were filtered out
 	// before they could be displayed
-
+	//
 	// this has been a journey
 
-	// echo 'KIND: ' . $query->query_vars['the_kind'];
-
+	// future events filtered by category
 	if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'events' && $query->query_vars['ispast'] <> 'past' && $query->query_vars['name'] == '' && $query->query_vars['the_kind'] != '') {
 		// echo 'helo';
 		$query->set('orderby', 'meta_value');
@@ -37,6 +36,7 @@ function events_pre_get_posts($query)
 		));
 	}
 
+	// all fugure events
 	if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'events' && $query->query_vars['ispast'] <> 'past' && $query->query_vars['name'] == '' && $query->query_vars['the_kind'] == '') {
 		// echo 'helo';
 		$query->set('orderby', 'meta_value');
@@ -53,6 +53,7 @@ function events_pre_get_posts($query)
 		));
 	}
 
+	// past events
 	if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'events' && $query->query_vars['ispast'] == 'past' && $query->query_vars['name'] == '' && $query->query_vars['the_kind'] == '') {
 		$query->set('orderby', 'meta_value');
 		$query->set('meta_key', 'event_start_time');

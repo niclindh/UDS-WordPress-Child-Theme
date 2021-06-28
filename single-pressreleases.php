@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single event videos.
+ * The template for displaying all single posts.
  *
  * This template includes an intrinsic Bootstrap container to make the process of
  * content creation easier for the post author. To escape from the original container
@@ -10,7 +10,7 @@
  */
 
 // Exit if accessed directly.
-defined('ABSPATH') || exit;
+defined( 'ABSPATH' ) || exit;
 
 get_header();
 ?>
@@ -19,29 +19,78 @@ get_header();
 
 	<?php
 
-while (have_posts()) {
+	while ( have_posts() ) {
 
-    the_post();
+		the_post();
 
-    // Remove support for the global hero template part. Intended for pages, primarily.
-    // get_template_part( 'templates-global/hero' ); .
+		get_template_part( 'templates-global/global-banner' );
+		get_template_part( 'templates-global/story-hero' );
 
-    //get_template_part('templates-global/global-banner');
+		?>
 
-    echo '<div class="container">';
-    echo '<div class="row">';
-    echo '<div class="col">';
+		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-    get_template_part('templates-loop/content', 'pressreleases');
+			<?php
+			// TODO: Identify how we will add and control the social media "intent to repost" icons. Sample markup follows.
 
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
+			// <header class="entry-header">
+			// <div class="row" id="social-media">
+			// <nav class="nav flaot-left" aria-label="Social Media">
+			// <a class="nav-link text-maroon" href="#"><span title="Facebook" class="fab fa-facebook-square"></span></a>
+			// <a class="nav-link text-maroon" href="#"><span title="Twitter" class="fab fa-twitter-square"></span></a>
+			// <a class="nav-link text-maroon" href="#"><span title="LinkedIn" class="fab fa-linkedin"></span></a>
+			// </ul>
+			// </div>
 
-}
-?>
+			the_content();
 
-</main><!-- #main -->
+			$author_name = get_field( 'name' );
+			$author_title = get_field( 'title' );
+			$author_email = get_field( 'email' );
+			$author_phone = get_field( 'phone' );
+			if ( $author_name || $author_title || $author_email || $author_phone ) {
+				echo '<div class="author_info">';
+				if ( $author_name ) {
+					echo '<h4><span class="highlight-gold">' . $author_name . '</span></h4>';
+				}
+				if ( $author_title ) {
+					echo '<p>' . $author_title . '</p>';
+				}
+				if ( $author_email || $author_phone ) {
+					echo '<p>';
+					if ( $author_email ) {
+						echo '<span class="fas fa-envelope-square"></span><a href="mailto:' . $author_email . '">' . $author_email . '</a>';
+					}
+					echo '</br>';
+					if ( $author_phone ) {
+						echo '<span class="fas fa-phone-square"></span><a href="tel:' . $author_phone . '">' . $author_phone . '</a>';
+					}
+					echo '</p>';
+				}
+				echo '</div>';
+			}
 
-<?php
-get_footer();
+
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress-theme' ),
+					'after'  => '</div>',
+				)
+			);
+
+			?>
+
+			<footer class="entry-footer">
+
+				<?php uds_wp_entry_footer(); ?>
+
+			</footer><!-- .entry-footer -->
+
+		</article><!-- #post-## -->
+
+		<?php
+	}
+
+	echo '</main><!-- #main -->';
+
+	get_footer();

@@ -36,10 +36,9 @@ defined('ABSPATH') || exit;
 
 
 		<?php
-
-		echo '<i class="fa fa-calendar" aria-hidden="true"></i> ' . get_the_date();
-
-
+		// Fancy-pants AP Style
+		$release_date = apstyle_post_date(get_the_date('l'), get_the_date('j'), get_the_date('m'), get_the_date('Y'));
+		echo $release_date;
 		?>
 
 		<div class="entry-meta">

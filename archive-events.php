@@ -60,7 +60,7 @@ get_template_part('templates-global/global-banner');
 					get_template_part('templates-loop/content', 'events-archive');
 				}
 			} else {
-				get_template_part('templates-loop/content', 'none');
+				get_template_part('templates-loop/content', 'events-none');
 			}
 
 			wp_reset_postdata();
@@ -72,6 +72,7 @@ get_template_part('templates-global/global-banner');
 
 			<!-- <h3>Kinds of events</h3> -->
 			<nav id="sidebar-left" class="sidebar accordion" aria-label="Secondary">
+				xx
 				<?php
 
 				$taxonomy = 'kinds';
