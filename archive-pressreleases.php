@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The template for displaying archive pages
+ * Template Name: Pressreleases
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
@@ -12,6 +12,12 @@
 defined('ABSPATH') || exit;
 
 get_header();
+
+get_template_part('templates-global/hero');
+
+get_template_part('templates-global/global-banner');
+
+
 ?>
 
 <main id="skip-to-content" <?php post_class('container'); ?>>

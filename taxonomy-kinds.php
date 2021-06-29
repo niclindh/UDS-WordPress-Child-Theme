@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Upcoming Events
+ * Template Name: Events Categories
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *

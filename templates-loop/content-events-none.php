@@ -27,7 +27,7 @@ defined('ABSPATH') || exit;
 
         printf(
             '<p>%s<p>',
-            esc_html__('Sorry, there are no events of that kind planned at this point.', 'uds-wordpress-theme')
+            esc_html__('Sorry, there are no events of this kind planned right now.', 'uds-wordpress-theme')
         );
         // get_search_form();
 

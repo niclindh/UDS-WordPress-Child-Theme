@@ -72,7 +72,6 @@ get_template_part('templates-global/global-banner');
 
 			<!-- <h3>Kinds of events</h3> -->
 			<nav id="sidebar-left" class="sidebar accordion" aria-label="Secondary">
-				xx
 				<?php
 
 				$taxonomy = 'kinds';

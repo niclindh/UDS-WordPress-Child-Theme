@@ -21,8 +21,8 @@ defined('ABSPATH') || exit;
 
 			<?php
 			// Fancy-pants AP Style
-			$release_date = apstyle_post_date(get_the_date('l'), get_the_date('j'), get_the_date('m'), get_the_date('Y'));
-			echo $release_date;
+			echo apstyle_post_date(get_the_date('l'), get_the_date('j'), get_the_date('m'), get_the_date('Y'));
+
 			?>
 		</div><!-- .entry-meta -->
 

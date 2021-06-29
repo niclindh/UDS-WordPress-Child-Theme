@@ -28,7 +28,7 @@ get_header();
         echo '<div class="container">';
         echo '<div class="row">';
         echo '<div class="col">';
-   
+
         get_template_part('templates-loop/content', 'events');
 
         echo '</div>';

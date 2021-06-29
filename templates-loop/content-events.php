@@ -26,8 +26,6 @@ defined('ABSPATH') || exit;
 		</div>
 	</div>
 
-
-
 	<?php
 
 	$event_start_time = get_field("event_start_time");

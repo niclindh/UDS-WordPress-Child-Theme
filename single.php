@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying all single posts.
  *
@@ -10,7 +11,7 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 get_header();
 ?>
@@ -19,14 +20,14 @@ get_header();
 
 	<?php
 
-	while ( have_posts() ) {
+	while (have_posts()) {
 
 		the_post();
 
-		get_template_part( 'templates-global/global-banner' );
-		get_template_part( 'templates-global/story-hero' );
+		get_template_part('templates-global/global-banner');
+		get_template_part('templates-global/story-hero');
 
-		?>
+	?>
 
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
@@ -44,25 +45,27 @@ get_header();
 
 			the_content();
 
-			$author_name = get_field( 'name' );
-			$author_title = get_field( 'title' );
-			$author_email = get_field( 'email' );
-			$author_phone = get_field( 'phone' );
-			if ( $author_name || $author_title || $author_email || $author_phone ) {
+
+			$author_name = get_field('uds_news_author_name');
+			$author_title = get_field('uds_news_author_title');
+			$author_email = get_field('uds_news_author_email');
+			$author_phone = get_field('uds_news_author_phone');
+
+			if ($author_name || $author_title || $author_email || $author_phone) {
 				echo '<div class="author_info">';
-				if ( $author_name ) {
+				if ($author_name) {
 					echo '<h4><span class="highlight-gold">' . $author_name . '</span></h4>';
 				}
-				if ( $author_title ) {
+				if ($author_title) {
 					echo '<p>' . $author_title . '</p>';
 				}
-				if ( $author_email || $author_phone ) {
+				if ($author_email || $author_phone) {
 					echo '<p>';
-					if ( $author_email ) {
+					if ($author_email) {
 						echo '<span class="fas fa-envelope-square"></span><a href="mailto:' . $author_email . '">' . $author_email . '</a>';
 					}
 					echo '</br>';
-					if ( $author_phone ) {
+					if ($author_phone) {
 						echo '<span class="fas fa-phone-square"></span><a href="tel:' . $author_phone . '">' . $author_phone . '</a>';
 					}
 					echo '</p>';
@@ -73,7 +76,7 @@ get_header();
 
 			wp_link_pages(
 				array(
-					'before' => '<div class="page-links">' . __( 'Pages:', 'uds-wordpress-theme' ),
+					'before' => '<div class="page-links">' . __('Pages:', 'uds-wordpress-theme'),
 					'after'  => '</div>',
 				)
 			);
@@ -88,7 +91,7 @@ get_header();
 
 		</article><!-- #post-## -->
 
-		<?php
+	<?php
 	}
 
 	echo '</main><!-- #main -->';

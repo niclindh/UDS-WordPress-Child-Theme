@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Displays the story hero image or background color on the top of a post.
  * Should always return some kind of formatting based on the default settings within ACF.
@@ -7,54 +8,53 @@
  */
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit;
 
 /**
  * Determine if the user has chosen a background color or an image.
  */
-$bgchoice = get_field( 'uds_story_hero_background_choice' );
-$hero_size = get_field( 'uds_story_hero_background_image_size' );
+$bgchoice = get_field('uds_story_hero_background_choice');
+$hero_size = get_field('uds_story_hero_background_image_size');
 
 // Build initial section tag with correct hero size.
 $section_open = '<section class="uds-story-hero entry-header';
 $section_close = '">';
 
-if ( 'large' === $hero_size ) {
+if ('large' === $hero_size) {
 	$section_open .= ' uds-story-hero-lg';
 }
 
-if ( 'image' === $bgchoice ) {
+if ('image' === $bgchoice) {
 
 	echo $section_open . $section_close;
 
-	$bgimage = get_field( 'uds_story_hero_background_image' );
-	if ( ! empty( $bgimage ) ) {
-		echo '<img class="hero" src="' . esc_url( $bgimage['url'] ) . '" alt="' . esc_attr( $bgimage['alt'] ) . '" />';
+	$bgimage = get_field('uds_story_hero_background_image');
+	if (!empty($bgimage)) {
+		echo '<img class="hero" src="' . esc_url($bgimage['url']) . '" alt="' . esc_attr($bgimage['alt']) . '" />';
 	}
 } else {
 
 	// 'color' === $bgchoice
-	$bgcolor = get_field( 'uds_story_hero_background_color' );
+	$bgcolor = get_field('uds_story_hero_background_color');
 
-	if ( ! empty( $bgcolor ) ) {
+	if (!empty($bgcolor)) {
 
 		echo $section_open . ' no-image ' . $bgcolor . $section_close;
-
 	} else {
 
 		// This should never really be possible given a default ACF control value.
 		echo $section_open . $section_close;
-
 	}
 }
 
 // Return the rest of the section.
 ?>
 
-	<div class="content">
-		<p class="meta entry-meta"><?php echo uds_wp_posted_on(); ?></p>
-		<?php
-		/*
+<div class="content">
+	YOAST
+	<!-- <p class="meta entry-meta"><?php echo uds_wp_posted_on(); ?></p> -->
+	<?php
+	/*
 		If ( function_exists( 'yoast_breadcrumb' ) ) {
 			echo '<div class="bg-white"><nav aria-label="breadcrumbs">';
 			$breadcrumb_output = yoast_breadcrumb( '<ol class="breadcrumb">', '</ol>', false );
@@ -64,8 +64,15 @@ if ( 'image' === $bgchoice ) {
 		}
 		*/
 
-		?>
-		<?php the_title( '<h1 class="article entry-title">', '</h1>' ); ?>
+	?>
+	<?php the_title('<h1 class="article entry-title">', '</h1>'); ?>
 
-	</div>
+	<h4>SOCIAL SHARE BUTTONS URGH</h4>
+	<p><i>
+			<?php
+			echo apstyle_post_date(get_the_date('l'), get_the_date('j'), get_the_date('m'), get_the_date('Y'));
+			?>
+		</i></p>
+
+</div>
 </section>
