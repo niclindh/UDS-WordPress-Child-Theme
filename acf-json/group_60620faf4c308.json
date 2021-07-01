@@ -7,7 +7,7 @@
             "label": "Card Title",
             "name": "card_title",
             "type": "text",
-            "instructions": "Shorter title used for cards",
+            "instructions": "Shorter title used for cards. 100 character maximum.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -26,8 +26,8 @@
             "label": "Card Description",
             "name": "card_description",
             "type": "textarea",
-            "instructions": "A summary of this press release. Used in archive pages and on the home page",
-            "required": 0,
+            "instructions": "Description used for cards. 200 character maximum.",
+            "required": 1,
             "conditional_logic": 0,
             "wrapper": {
                 "width": "",
@@ -37,7 +37,7 @@
             "default_value": "",
             "placeholder": "",
             "maxlength": 200,
-            "rows": 4,
+            "rows": 2,
             "new_lines": "wpautop"
         }
     ],
@@ -58,5 +58,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "",
-    "modified": 1624657968
+    "modified": 1625078996
 }

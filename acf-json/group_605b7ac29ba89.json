@@ -7,7 +7,7 @@
             "label": "Card title",
             "name": "card_title",
             "type": "text",
-            "instructions": "Title shown in card views of the events",
+            "instructions": "Title shown in card views of the events. 100 character maximum.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -25,8 +25,8 @@
             "key": "field_60b922b126b6f",
             "label": "Card Description",
             "name": "card_description",
-            "type": "text",
-            "instructions": "Description shown in card views of the event",
+            "type": "textarea",
+            "instructions": "Description shown in card views of the event. 200 character maximum.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -36,9 +36,9 @@
             },
             "default_value": "",
             "placeholder": "",
-            "prepend": "",
-            "append": "",
-            "maxlength": 200
+            "maxlength": 200,
+            "rows": 2,
+            "new_lines": "wpautop"
         },
         {
             "key": "field_605b7c9744583",
@@ -157,5 +157,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for event posts",
-    "modified": 1623965609
+    "modified": 1625078952
 }

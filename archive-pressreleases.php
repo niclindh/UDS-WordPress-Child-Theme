@@ -14,7 +14,6 @@ defined('ABSPATH') || exit;
 get_header();
 
 get_template_part('templates-global/hero');
-
 get_template_part('templates-global/global-banner');
 
 
@@ -22,43 +21,53 @@ get_template_part('templates-global/global-banner');
 
 <main id="skip-to-content" <?php post_class('container'); ?>>
 
-	<div class="row">
-		<div class="col">
+<?php
+	if (function_exists('yoast_breadcrumb')) {
+	?>
 
+		<nav aria-label="breadcrumbs">
 			<?php
-			if (have_posts()) {
-
+			yoast_breadcrumb('<ol class="breadcrumb bg-white">', '</ol>');
 			?>
-				<header class="page-header">
+		</nav>
 
-					<h1 class="article">News from the Cronkite School</h1>
 
-					<p>A paragraph about this page and our press releases.</p>
+	<?php
+	}
+	?>
 
-				</header><!-- .page-header -->
+
+	<div class="row">
+		
 
 			<?php
-				// Start the loop.
-				while (have_posts()) {
-					the_post();
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-					/*
-					* Include the Post-Format-specific template for the content.
-					* If you want to override this in a child theme, then include a file
-					* called content-___.php (where ___ is the Post Format name) and that will be used instead.
-					*/
+			// the rest of the args are in /inc/custom-sort.php
+			$args = array(
+				'post_type' => 'pressreleases',
+				'paged' => $paged,
+				'order' => 'DESC'
+			);
 
-					// TODO: change to cards
+			$wp_query = new WP_Query($args);
+
+			if ($wp_query->have_posts()) {
+
+				while ($wp_query->have_posts()) {
+					$wp_query->the_post();
+
 					get_template_part('templates-loop/content', 'pressreleases-archive');
-
-					//echo 'HHHH ' . get_post_format();
 				}
 			} else {
 				get_template_part('templates-loop/content', 'none');
 			}
+
+			wp_reset_postdata();
+
 			?>
 
-		</div>
+		
 	</div>
 
 	<div class="row">
