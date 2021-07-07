@@ -96,7 +96,9 @@ defined('ABSPATH') || exit;
 					?>
 					<hr />
 					<h4>Share this event:</h4>
-					SHARE ICONS
+					<?php
+					include get_stylesheet_directory() . '/inc/social-share.php';
+					?>
 				</div>
 			</div>
 

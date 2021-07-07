@@ -51,28 +51,25 @@ if ('image' === $bgchoice) {
 ?>
 
 <div class="content">
-	YOAST
-	<!-- <p class="meta entry-meta"><?php echo uds_wp_posted_on(); ?></p> -->
-	<?php
-	/*
-		If ( function_exists( 'yoast_breadcrumb' ) ) {
-			echo '<div class="bg-white"><nav aria-label="breadcrumbs">';
-			$breadcrumb_output = yoast_breadcrumb( '<ol class="breadcrumb">', '</ol>', false );
-			echo preg_replace( '#</?span[^>]*>#is', '', $breadcrumb_output );
-			echo '</div></nav>';
-			*
-		}
-		*/
 
+	<?php
+	include get_stylesheet_directory() . '/inc/breadcrumbs.php';
 	?>
+
+
 	<?php the_title('<h1 class="article entry-title">', '</h1>'); ?>
 
-	<h4>SOCIAL SHARE BUTTONS URGH</h4>
 	<p><i>
+
+
 			<?php
 			echo apstyle_post_date(get_the_date('l'), get_the_date('j'), get_the_date('m'), get_the_date('Y'));
 			?>
 		</i></p>
+
+	<?php
+	include get_stylesheet_directory() . '/inc/social-share.php';
+	?>
 
 </div>
 </section>

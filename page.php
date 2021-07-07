@@ -26,19 +26,12 @@ get_header();
 
         get_template_part('templates-global/global-banner');
 
-        if (function_exists('yoast_breadcrumb')) {
-    ?>
-            <div class="container">
-                <nav aria-label="breadcrumbs">
-                    <?php
-                    yoast_breadcrumb('<ol class="breadcrumb bg-white">', '</ol>');
-                    ?>
-                </nav>
-            </div>
-    <?php
+        include get_stylesheet_directory() . '/inc/breadcrumbs.php';
 
-        }
-    
+
+        echo '<div class="container pb-md-6 pb-sm-3">';
+        echo apstyle_post_date(get_the_modified_date('l'), get_the_modified_date('j'), get_the_modified_date('m'), get_the_modified_date('Y'));
+        echo '</div>';
 
         the_content();
 

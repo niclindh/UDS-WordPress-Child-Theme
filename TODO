@@ -2,24 +2,24 @@
 ☐ AFTER LAUNCH: submit new sitemap to google search console
 ☐ LAUNCH: redirect /events to /cronkite-events
 ☐ create breadcrumbs (figure out if yoast or something else since the yoast ones are so broken)
-☐ press releases alternate heds for homepage
+✔ press releases alternate heds for homepage @done(21-07-07 08:47)
 ☐ make press release slugged with category link to program page on story page
 ☐ press release category sidebar menu
 ☐ events category sidebar menu
 ☐ make body content go md-6 (hentry p?)
 ☐ link to all press release categories
 ☐ add smart quotes to all titles
-☐ add ap style to event dates
+✔ add ap style to event dates @done(21-07-07 08:46)
 ✔ add footer menu @done(21-05-28 15:59)
 ☐ faculty pages need pronouncers (audio file) and pronouns
-☐ sort events by category
-☐ display category for each event
-☐ events alternate sub-heads for cards
-☐ events alternate titles for cards
+✔ sort events by category @done(21-07-07 08:46)
+✔ display category for each event @done(21-07-07 08:47)
+✔ events alternate sub-heads for cards @done(21-07-07 08:47)
+✔ events alternate titles for cards @done(21-07-07 08:47)
 ☐ add yoast breadcrumbs to templates
 ☐ create pages for all organization breadcrumbs, like student-life, professional-programs
 ☐ resize images (1920 by 1080) and (1280 by 720)
-☐ resize images to smaller size like 800 by whatever?
+✔ resize images to smaller size like 800 by whatever? @done(21-07-07 08:47)
 
 ## Check with upstream
 

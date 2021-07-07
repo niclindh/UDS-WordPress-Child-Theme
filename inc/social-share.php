@@ -1,0 +1,2 @@
+<h2><a style="text-decoration: none;" href="https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank"><i class="fab fa-facebook-square"></i></a>&nbsp;<a style="text-decoration: none;" href="https://twitter.com/share?url=<?php the_permalink(); ?>&text=<?php the_title(); ?>" target="_blank"><i class="fab fa-twitter-square"></i></a>&nbsp;<a style="text-decoration: none;" href="https://www.linkedin.com/sharing/share-offsite/?url=<?php the_permalink(); ?>" target="_blank"><i class="fab fa-linkedin"></i></a>
+	</h2>
