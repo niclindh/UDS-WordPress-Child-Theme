@@ -24,13 +24,13 @@ if ($thumb_url == '') {
 $card_description = get_field("card_description");
 $card_title = get_field("card_title");
 
-$publication_date = apstyle_post_date(get_the_date('l'), get_the_date('j'), get_the_date('m'), get_the_date('Y'));
+// $publication_date = apstyle_post_date(get_the_date('l'), get_the_date('j'), get_the_date('m'), get_the_date('Y'));
 ?>
 
 
-<div class="col col-12 col-md-6 col-lg-4 mb-4">
-
-	<div class="card card-story" id="post-<?php the_ID(); ?>" >
+<!-- <div class="col col-12 col-md-6 col-lg-4 mb-4"> -->
+<div class="pb-md-6 pb-sm-3">
+	<div class="card card-story" id="post-<?php the_ID(); ?>">
 		<img class="card-img-top" src="<?php echo $thumb_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
 		<div class="card-content-wrapper">
 			<div class="card-header">

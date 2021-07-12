@@ -69,7 +69,6 @@ get_template_part('templates-global/global-banner');
 		</div>
 		<div class="col-md-4">
 
-			<!-- <h3>Kinds of events</h3> -->
 			<nav id="sidebar-left" class="sidebar accordion" aria-label="Secondary">
 				<?php
 

@@ -31,13 +31,33 @@ get_header();
 
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-			<!-- TODO: Figure out way to make paragraphs wrap to 50% width -->
+			<!-- TODO: Figure out way to make paragraphs wrap to 50% width without a pattern -->
+
 			<style>
 				.pressreleases>p {}
+
+				.wp-bootstrap-blocks-row {
+					margin-left: -25px;
+				}
+
+				.wp-block-image {
+					margin-left: -10px;
+				}
 			</style>
 			<?php
 
 			the_content();
+
+
+			// get custom categories
+			$terms = wp_get_post_terms($post->ID, 'topics');
+			echo '<div class="container"><div class="row">';
+			foreach ($terms as $term) {
+				$term_link = get_term_link($term);
+				echo '<a class="btn btn-tag btn-tag-alt-white" href="' . $term_link . '">' . $term->name . '</a>' . ' ';
+			}
+			echo '</div></div>';
+
 
 			$author_name = get_field('uds_news_author_name');
 			$author_title = get_field('uds_news_author_title');

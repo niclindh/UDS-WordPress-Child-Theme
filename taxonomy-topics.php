@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Events Categories
+ * Template Name: Press Release Categories
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
@@ -13,7 +13,7 @@ defined('ABSPATH') || exit;
 
 get_header();
 
-get_template_part('templates-global/hero');
+//get_template_part('templates-global/hero');
 
 get_template_part('templates-global/global-banner');
 
@@ -22,7 +22,7 @@ get_template_part('templates-global/global-banner');
 <main id="skip-to-content" <?php post_class('container'); ?>>
 
     <div class="container py-6">
-        <?php the_archive_title('<h1 class="article page-title mb-6">', ' events</h1>');
+        <?php the_archive_title('<h1 class="article page-title mb-6">', ' news</h1>');
         ?>
 
         <div class="row">
@@ -36,9 +36,8 @@ get_template_part('templates-global/global-banner');
 
                 // the rest of the args are in /inc/custom-sort.php
                 $args = array(
-                    'post_type' => 'events',
+                    'post_type' => 'pressreleases',
                     'the_kind' => $current_term,
-                    'ispast' => 'no', // used a query argument to filter out past events in pre_get_posts for future events
                     'paged' => $paged
                 );
 
@@ -49,10 +48,10 @@ get_template_part('templates-global/global-banner');
                     while ($wp_query->have_posts()) {
                         $wp_query->the_post();
 
-                        get_template_part('templates-loop/content', 'events-archive');
+                        get_template_part('templates-loop/content', 'pressreleases-archive');
                     }
                 } else {
-                    get_template_part('templates-loop/content', 'events-none');
+                    get_template_part('templates-loop/content', 'pressreleases-none');
                 }
 
                 wp_reset_postdata();
@@ -60,12 +59,12 @@ get_template_part('templates-global/global-banner');
                 ?>
 
             </div>
-            <div class="col-md-4">
+            <div class="col-md-4 pb-sm-3">
 
                 <nav id="sidebar-left" class="sidebar accordion" aria-label="Secondary">
                     <?php
 
-                    $taxonomy = 'kinds';
+                    $taxonomy = 'topics';
                     $terms = get_terms($taxonomy); // Get all terms of a taxonomy
 
                     if ($terms && !is_wp_error($terms)) :
