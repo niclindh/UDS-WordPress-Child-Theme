@@ -13,6 +13,9 @@ if (!defined('ABSPATH')) {
 
 add_theme_support('post-thumbnails');
 
+// for breadcrumpbs
+require get_stylesheet_directory() . '/vendor/autoload.php';
+
 require get_stylesheet_directory() . '/inc/custom-post-types.php';
 require get_stylesheet_directory() . '/inc/taxonomies.php';
 require get_stylesheet_directory() . '/inc/custom-sort.php';

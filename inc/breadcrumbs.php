@@ -1,16 +1,24 @@
 <?php
-// TODO: Add styling
-// TODO: Why is part of URL missing?
+// TODO: Figure out how to squelch title instead of hammering it with display: none
+?>
 
-if (function_exists('yoast_breadcrumb')) {
-?>
-  <div class="container">
-    <nav aria-label="breadcrumbs">
-      <?php
-      yoast_breadcrumb('<p id="breadcrumbs">', '</p>');
-      ?>
-  </div>
+<style>
+  .breadcrumbs__title {
+    display: none;
+  }
+
+</style>
+<div class="container pt-md-6 pt-sm-3">
+  <nav aria-label="breadcrumbs">
+    <?php
+    Hybrid\Breadcrumbs\Trail::display( [
+      'title' => '',
+      'title_tag' => 'p',
+      'item_class' => 'breadcrumb-item',
+      'list_tag' => 'ol',
+      'list_class' => 'breadcrumb bg-white'
+    ]);
+    ?>
+
   </nav>
-<?php
-}
-?>
+</div>

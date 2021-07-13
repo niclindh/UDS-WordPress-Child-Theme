@@ -10,11 +10,12 @@
 defined('ABSPATH') || exit;
 ?>
 
-<article <?php post_class(); ?> id="post-
-	<?php the_ID(); ?>">
+<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-
-
+<?php
+	include get_stylesheet_directory() . '/inc/breadcrumbs.php';
+	?>
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">
