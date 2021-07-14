@@ -48,7 +48,11 @@ get_template_part('templates-global/global-banner');
                     while ($wp_query->have_posts()) {
                         $wp_query->the_post();
 
+                        echo '<div class="pb-md-6 pb-sm-3">';
+
                         get_template_part('templates-loop/content', 'pressreleases-archive');
+
+                        echo '</div>';
                     }
                 } else {
                     get_template_part('templates-loop/content', 'pressreleases-none');
@@ -71,14 +75,18 @@ get_template_part('templates-global/global-banner');
                     ?>
 
                         <?php foreach ($terms as $term) {
+                            // don't show the perma promo topic in the list
+                            if ($term->name <> 'Perma Promo') {
 
-                            if ($current_term == $term->name) {
+
+                                if ($current_term == $term->name) {
                         ?>
-                                <a class="nav-link active" href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a>
-                            <?php } else {
-                            ?>
-                                <a class="nav-link" href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a>
+                                    <a class="nav-link active" href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a>
+                                <?php } else {
+                                ?>
+                                    <a class="nav-link" href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a>
                         <?php
+                                }
                             }
                         } ?>
                     <?php endif; ?>
