@@ -28,11 +28,6 @@ get_header();
 
         include get_stylesheet_directory() . '/inc/breadcrumbs.php';
 
-
-        echo '<div class="container pb-md-6 pb-sm-3">';
-        echo apstyle_post_date(get_the_modified_date('l'), get_the_modified_date('j'), get_the_modified_date('m'), get_the_modified_date('Y'));
-        echo '</div>';
-
         the_content();
 
         // Display the edit post button to logged in users.

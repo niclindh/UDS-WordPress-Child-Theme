@@ -22,18 +22,7 @@ get_template_part('templates-global/global-banner');
 <main id="skip-to-content" <?php post_class('container'); ?>>
 
 	<?php
-	if (function_exists('yoast_breadcrumb')) {
-	?>
-
-		<nav aria-label="breadcrumbs">
-			<?php
-			yoast_breadcrumb('<ol class="breadcrumb bg-white">', '</ol>');
-			?>
-		</nav>
-
-
-	<?php
-	}
+	include get_stylesheet_directory() . '/inc/breadcrumbs.php';
 	?>
 
 	<div class="row">

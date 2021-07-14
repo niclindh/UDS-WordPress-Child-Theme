@@ -22,18 +22,7 @@ get_template_part('templates-global/global-banner');
 <main id="skip-to-content" <?php post_class('container'); ?>>
 
 	<?php
-	if (function_exists('yoast_breadcrumb')) {
-	?>
-
-		<nav aria-label="breadcrumbs">
-			<?php
-			yoast_breadcrumb('<ol class="breadcrumb bg-white">', '</ol>');
-			?>
-		</nav>
-
-
-	<?php
-	}
+	include get_stylesheet_directory() . '/inc/breadcrumbs.php';
 	?>
 
 
@@ -56,7 +45,11 @@ get_template_part('templates-global/global-banner');
 				while ($wp_query->have_posts()) {
 					$wp_query->the_post();
 
+					echo '<div class="pb-md-6 pb-sm-3">';
+
 					get_template_part('templates-loop/content', 'pressreleases-archive');
+
+					echo '</div>';
 				}
 			} else {
 				get_template_part('templates-loop/content', 'none');
