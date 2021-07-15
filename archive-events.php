@@ -46,6 +46,7 @@ get_template_part('templates-global/global-banner');
 					$wp_query->the_post();
 
 					get_template_part('templates-loop/content', 'events-archive');
+
 				}
 			} else {
 				get_template_part('templates-loop/content', 'events-none');

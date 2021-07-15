@@ -50,10 +50,11 @@ if ('image' === $bgchoice) {
 // Return the rest of the section.
 ?>
 
-<div class="content">
+<div class="content pt-md-6 pt-sm-3">
 
 	<?php
-	include get_stylesheet_directory() . '/inc/breadcrumbs.php';
+	// TODO: figure out how to make the year in the breadcrumbs not a link
+	// include get_stylesheet_directory() . '/inc/breadcrumbs.php';
 	?>
 
 

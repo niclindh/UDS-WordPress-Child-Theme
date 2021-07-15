@@ -43,8 +43,24 @@ function events_pre_get_posts($query)
 		));
 	}
 
-	// all fugure events
-	if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'events' && $query->query_vars['ispast'] <> 'past' && $query->query_vars['name'] == '' && $query->query_vars['the_kind'] == '') {
+		// for upcoming events block
+		if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'events' && $query->query_vars['block'] == 'upcoming-events' && $query->query_vars['name'] == '' && $query->query_vars['the_kind'] == '') {
+			$query->set('orderby', 'meta_value');
+			$query->set('meta_key', 'event_start_time');
+			$query->set('order', 'ASC');
+			$query->set('posts_per_page', '3'); // very low number just to test pagination
+			$query->set('meta_query', array(
+				array(
+					'key' => 'event_start_time',
+					'compare' => '>=',
+					'value'   => date('Ymd'),
+					'type'    => 'datetime',
+				)
+			));
+		}
+
+	// all future events
+	if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'events' && $query->query_vars['ispast'] <> 'past' && $query->query_vars['name'] == '' && $query->query_vars['the_kind'] == '' && $query->query_vars['block'] <> 'upcoming-events') {
 		$query->set('orderby', 'meta_value');
 		$query->set('meta_key', 'event_start_time');
 		$query->set('order', 'ASC');

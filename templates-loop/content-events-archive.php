@@ -23,21 +23,22 @@ if ($thumb_url == '') {
 
 // TODO code to check for featured image and if it doesn't exist find the category and insert the generic image for that category
 
-$event_start_time = get_field("event_start_time");
-$show_end_date = get_field("show_end_date");
-$event_end_time = get_field("event_end_time");
-$event_description = get_field("card_description");
-$event_title = get_field("card_title");
-$event_subhead = get_field("event_subhead");
-$event_location = get_field("event_location");
+$event_start_time = get_field("event_start_time", get_the_ID());
+$show_end_date = get_field("show_end_date", get_the_ID());
+$event_end_time = get_field("event_end_time", get_the_ID());
+$event_description = get_field("card_description", get_the_ID());
+$event_title = get_field("card_title", get_the_ID());
+$event_subhead = get_field("event_subhead", get_the_ID());
+$event_location = get_field("event_location", get_the_ID());
 
-$event_time = apstyle_event_date(get_field("event_start_time"), get_field("event_end_time"), $show_end_date);
+$event_time = apstyle_event_date($event_start_time, $event_end_time, $show_end_date);
 
 ?>
 
+
 <div class="pb-md-6 pb-sm-3">
 	<div class="card card-event card-horizontal">
-		<img class="card-img-top" src="<?php echo $thumb_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+		<img class="card-img-top" src="<?php echo $thumb_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" />
 		<div class="card-content-wrapper">
 			<div class="card-header">
 				<h3 class="card-title">
@@ -56,7 +57,6 @@ $event_time = apstyle_event_date(get_field("event_start_time"), get_field("event
 					?>
 				</p>
 			</div>
-
 			<div class="row">
 				<div class="col-6">
 					<div class="card-event-details">

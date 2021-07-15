@@ -69,9 +69,15 @@ get_template_part('templates-global/global-banner');
 				if ($terms && !is_wp_error($terms)) :
 				?>
 					<!-- use class "active" for the active link -->
-					<?php foreach ($terms as $term) { ?>
+					<?php foreach ($terms as $term) { 
+						// don't show the perma promo topic in the list
+						if ($term->name <> 'Perma Promo') {
+						
+						?>
 						<a class="nav-link" href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a>
-					<?php } ?>
+					<?php 
+					}
+				} ?>
 				<?php endif; ?>
 			</nav><!-- end .sidebar -->
 		</div>

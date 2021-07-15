@@ -23,6 +23,8 @@ require get_stylesheet_directory() . '/inc/acf-register.php';
 require get_stylesheet_directory() . '/inc/ap-style-dates.php';
 require get_stylesheet_directory() . '/inc/block-patterns.php';
 require get_stylesheet_directory() . '/templates-blocks/latest-news/register.php';
+require get_stylesheet_directory() . '/templates-blocks/perma-promo/register.php';
+require get_stylesheet_directory() . '/templates-blocks/upcoming-events/register.php';
 
 /**
  * Enqueue child scripts and styles.

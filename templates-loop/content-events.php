@@ -13,8 +13,9 @@ defined('ABSPATH') || exit;
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
 <?php
-	include get_stylesheet_directory() . '/inc/breadcrumbs.php';
-	?>
+	// TODO: figure out how to make the year not be a link
+	//include get_stylesheet_directory() . '/inc/breadcrumbs.php';
+?>
 	
 	<div class="container">
 		<div class="row">
