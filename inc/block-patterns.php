@@ -54,21 +54,3 @@ function cronkite_register_block_patterns()
 }
 
 add_action('init', 'cronkite_register_block_patterns');
-
-// if (function_exists('register_block_pattern')) {
-
-// 	register_block_pattern(
-// 		'cronkite/my-awesome-pattern',
-// 		array(
-// 			'title'       => __('Test', 'test-pattern'),
-// 			'content'     => "<!-- wp:paragraph -->\n<p>(Optional) Replace this text with a short description or remove it</p>\n<!-- /wp:paragraph -->\n\n<!-- wp:list {\"ordered\":true} -->\n<ol><li>do this</li><li>then this</li><li>and this</li></ol>\n<!-- /wp:list -->",
-// 			'keywords' => ['one', 'two'],
-// 			'categories'  => array('hero'),
-// 		)
-
-//       // register categories
-//       register_block_pattern_category('section', [
-//         'label' => _x('Section', 'textdomain'),
-//       ]);
-// 	);
-// }

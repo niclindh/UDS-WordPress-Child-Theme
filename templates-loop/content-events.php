@@ -12,11 +12,18 @@ defined('ABSPATH') || exit;
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-<?php
-	// TODO: figure out how to make the year not be a link
-	//include get_stylesheet_directory() . '/inc/breadcrumbs.php';
-?>
-	
+	<?php
+	// Handmade breadcrumbs to avoid the issue with the year in the path becoming a hyperlink to nowhere
+	?>
+
+	<nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs" itemprop="breadcrumb">
+		<ol class="breadcrumb bg-white" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+			<li class="breadcrumb-item breadcrumb-item--home" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">Home</span></a></li>
+			<li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/events/" itemprop="item"><span itemprop="name">Events</span></a></li>
+			<li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><span itemprop="item"><span itemprop="name"><?php the_title(); ?></span></span></li>
+		</ol>
+	</nav>
+
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10">

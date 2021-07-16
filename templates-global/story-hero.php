@@ -53,9 +53,16 @@ if ('image' === $bgchoice) {
 <div class="content pt-md-6 pt-sm-3">
 
 	<?php
-	// TODO: figure out how to make the year in the breadcrumbs not a link
-	// include get_stylesheet_directory() . '/inc/breadcrumbs.php';
+	// Handmade breadcrumbs to avoid the issue with the year in the path becoming a hyperlink to nowhere
 	?>
+
+	<nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs" itemprop="breadcrumb">
+		<ol class="breadcrumb bg-white" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+			<li class="breadcrumb-item breadcrumb-item--home" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">Home</span></a></li>
+			<li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/news/" itemprop="item"><span itemprop="name">News</span></a></li>
+			<li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><span itemprop="item"><span itemprop="name"><?php the_title(); ?></span></span></li>
+		</ol>
+	</nav>
 
 
 	<?php the_title('<h1 class="article entry-title">', '</h1>'); ?>

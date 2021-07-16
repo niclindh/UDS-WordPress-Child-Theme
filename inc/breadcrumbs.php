@@ -10,16 +10,13 @@
   }
 </style>
 <div class="container pt-md-6 pt-sm-3">
-  <nav aria-label="breadcrumbs">
-    <?php
-    Hybrid\Breadcrumbs\Trail::display([
-      'title' => '',
-      'title_tag' => 'p',
-      'item_class' => 'breadcrumb-item',
-      'list_tag' => 'ol',
-      'list_class' => 'breadcrumb bg-white'
-    ]);
-    ?>
-
-  </nav>
+  <?php
+  Hybrid\Breadcrumbs\Trail::display([
+    'title' => '',
+    'title_tag' => 'p',
+    'item_class' => 'breadcrumb-item',
+    'list_tag' => 'ol',
+    'list_class' => 'breadcrumb bg-white'
+  ]);
+  ?>
 </div>
