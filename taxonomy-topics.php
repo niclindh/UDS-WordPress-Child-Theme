@@ -22,6 +22,22 @@ get_template_part('templates-global/global-banner');
 <main id="skip-to-content" <?php post_class('container'); ?>>
 
     <div class="container py-6">
+
+        <?php
+        // Handmade breadcrumbs to keep the path logical
+        //
+        // we need the term for the breadcrumbs
+        $current_term = single_term_title("", false);
+        ?>
+
+        <nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs" itemprop="breadcrumb">
+            <ol class="breadcrumb bg-white" itemscope="" itemtype="https://schema.org/BreadcrumbList">
+                <li class="breadcrumb-item breadcrumb-item--home" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">Home</span></a></li>
+                <li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/news/" itemprop="item"><span itemprop="name">News</span></a></li>
+                <li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><span itemprop="item"><span itemprop="name">Topic: <?php echo $current_term; ?></span></span></li>
+            </ol>
+        </nav>
+
         <?php the_archive_title('<h1 class="article page-title mb-6">', ' news</h1>');
         ?>
 
@@ -31,7 +47,7 @@ get_template_part('templates-global/global-banner');
                 <?php
                 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-                $current_term = single_term_title("", false);
+
                 // echo 'TERM: ' . $current_term;
 
                 // the rest of the args are in /inc/custom-sort.php
