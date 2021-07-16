@@ -44,40 +44,42 @@ get_template_part('templates-global/global-banner');
         <div class="row">
 
             <div class="col-md-8">
-                <?php
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                <div class="row">
+                    <?php
+                    $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 
-                // echo 'TERM: ' . $current_term;
+                    // echo 'TERM: ' . $current_term;
 
-                // the rest of the args are in /inc/custom-sort.php
-                $args = array(
-                    'post_type' => 'pressreleases',
-                    'the_kind' => $current_term,
-                    'paged' => $paged
-                );
+                    // the rest of the args are in /inc/custom-sort.php
+                    $args = array(
+                        'post_type' => 'pressreleases',
+                        'the_kind' => $current_term,
+                        'paged' => $paged
+                    );
 
-                $wp_query = new WP_Query($args);
+                    $wp_query = new WP_Query($args);
 
-                if ($wp_query->have_posts()) {
+                    if ($wp_query->have_posts()) {
 
-                    while ($wp_query->have_posts()) {
-                        $wp_query->the_post();
+                        while ($wp_query->have_posts()) {
+                            $wp_query->the_post();
 
-                        echo '<div class="pb-md-6 pb-sm-3">';
+                            // echo '<div class="pb-md-6 pb-sm-3">';
+                            echo '<div class="col-md-6 pb-md-6 pb-sm-3">';
 
-                        get_template_part('templates-loop/content', 'pressreleases-archive');
+                            get_template_part('templates-loop/content', 'pressreleases-archive');
 
-                        echo '</div>';
+                            echo '</div>';
+                        }
+                    } else {
+                        get_template_part('templates-loop/content', 'pressreleases-none');
                     }
-                } else {
-                    get_template_part('templates-loop/content', 'pressreleases-none');
-                }
 
-                wp_reset_postdata();
+                    wp_reset_postdata();
 
-                ?>
-
+                    ?>
+                </div>
             </div>
             <div class="col-md-4 pb-sm-3">
 

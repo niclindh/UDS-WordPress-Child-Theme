@@ -45,11 +45,13 @@ get_template_part('templates-global/global-banner');
 				while ($wp_query->have_posts()) {
 					$wp_query->the_post();
 
+
 					get_template_part('templates-loop/content', 'events-archive');
 				}
 			} else {
 				get_template_part('templates-loop/content', 'events-none');
 			}
+
 
 			wp_reset_postdata();
 
