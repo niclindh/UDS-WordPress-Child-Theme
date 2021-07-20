@@ -1,4 +1,11 @@
-✔ breadcrumbs on topic and kind pages @done(21-07-16 15:24)
+✔ rebuild homepage using hero and blocks @done(21-07-19 15:24)
+✔ install iSearch plugin @done(21-07-19 16:40)
+☐ add faculty to professional programs pages
+☐ build faculty page
+☐ build leadership page
+☐ build staff page
+☐ add social junk in footer
+☐ add 404 image
 ☐ AFTER LAUNCH: submit new sitemap to google search console
 ☐ LAUNCH: redirect /events to /cronkite-events
 ☐ make press release slugged with category link to program page on story page?
@@ -9,6 +16,7 @@
 
 ☐ will storybook css classes be added to figcaptions?
 Archive:
+  ✔ breadcrumbs on topic and kind pages @done(21-07-16 15:24)
   ✔ press release category sidebar menu @done(21-07-15 16:40)
   ✔ events category sidebar menu @done(21-07-15 16:40)
   ✔ make body content go md-6 (hentry p?) @done(21-07-15 16:40)

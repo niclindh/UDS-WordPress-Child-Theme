@@ -13,7 +13,14 @@
         $args = array(
             'post_type' => 'pressreleases',
             'order' => 'DESC',
-            'posts_per_page' => 3
+            'posts_per_page' => 3,
+            'tax_query' => array(
+                array(
+                    'taxonomy'  => 'topics',
+                    'field'     => 'slug',
+                    'terms'     => 'perma-promo', // exclude perma-promo items
+                    'operator'  => 'NOT IN')           
+                    ),               
         );
 
         $wp_query = new WP_Query($args);
