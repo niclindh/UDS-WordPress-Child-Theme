@@ -27,7 +27,7 @@ get_template_part('templates-global/global-banner');
 
 	<div class="row">
 
-		<div class="col-md-8">
+		<div class="col-md-8 order-sm-2 order-md-1">
 
 			<?php
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -57,7 +57,7 @@ get_template_part('templates-global/global-banner');
 			?>
 
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-4 order-sm-1 order-md-2 pb-sm-3">
 
 			<!-- <h3>Kinds of events</h3> -->
 			<nav id="sidebar-left" class="sidebar accordion" aria-label="Secondary">
