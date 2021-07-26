@@ -54,7 +54,7 @@ get_header();
 			echo '<div class="container"><div class="row">';
 			foreach ($terms as $term) {
 			// don't show the perma promo topic in the list
-			if ($term->name <> 'Perma Promo') {
+			if ($term->name <> 'Perma Promo' && $term->name <> 'All') {
 
 				$term_link = get_term_link($term);
 				echo '<a class="btn btn-tag btn-tag-alt-white" href="' . $term_link . '">' . $term->name . '</a>' . ' ';

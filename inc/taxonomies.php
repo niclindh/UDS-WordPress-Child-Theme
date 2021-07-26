@@ -64,5 +64,10 @@ function create_pressreleases_hierarchical_taxonomy()
         'show_admin_column' => true,
         'query_var' => true,
         'rewrite' => array('slug' => 'topic'),
+        'default_term' => [ //(string|array) Default term to be used for the taxonomy.
+            'name' => 'All', //(string) Name of default term.
+            'slug' => 'all', //(string) Slug for default term.
+            'description' => 'Every press release needs to be in this category', //(string) Description for default term.
+        ],
     ));
 }
