@@ -1,14 +1,5 @@
-☐ add jetpack
-✔ rebuild homepage using hero and blocks @done(21-07-19 15:24)
-✔ install iSearch plugin @done(21-07-19 16:40)
 ☐ add faculty to professional programs pages
-☐ build faculty page
-☐ build leadership page
-☐ build staff page
-☐ add social junk in footer
 ☐ add 404 image
-☐ AFTER LAUNCH: submit new sitemap to google search console
-☐ LAUNCH: redirect /events to /cronkite-events
 ☐ make press release slugged with category link to program page on story page?
 ☐ faculty pages need pronouncers (audio file) and pronouns
 ☐ create pages for all organization breadcrumbs, like student-life, professional-programs
@@ -17,6 +8,12 @@
 
 ☐ will storybook css classes be added to figcaptions?
 Archive:
+  ✔ rebuild homepage using hero and blocks @done(21-07-19 15:24)
+  ✔ install iSearch plugin @done(21-07-19 16:40)
+  ✔ build faculty page @done(21-07-30 09:41)
+  ✔ build leadership page @done(21-07-30 09:41)
+  ✔ build staff page @done(21-07-30 09:42)
+  ✔ add social junk in footer @done(21-07-30 09:42)
   ✔ breadcrumbs on topic and kind pages @done(21-07-16 15:24)
   ✔ press release category sidebar menu @done(21-07-15 16:40)
   ✔ events category sidebar menu @done(21-07-15 16:40)

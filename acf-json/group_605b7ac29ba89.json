@@ -4,7 +4,7 @@
     "fields": [
         {
             "key": "field_60b9228426b6e",
-            "label": "Card title",
+            "label": "Card Title",
             "name": "card_title",
             "type": "text",
             "instructions": "Title shown in card views of the events. 100 character maximum.",
@@ -157,5 +157,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Fields for event posts",
-    "modified": 1625078952
+    "modified": 1628198357
 }
