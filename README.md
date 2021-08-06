@@ -1,27 +1,29 @@
+# Cronkite template for the ASU Unity Design System
+
 Nic Lindh
 v 0.1
 
-# Cronkite template for the ASU Unity Design System
-
 The Cronkite Web Spark 2 site is a child theme for [https://github.com/asu-ke-web-services/UDS-WordPress-Theme](UDS-WordPress) adapted for the needs of the Cronkite School.
 
-This document is intended as a reference for personnel who update the content on the site and assumes you have been given a quick overview of Gutenberg.
+This document is intended as a reference mostly for personnel who update the content on the site and assumes you have been given an overview of how to use Gutenberg.
 
-Developer-centric information lives at the end of the document.
+Developer-centric information can be found at the end of the document.
 
-## Image sizes
+## Image sizes and image management
 
-The Unity Design System (UDS) uses many images, especially for the card displays and for hero images.
+The Unity Design System (UDS) uses many images, especially for the card displays and for hero images, so proper image sizing is extra important.
 
 Use the built-in WordPress Media Library for upload and management of images.
 
-**Note:** Whenever you upload an image, give it an ALT tag. The system will use these ALT tags wherever the image is used. The ALT tag will also help you and your colleagues search the Media Library.
+**Note:** Whenever you upload an image, give it an ALT tag. The system templates will use these ALT tags wherever the image is used. Providing good information in the ALT tag will also help you and your colleagues search the Media Library. Be good to the site visitors and your future self and include solid ALT tags.
 
 Featured images are used by the card display system, so each page, each press release and each event **must** have a featured image. The featured image is also used for Facebook and Twitter shares.
 
-Featured images are 1280 by 720 pixels. Export as 80% quality from Photoshop. **Note**: 80% is not written in stone. The goal is to get images as small as possible while maintaining high quality. So if 80% compression makes an image look bad, please decrease the compression.
+Featured images are 1280 by 720 pixels. Export as 80% quality from Photoshop. 
 
-Google uses page load times as one of its metrics for ranking sites and pages, so keeping image sizes as small as possible without sacrificing quality i very important.
+**Note**: 80% is not written in stone. The goal is to get images as small as possible while maintaining high quality. So if 80% compression makes an image look bad, please decrease the compression. Conversely, if an image is too large even at 80% compression, increase the compression.
+
+Google uses page load times as one of its metrics for ranking sites and pages, so keeping image sizes as small as possible without sacrificing quality is very important.
 
 UDS allows for three different hero size images with different depths. The Cronkite School is standardizing on the deepest size, which is 1920 by 684 pixels. As with featured images, export from Photoshop at 80% quality.
 
@@ -29,17 +31,17 @@ Portrait images used in the people layout are 500 by 500 pixels. The system will
 
 ## Yoast SEO
 
-The Cronkite site is running the Yoast SEO Premium plugin. If you have not received the basic information about Yoast and SEO, please talk to Abby or Andrea.
+The Cronkite site is running the Yoast SEO Premium plugin. If you have not received basic information about Yoast and SEO, please talk to Abby or Andrea. Consistent application of basic SEO principles is crucial to the success of the site.
 
 **Note**: Our site title is The Walter Cronkite School of Journalism and Mass Communication, which eats a lot of characters. Yoast will let you shorten this to Cronkite School. Please do so.
 
 ## Basics of the Unity Design System
 
-Due to the way UDS works, posting content is slightly more complicated than on most other sites. It's not hard, but does require you to pay a bit more attention and involves a few more steps.
+Due to the way UDS works, posting content is slightly more complicated than on most other sites. It's not hard, especially with some practice, but does require you to pay a bit more attention and involves a few more steps.
 
 ### Why things are a little more complicated
 
-Feel free to skip this section if you don't care about the way things work.
+Feel free to skip this section if you don't care about why thing work the way things work.
 
 The reason for the added complexity is that in the Bootstrap framework UDS is based on, content lives in containers. Every page has many containers that open and close. Think of them as little boxes that the content lives inside.
 
@@ -49,52 +51,62 @@ However, the setup of UDS requires opening and closing containers inside the con
 
 One of the jobs of the containers is to provide margins, so if you don't wrap content inside a container, it will go full-bleed. Which might be what you want, but usually isn't.
 
-If you want to be a "problems are opportunities" person you can look at it as the design system allowing you to be more expressive.
+If you want to be a "problems are opportunities" person you can look at it as the design system allowing you to be more expressive 🎉.
 
-To make things as easy as possible, the theme uses Gutenberg blocks and patterns. This technology is relatively new to WordPress and still evolving, but at its current state it provides the means for making page creation faster and much less error-prone than typing raw HTML.
+To make things as easy as possible, the theme uses Gutenberg blocks and patterns. This technology is relatively new to WordPress and still evolving, but at its current state it provides the means for making page creation faster, easier and much less error-prone than typing raw HTML.
 
 ## Using Gutenberg
 
 This section will cover the basics of using Gutenberg as it pertains to the Cronkite site. If you want to know more, WordPress.org has [a nice introduction to Gutenberg](https://developer.wordpress.org/block-editor/).
 
-Basically, all content in the content area lives in a block. There are blocks for paragraphs, images, testimonials, cards and all other commonly-created items.
+Basically, all content in the content area lives in a block. There are blocks for paragraphs, images, testimonials, cards and other commonly-created items.
 
-If you find yourself regulary creating a certain kind of content for which there is no card, let us know and we may very well be able to create one.
+If you find yourself regulary creating a certain kind of content for which there is no card, let the web team know and we may very well be able to create one.
 
 ## Common blocks
 
-The blocks created by the university all start with UDS and the blocks created by Cronkite all start with CS
+The blocks created by the university have names that start with UDS and the blocks created by Cronkite have names that start with CS.
 
 The most commonly-used blocks are:
 
-* UDS Blockquote
-* UDS Card
-* UDS Heading (provides reversed-out text if needed)
-* UDS modals (like the Covid banner)
-* Content Image Overlap (for what we call the optional box)
+- UDS Blockquote
+- UDS Card
+- UDS Heading (provides reversed-out text if needed)
+- UDS modals (like the Covid banner)
+- Content Image Overlap (for what we call the optional box)
 
 ### Common patterns
 
-Blocks also have a big brother called patterns. Patterns are a collection of blocks. On the Cronkite site, for example, we often use a three-up of cards. There is a pattern that will create a container with three columns and put a card in each column so that it is ready for you to insert your content.
+Blocks also have a big brother called patterns. Patterns are collections of blocks. On the Cronkite site, for example, we often use a three-up of cards. There is a pattern that will create a container with three columns and put a card in each column so that it is ready for you to insert your content.
 
 Patterns can be found in a drawer by clicking the blue plus button at the top left of the page.
 
 The most common patterns are:
 
-* Four-up icon cards that can be used for cards that highlight figures as well
-* The aforementioned three-up of cards
-* Body text
-* Blockquote that can be used for testimonials and other things
-* CS Image Overlap News provides a large optional box and lets you select the topic that will be shown. The latest press release with that topic will populate the optional box
+- Four-up icon cards that can be used for cards that highlight figures
+- The aforementioned three-up of cards
+- Body text
+- Blockquote that can be used for testimonials and other things
+- CS Image Overlap News provides a large optional box which lets you select the topic that will be shown. The latest press release slotted in that topic will populate the optional box
+
+## Headings
+
+Use the UDS headings block to add headings to a page.
+
+Use H2 headings to introduce sections, and H3 headings to separate content inside sections.
+
+All H3s should be reversed with gold.
+
+**Note:** The templates are already providing H1s to each page. Each page should only and always have exactly one H1, so do not add H1s unless you know exactly what you're doing. 
 
 ## Posting press releases
 
 Each press release **must** have:
 
-* A featured image (1280 by 720)
-* A hero image (1920 by 684)
-* A card description
-* (Optional) a card title if the original hed is too long
+- A featured image (1280 by 720)
+- A hero image (1920 by 684)
+- A card description
+- (Optional) a card title if the original hed is too long to fit on a card
 
 The hero image and featured image can be different crops of the same image.
 
@@ -110,7 +122,7 @@ Every press release **must** exist in the All topic. If a press release is not g
 
 The last three press releases auto populate on the front page.
 
-The last press release with the topic Perma Promo takes up the perma promo slot on the front page. The topic indicates this is a press release we want to keep displaying for a longer period of time.
+The last press release with the topic Perma Promo takes up the perma promo slot on the front page. The Perma Promo topic indicates this is a press release we want to highlight and to keep displaying for a longer period of time.
 
 ## Posting events
 
@@ -124,7 +136,7 @@ The fields Cart Title and Card Description will be used in cards, unsurprisingly
 
 ### Kinds
 
-Kinds are like the topics for press releases or the categories for regular WordPress posts. Categorize each event with the kind of event it is to help readers to narrow the list down to events they are interested in.
+Kinds are like the topics for press releases or the categories for regular WordPress posts. Categorize each event with the kind of event it is to help readers to narrow the list down to events they are interested in. Give every event a kind.
 
 ## Building pages
 
@@ -136,15 +148,15 @@ Blocks and patterns can be mixed and matched as desired.
 
 There are a few utility classes worth noting. For each container, you can increase the padding above and below the container by adding the following classs in the Additional Classes field at the bottom of the block's controls in the sidebar to the right:
 
-```pt-md-6 pt-sm-3``` adds padding *above* the container.
+`pt-md-6 pt-sm-3` adds padding _above_ the container.
 
-```pb-md-6 pb-sm-3``` adds padding *below* the container.
+`pb-md-6 pb-sm-3` adds padding _below_ the container.
 
 ### Adding people from iSearch
 
 **Note:** This section gets a bit technical.
 
-There are two ways to add people from iSearch, by a list of ASURITEs or by a department ID.
+There are two ways to add people from iSearch: By a list of ASURITEs or by a department ID.
 
 The Cronkite department ID is 1537. We are planning to add more department lists inside the school for more granularity, but that is an upcoming task.
 
@@ -152,35 +164,41 @@ The process works through a block type called shortcodes. Add a new shortcode bl
 
 For example, this shortcode lists the current members of the administrative staff:
 
-```[isearch-list list_type="customList" asurite_ids="keburke,jaalvill,schardi3,phockenh,slujano,dlshanno,asweile" title_ids="1537,1537,1537,1537,1537,1537,1537"]```
+`[isearch-list list_type="customList" asurite_ids="keburke,jaalvill,schardi3,phockenh,slujano,dlshanno,asweile" title_ids="1537,1537,1537,1537,1537,1537,1537"]`
 
-It's a list of the ASURITE IDs we are interested in, followed by a list of the department IDs. This is admittedly a little clunky, but the repeated title_ids allow for matching the ASURITE with the correct title for that ASURITE depending on the individual's affiliations. So a person might have the title Associate Faculty in one department, but Director of Engagement in another department. If that is the case, it's a matter of sleuthing which department ID has the correct title.
+The shortcode consists of a list of the ASURITE IDs we are interested in, followed by a list of the department IDs, one for each ASURITE. 
 
-This is a bit technical and out of the scope of this Read Me.
+This is admittedly a little clunky, but the repeated title_ids allow for matching the ASURITE with the correct title for that ASURITE depending on the individual's affiliations. So a person might have the title Associate Faculty in one department, but Director of Engagement in another department. If that is the case, it's a matter of sleuthing which department ID has the correct title.
 
-If you have a department ID already populated and sorted the way you want to display it, this gets a lot easier:
-
-```[isearch-list list_type="deptList" dept_id="1537"]``` will list all ASURITEs in the Cronkite School department list.
-
-To find out what iSearch knows about individuals, use this URL *in the Firefox browser*. You want Firefox since it will format the JSON results from iSearch in human-readable form.
+To find out what iSearch knows about individuals, use this URL _in the Firefox browser_. You want to use Firefox since it will format the JSON results from iSearch in human-readable form.
 
 To search by email address:
 
-```https://asudir-solr.asu.edu/asudir/directory/select?q=emailAddress:michael.crow@asu.edu&wt=json```
+`https://asudir-solr.asu.edu/asudir/directory/select?q=emailAddress:michael.crow@asu.edu&wt=json`
 
 To search by ASURITE:
 
-```https://asudir-solr.asu.edu/asudir/directory/select?q=asuriteId:mcrow&rows=300&wt=json```
+`https://asudir-solr.asu.edu/asudir/directory/select?q=asuriteId:mcrow&rows=300&wt=json`
 
 In this example, if we want to list Dr. Crow's title as "Distinguished Sustainability Scientist," we see that this is the title with ID 4. We now need to find the department id with ID 4, which is 224232, so our incantation shortcode becomes:
 
-```[isearch-list list_type="customList" asurite_ids="mcrow" title_ids="224232"]```
+`[isearch-list list_type="customList" asurite_ids="mcrow" title_ids="224232"]`
 
 Computers are fun!
 
-## Developing With NPM, Gulp, SASS and Browser Sync
+If you have a department ID already populated and sorted the way you want to display it, this gets a lot easier:
 
-### Installing Dependencies
+`[isearch-list list_type="deptList" dept_id="1537"]` will list all ASURITEs in the Cronkite School department list.
+
+## Developing the theme
+
+To develop the theme, simply clone it into the themes directory of a working WordPress install and select it in the admin.
+
+The theme requires a bit of setup on the backend, so importing an existing database will make your life a lot easier.
+
+### Installing dependencies for Gulp
+
+**Note:** This section is only required if you want to use Gulp for Browser Sync. If you don't need that, no further setup is necessary.
 
 - Make sure you have installed Node.js, Gulp, and Browser-Sync [1] on your computer globally
 - Open your terminal and browse to the location of the theme
