@@ -21,7 +21,7 @@ function events_pre_get_posts($query)
 	// press releases
 	if (isset($query->query_vars['post_type']) && $query->query_vars['post_type'] == 'pressreleases' && $query->query_vars['the_kind'] != '') {
 		$query->set('topics', $query->query_vars['the_kind']);
-		$query->set('posts_per_page', '5'); // very low number just to test pagination
+		$query->set('posts_per_page', '20');
 		$query->set('order', 'DESC');
 	}
 
@@ -32,7 +32,7 @@ function events_pre_get_posts($query)
 		$query->set('kinds', $query->query_vars['the_kind']);
 		$query->set('meta_key', 'event_start_time');
 		$query->set('order', 'ASC');
-		$query->set('posts_per_page', '5'); // very low number just to test pagination
+		$query->set('posts_per_page', '20');
 		$query->set('meta_query', array(
 			array(
 				'key' => 'event_start_time',
@@ -48,7 +48,7 @@ function events_pre_get_posts($query)
 			$query->set('orderby', 'meta_value');
 			$query->set('meta_key', 'event_start_time');
 			$query->set('order', 'ASC');
-			$query->set('posts_per_page', '3'); // very low number just to test pagination
+			$query->set('posts_per_page', '3'); // three-up cards
 			$query->set('meta_query', array(
 				array(
 					'key' => 'event_start_time',
@@ -64,7 +64,7 @@ function events_pre_get_posts($query)
 		$query->set('orderby', 'meta_value');
 		$query->set('meta_key', 'event_start_time');
 		$query->set('order', 'ASC');
-		$query->set('posts_per_page', '5'); // very low number just to test pagination
+		$query->set('posts_per_page', '20'); 
 		$query->set('meta_query', array(
 			array(
 				'key' => 'event_start_time',
@@ -80,7 +80,7 @@ function events_pre_get_posts($query)
 		$query->set('orderby', 'meta_value');
 		$query->set('meta_key', 'event_start_time');
 		$query->set('order', 'DESC');
-		$query->set('posts_per_page', '5'); // very low number just to test pagination
+		$query->set('posts_per_page', '20'); 
 		$query->set('meta_query', array(
 			array(
 				'key' => 'event_start_time',
