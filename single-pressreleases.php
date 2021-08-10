@@ -29,21 +29,18 @@ get_header();
 
 	?>
 
-		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-
-			<!-- TODO: Figure out way to make paragraphs wrap to 50% width without a pattern -->
-
-			<style>
-				.pressreleases>p {}
-
-				.wp-bootstrap-blocks-row {
-					margin-left: -25px;
+<style>
+				.pressreleases>.wp-bootstrap-blocks-row p {
+					margin-left: -0.6rem;
 				}
 
 				.wp-block-image {
 					margin-left: -10px;
 				}
-			</style>
+</style>
+
+		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+			
 			<?php
 
 			the_content();

@@ -1,7 +1,6 @@
-# Cronkite template for the ASU Unity Design System
+# Cronkite WordPress template for the ASU Unity Design System
 
-Nic Lindh
-v 0.1
+Nic Lindh | Aug. 9, 2021 | v 0.1
 
 The Cronkite Web Spark 2 site is a child theme for [https://github.com/asu-ke-web-services/UDS-WordPress-Theme](UDS-WordPress) adapted for the needs of the Cronkite School.
 
@@ -17,9 +16,11 @@ Use the built-in WordPress Media Library for upload and management of images.
 
 **Note:** Whenever you upload an image, give it an ALT tag. The system templates will use these ALT tags wherever the image is used. Providing good information in the ALT tag will also help you and your colleagues search the Media Library. Be good to the site visitors and your future self and include solid ALT tags.
 
+ALT tags are also of great importance for SEO and for assistive technologies. ASU Accessibility has a good [overview of the importance of ALT tags][alt] at https://accessibility.asu.edu/articles/images.
+
 Featured images are used by the card display system, so each page, each press release and each event **must** have a featured image. The featured image is also used for Facebook and Twitter shares.
 
-Featured images are 1280 by 720 pixels. Export as 80% quality from Photoshop. 
+Featured images are 1280 by 720 pixels. Export as 80% quality from Photoshop.
 
 **Note**: 80% is not written in stone. The goal is to get images as small as possible while maintaining high quality. So if 80% compression makes an image look bad, please decrease the compression. Conversely, if an image is too large even at 80% compression, increase the compression.
 
@@ -34,6 +35,14 @@ Portrait images used in the people layout are 500 by 500 pixels. The system will
 The Cronkite site is running the Yoast SEO Premium plugin. If you have not received basic information about Yoast and SEO, please talk to Abby or Andrea. Consistent application of basic SEO principles is crucial to the success of the site.
 
 **Note**: Our site title is The Walter Cronkite School of Journalism and Mass Communication, which eats a lot of characters. Yoast will let you shorten this to Cronkite School. Please do so.
+
+Yoast SEO makes it very convenient to include proper meta descriptions for pages. **Every** page needs a good meta description.
+
+One of our goals with the Cronkite site redesign is to reduce sprawl. The previous version of the site had a bit of a kudzu problem, which we want to avoid replicating, so whenever you want to create a new page, ask yourself if the content could be included in another page instead? And above all, strive to not duplicate content across the site.
+
+When you create pages, also pay attention to the URLs WordPress suggests. We want to keep the URLs on the site short and sweet as much as possible.
+
+**Warning:** Yoast sometimes gets a little over-eager, especially when deleting pages. When you delete a page Yoast SEO will helpfully warn you that you may lose traffic and should create a redirect from where the page used to be. Most of the time, this is not what you want. Just leave it alone.
 
 ## Basics of the Unity Design System
 
@@ -97,7 +106,7 @@ Use H2 headings to introduce sections, and H3 headings to separate content insid
 
 All H3s should be reversed with gold.
 
-**Note:** The templates are already providing H1s to each page. Each page should only and always have exactly one H1, so do not add H1s unless you know exactly what you're doing. 
+**Note:** The templates are already providing H1s to each page. Each page should only and always have exactly one H1, so do not add H1s unless you know exactly what you're doing.
 
 ## Posting press releases
 
@@ -166,7 +175,7 @@ For example, this shortcode lists the current members of the administrative staf
 
 `[isearch-list list_type="customList" asurite_ids="keburke,jaalvill,schardi3,phockenh,slujano,dlshanno,asweile" title_ids="1537,1537,1537,1537,1537,1537,1537"]`
 
-The shortcode consists of a list of the ASURITE IDs we are interested in, followed by a list of the department IDs, one for each ASURITE. 
+The shortcode consists of a list of the ASURITE IDs we are interested in, followed by a list of the department IDs, one for each ASURITE.
 
 This is admittedly a little clunky, but the repeated title_ids allow for matching the ASURITE with the correct title for that ASURITE depending on the individual's affiliations. So a person might have the title Associate Faculty in one department, but Director of Engagement in another department. If that is the case, it's a matter of sleuthing which department ID has the correct title.
 
@@ -225,3 +234,5 @@ Or, to run with Browser-Sync:
 - then run: `$ gulp watch-bs`
 
 [1] Visit [https://browsersync.io/](https://browsersync.io/) for more information on Browser Sync
+
+[alt]: https://accessibility.asu.edu/articles/images

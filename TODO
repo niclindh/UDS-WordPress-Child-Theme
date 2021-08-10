@@ -1,13 +1,13 @@
-☐ add faculty to professional programs pages
 ☐ add 404 image
-☐ make press release slugged with category link to program page on story page?
-☐ faculty pages need pronouncers (audio file) and pronouns
-☐ create pages for all organization breadcrumbs, like student-life, professional-programs
 
 ## Check with upstream
 
 ☐ will storybook css classes be added to figcaptions?
 Archive:
+  ✔ add faculty to professional programs pages @done(21-08-10 14:37)
+  ✔ make press release slugged with category link to program page on story page? @done(21-08-10 14:37)
+  ✔ faculty pages need pronouncers (audio file) and pronouns @done(21-08-10 14:37)
+  ✔ create pages for all organization breadcrumbs, like student-life, professional-programs @done(21-08-10 14:37)
   ✔ rebuild homepage using hero and blocks @done(21-07-19 15:24)
   ✔ install iSearch plugin @done(21-07-19 16:40)
   ✔ build faculty page @done(21-07-30 09:41)

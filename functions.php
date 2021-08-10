@@ -27,6 +27,7 @@ require get_stylesheet_directory() . '/templates-blocks/perma-promo/register.php
 require get_stylesheet_directory() . '/templates-blocks/upcoming-events/register.php';
 require get_stylesheet_directory() . '/templates-blocks/image-overlap-news/register.php';
 require get_stylesheet_directory() . '/templates-blocks/people/register.php';
+require get_stylesheet_directory() . '/templates-blocks/cs-image/register.php';
 
 /**
  * Enqueue child scripts and styles.
