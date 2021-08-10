@@ -12,6 +12,8 @@ defined('ABSPATH') || exit;
 
 <?php
 
+$no_featured_image = '';
+
 $thumb_id = get_post_thumbnail_id();
 $thumb_url_array = wp_get_attachment_image_src($thumb_id, 'large', false);
 $thumb_url = $thumb_url_array[0];
@@ -19,6 +21,7 @@ $thumb_url = $thumb_url_array[0];
 // somebody forgot to add a thumbnail and should feel bad about themselves
 if ($thumb_url == '') {
 	$thumb_url = get_stylesheet_directory_uri() . '/img/generic-event-image.jpg';
+	$no_featured_image = 'missing';
 }
 
 // TODO code to check for featured image and if it doesn't exist find the category and insert the generic image for that category
@@ -38,7 +41,15 @@ $event_time = apstyle_event_date($event_start_time, $event_end_time, $show_end_d
 
 <div class="pb-md-6 pb-sm-3">
 	<div class="card card-event card-horizontal">
-		<img class="card-img-top" src="<?php echo $thumb_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>" />
+		<?php
+		if ($no_featured_image == 'missing') { // post has no featured image, so using generic image
+		?>
+			<img class="card-img-top" src="<?php echo $thumb_url; ?>" alt="" />
+		<?php
+		} elseif ($no_featured_image == '') {
+			echo wp_get_attachment_image($thumb_id, 'medium', '', ['class' => 'card-img-top']);
+		}
+		?>
 		<div class="card-content-wrapper">
 			<div class="card-header">
 				<h3 class="card-title">

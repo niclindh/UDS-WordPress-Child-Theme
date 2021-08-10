@@ -37,6 +37,8 @@ defined('ABSPATH') || exit;
 
 	<?php
 
+	$no_featured_image = '';
+
 	$event_start_time = get_field("event_start_time");
 	$show_end_date = get_field("show_end_date");
 	$event_end_time = get_field("event_end_time");
@@ -76,9 +78,18 @@ defined('ABSPATH') || exit;
 					// somebody forgot to add a thumbnail and should feel bad about themselves
 					if ($thumb_url == '') {
 						$thumb_url = get_stylesheet_directory_uri() . '/img/generic-event-image.jpg';
+						$no_featured_image = 'missing';
 					}
 					?>
-					<img class="img-fluid" style="width: 100%;" src="<?php echo $thumb_url; ?>" alt="<?php echo get_post_meta(get_post_thumbnail_id(), '_wp_attachment_image_alt', true); ?>">
+					<?php
+					if ($no_featured_image == 'missing') { // post has no featured image, so using generic image
+					?>
+						<img class="img-fluid" src="<?php echo $thumb_url; ?>" alt="" />
+					<?php
+					} elseif ($no_featured_image == '') {
+						echo wp_get_attachment_image($thumb_id, 'full', '', ['class' => 'img-fluid']);
+					}
+					?>
 				</div>
 			</div>
 		</div>

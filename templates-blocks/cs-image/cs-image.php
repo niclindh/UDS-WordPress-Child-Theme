@@ -15,8 +15,6 @@ $image_alt = '';
 $image_data = get_field('cs_image');
 
 if (!empty($image_data)) {
-	$image_url = $image_data['url'];
-	$image_alt = $image_data['alt'];
 	$image_id = $image_data['id'];
 }
 
