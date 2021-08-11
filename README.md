@@ -1,6 +1,6 @@
 # Cronkite WordPress template for the ASU Unity Design System
 
-Nic Lindh | Aug. 9, 2021 | v 0.1
+Nic Lindh | Aug.11, 2021 | v 0.2
 
 The Cronkite Web Spark 2 site is a child theme for [https://github.com/asu-ke-web-services/UDS-WordPress-Theme](UDS-WordPress) adapted for the needs of the Cronkite School.
 
@@ -28,7 +28,13 @@ Google uses page load times as one of its metrics for ranking sites and pages, s
 
 UDS allows for three different hero size images with different depths. The Cronkite School is standardizing on the deepest size, which is 1920 by 684 pixels. As with featured images, export from Photoshop at 80% quality.
 
-Portrait images used in the people layout are 500 by 500 pixels. The system will resize images if required, but you should aim for 500 by 500. Make sure faces are centered in the portraits.
+Portrait images used in the people layout are 500 by 500 pixels. The system will resize the portraits if required, but you should aim for 500 by 500. Make sure faces are centered in the portraits.
+
+### Inserting images into pages
+
+The WordPress Gutenberg system includes an image block called, creatively enough, image. Unfortunately, the image block does not know about UDS, so instead please use the block called CS Image to add images to pages.
+
+CS Image lets you pick an image and optionally write a caption. **Note:** Captions are limited to 255 characters in UDS.
 
 ## Yoast SEO
 

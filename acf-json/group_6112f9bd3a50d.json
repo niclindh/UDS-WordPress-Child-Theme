@@ -17,7 +17,7 @@
             },
             "default_value": "",
             "placeholder": "",
-            "maxlength": "",
+            "maxlength": 255,
             "rows": 4,
             "new_lines": ""
         },
@@ -63,5 +63,5 @@
     "hide_on_screen": "",
     "active": true,
     "description": "Replacement for standard Gutenberg image block that formats images UDS standard",
-    "modified": 1628634191
+    "modified": 1628698554
 }
