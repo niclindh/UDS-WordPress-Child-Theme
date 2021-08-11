@@ -50,7 +50,7 @@ if ('image' === $bgchoice) {
 // Return the rest of the section.
 ?>
 
-<div class="content pt-md-6 pt-sm-3">
+<div class="content">
 
 	<?php
 	// Handmade breadcrumbs to avoid the issue with the year in the path becoming a hyperlink to nowhere

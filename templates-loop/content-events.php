@@ -67,8 +67,7 @@ defined('ABSPATH') || exit;
 				</div>
 			</div>
 		</div>
-		<!-- pt-md-6 pt-sm-3 -->
-		<div class="container">
+		<div class="container pt-md-6 pt-sm-3 pb-md-6- pb-sm-3">
 			<div class="row">
 				<div class="col-md-10">
 					<?php

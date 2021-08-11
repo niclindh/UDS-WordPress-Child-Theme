@@ -9,7 +9,7 @@
     display: none;
   }
 </style>
-<div class="container">
+<div class="container pt-md-6 pt-sm-3">
   <?php
   Hybrid\Breadcrumbs\Trail::display([
     'title' => '',
