@@ -64,12 +64,9 @@ if ('image' === $bgchoice) {
 		</ol>
 	</nav>
 
-
 	<?php the_title('<h1 class="article entry-title">', '</h1>'); ?>
 
 	<p><i>
-
-
 			<?php
 			echo apstyle_post_date(get_the_date('l'), get_the_date('j'), get_the_date('m'), get_the_date('Y'));
 			?>
