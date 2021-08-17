@@ -1,0 +1,67 @@
+{
+    "key": "group_60f73a9f1f443",
+    "title": "CS Image Overlap News",
+    "fields": [
+        {
+            "key": "field_60f73aaa4ee9c",
+            "label": "Topic Slug",
+            "name": "cs_topic_slug",
+            "type": "text",
+            "instructions": "The slug of the topic that will fill the content. Like, \"all\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "all",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_60f73afe4ee9d",
+            "label": "Image Orientation",
+            "name": "cs_image_orientation",
+            "type": "radio",
+            "instructions": "Whether the content goes to the left or right of the image.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "Left",
+                "right": "Right"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/cronkite-image-overlap-news"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "Large image block provided by press release feed",
+    "modified": 1626818528
+}
