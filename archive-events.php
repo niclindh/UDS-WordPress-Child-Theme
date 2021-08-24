@@ -58,7 +58,7 @@ get_template_part('templates-global/global-banner');
 		</div>
 		<div class="col-md-4 order-sm-1 order-md-2 pb-sm-3">
 
-			<nav id="sidebar-left" class="sidebar accordion" aria-label="Secondary">
+			<nav id="sidebar-left" class="sidebar accordion ml-sm-0 mr-sm-0" aria-label="Kinds of events">
 				<?php
 
 				$taxonomy = 'kinds';
@@ -66,14 +66,19 @@ get_template_part('templates-global/global-banner');
 
 				if ($terms && !is_wp_error($terms)) :
 				?>
-					<!-- use class "active" for the active link -->
-					<?php foreach ($terms as $term) { ?>
-						<a class="nav-link" href="<?php echo get_term_link($term->slug, $taxonomy); ?>"><?php echo $term->name; ?></a>
-					<?php } ?>
+				<!-- use class "active" for the active link -->
+				<?php foreach ($terms as $term) { ?>
+				<a class="nav-link" href="<?php echo get_term_link($term->slug, $taxonomy); ?>">
+					<?php echo $term->name; ?>
+				</a>
+				<?php } ?>
 				<?php endif; ?>
 				<a class="nav-link" href="/cronkite-events/past-events">Past Events</a>
 			</nav><!-- end .sidebar -->
 
+			<div class="pt-md-6 pt-sm-3">
+				<a class="btn btn-maroon btn-md" href="/cronkite-events/convocation/">Convocation Information</a>
+			</div>
 
 		</div>
 	</div>

@@ -62,7 +62,7 @@ get_template_part('templates-global/global-banner');
 			</div>
 		</div>
 		<div class="col-md-4 pb-sm-3 order-sm-1 order-md-2">
-			<nav id="sidebar-left" class="sidebar accordion" aria-label="Secondary">
+			<nav id="sidebar-left" class="sidebar accordion ml-sm-0 mr-sm-0" aria-label="Press release topics">
 				<?php
 
 				$taxonomy = 'topics';
