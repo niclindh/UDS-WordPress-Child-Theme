@@ -58,9 +58,15 @@ if ('image' === $bgchoice) {
 
 	<nav class="breadcrumbs" role="navigation" aria-label="Breadcrumbs" itemprop="breadcrumb">
 		<ol class="breadcrumb bg-white" itemscope="" itemtype="https://schema.org/BreadcrumbList">
-			<li class="breadcrumb-item breadcrumb-item--home" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">Home</span></a></li>
-			<li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/news/" itemprop="item"><span itemprop="name">News</span></a></li>
-			<li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><span itemprop="item"><span itemprop="name"><?php the_title(); ?></span></span></li>
+			<li class="breadcrumb-item breadcrumb-item--home" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+				<meta itemprop="position" content="1" />
+			</li>
+			<li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><a href="/news/" itemprop="item"><span itemprop="name">News</span></a>
+				<meta itemprop="position" content="2" />
+			</li>
+			<li class="breadcrumb-item breadcrumb-item--post" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem"><span itemprop="item"><span itemprop="name"><?php the_title(); ?></span></span>
+				<meta itemprop="position" content="3" />
+			</li>
 		</ol>
 	</nav>
 
