@@ -29,18 +29,23 @@ get_header();
 
 	?>
 
-<style>
-				.pressreleases>.wp-bootstrap-blocks-row p {
-					margin-left: -0.6rem;
-				}
+		<style>
+			.pressreleases p {
+				margin-left: -0.9rem;
+			}
 
-				.wp-block-image {
-					margin-left: -10px;
-				}
-</style>
+			.pressreleases h2,
+			h3 {
+				margin-left: -0.9rem;
+			}
+
+			.wp-block-image {
+				margin-left: -10px;
+			}
+		</style>
 
 		<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
-			
+
 			<?php
 
 			the_content();
@@ -50,13 +55,13 @@ get_header();
 			$terms = wp_get_post_terms($post->ID, 'topics');
 			echo '<div class="container"><div class="row">';
 			foreach ($terms as $term) {
-			// don't show the perma promo topic in the list
-			if ($term->name <> 'Perma Promo' && $term->name <> 'All') {
+				// don't show the perma promo topic in the list
+				if ($term->name <> 'Perma Promo' && $term->name <> 'All') {
 
-				$term_link = get_term_link($term);
-				echo '<a class="btn btn-tag btn-tag-alt-white" href="' . $term_link . '">' . $term->name . '</a>' . ' ';
+					$term_link = get_term_link($term);
+					echo '<a class="btn btn-tag btn-tag-alt-white" href="' . $term_link . '">' . $term->name . '</a>' . ' ';
+				}
 			}
-		}
 			echo '</div></div>';
 
 
