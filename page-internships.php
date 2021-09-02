@@ -31,14 +31,14 @@ get_header();
         include get_stylesheet_directory() . '/inc/breadcrumbs.php';
     ?>
         <div class="container">
-
-            <div class="cold-md-6">
+<div class="row">
+            <div class="col-md-6">
                 <?php
                 the_content();
 
                 ?>
             </div>
-
+    </div>
         </div>
         <?php
 
@@ -89,7 +89,10 @@ get_header();
                                         <p><strong>Instructions:</strong> <?php echo $instructions; ?></p>
                                         <?php if ($application_link) {
                                             ?>
-                                            <p><strong><a href="<?php echo $application_link; ?>" rel="noopener noreferrer">Apply</a></strong></p>
+                                            <p><a href="<?php echo $application_link; ?>" rel="noopener noreferrer"><button
+          class="btn btn-md btn-gold"
+          type="button"
+        >Apply</button></a></p>
                                             <?php
                                         }
                                         ?>
