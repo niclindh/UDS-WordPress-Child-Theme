@@ -101,7 +101,7 @@ if (!function_exists('apstyle_event_date')) {
         // if end time is shown
         if ($show_end_date) {
 
-            // event runs over seveeral days
+            // event runs over several days
             if ($event_start_date['date'] != $event_end_date['date']) {
                 if ($event_start_date['time'] == '12 a.m.') {
                     $event_start_date['time'] = "Midnight";
