@@ -26,7 +26,7 @@ get_template_part('templates-global/global-banner');
 
 	<div class="row">
 
-		<div class="col-md-8 order-sm-2 order-md-1">
+		<div class="col-md-8 order-2 order-md-1">
 
 			<?php
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
@@ -56,9 +56,8 @@ get_template_part('templates-global/global-banner');
 			?>
 
 		</div>
-		<div class="col-md-4 order-sm-1 order-md-2 pb-sm-3">
-
-			<nav id="sidebar-left" class="sidebar accordion ml-sm-0 mr-sm-0" aria-label="Kinds of events">
+		<div class="col-md-4 pb-3 order-1 order-md-2">
+			<nav id="sidebar-left" class="sidebar accordion ml-0 mr-0" aria-label="Kinds of events">
 				<?php
 
 				$taxonomy = 'kinds';
