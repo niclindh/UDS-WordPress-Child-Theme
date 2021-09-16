@@ -1,8 +1,5 @@
 {
     "require": {
         "justintadlock/hybrid-breadcrumbs": "^1.0"
-    },
-    "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0"
     }
 }
