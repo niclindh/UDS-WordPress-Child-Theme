@@ -42,7 +42,7 @@ $card_title = get_field("card_title", get_the_ID());
 		echo wp_get_attachment_image($thumb_id, 'medium', '', ['class' => 'card-img-top']);
 	}
 	?>
-	<div class="card-content-wrapper">
+	
 		<div class="card-header">
 			<h3 class="card-title">
 				<?php
@@ -59,6 +59,4 @@ $card_title = get_field("card_title", get_the_ID());
 		<div class="card-link">
 			<a href="<?php the_permalink(); ?>">Read more</a>
 		</div>
-
-	</div> <!-- close horizontal content -->
 </div>
