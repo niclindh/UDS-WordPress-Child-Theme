@@ -81,9 +81,8 @@ if (!function_exists('apstyle_post_date')) {
 if (!function_exists('apstyle_event_date')) {
     function apstyle_event_date($event_start, $event_end, $show_end_date)
     {
-
         $event_start_date = apstyle_generate_hour($event_start);
-        if ($show_end_date) {
+        if ($show_end_date && $event_end) {
             $event_end_date = apstyle_generate_hour($event_end);
         }
 
@@ -94,12 +93,12 @@ if (!function_exists('apstyle_event_date')) {
         $end_am = strpos($event_end_date['time'], 'a.m.');
 
         // if end time is not shown
-        if (!$show_end_date) {
+        if (!$event_end) { // there's no event end, so ignore show end date switch
             $event_time = $event_start_date['weekday'] . ', ' . $event_start_date['date'] . ' at ' . $event_start_date['time'];
         }
 
         // if end time is shown
-        if ($show_end_date) {
+        if ($show_end_date && $event_end_date) { // we are asked to show end date and there is an end date set
 
             // event runs over several days
             if ($event_start_date['date'] != $event_end_date['date']) {
