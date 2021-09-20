@@ -90,6 +90,7 @@ The most commonly-used blocks are:
 - UDS Card
 - UDS Banner (used for things like the Covid banner)
 - Content Image Overlap (for what we call the optional box)
+- Heading (for headings, unsurpisingly)
 
 ### Common patterns
 
