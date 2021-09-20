@@ -18,6 +18,8 @@ Use the built-in WordPress Media Library for upload and management of images.
 
 ALT tags are also of great importance for SEO and for assistive technologies. ASU Accessibility has a good [overview of the importance of ALT tags][alt] at https://accessibility.asu.edu/articles/images.
 
+You can also help your future self and your colleagues by inputting good descriptions for images. The descriptions are searchable but not shown on the front end of the site.
+
 Featured images are used by the card display system, so each page, each press release and each event **must** have a featured image. The featured image is also used for Facebook and Twitter shares.
 
 Featured images are 1280 by 720 pixels. Export as 80% quality from Photoshop.
@@ -32,7 +34,7 @@ Portrait images used in the people layout are 500 by 500 pixels. The system will
 
 ### Inserting images into pages
 
-The WordPress Gutenberg system includes an image block called, creatively enough, image. Unfortunately, the image block does not know about UDS, so instead please use the block called CS Image to add images to pages.
+The WordPress Gutenberg system includes an image block called, creatively enough, image. Unfortunately, the image block does not know about UDS, so instead please use the block called CS Image to add images to pages, _if the images need captions_.
 
 CS Image lets you pick an image and optionally write a caption. **Note:** Captions are limited to 255 characters in UDS.
 
@@ -40,7 +42,7 @@ CS Image lets you pick an image and optionally write a caption. **Note:** Captio
 
 The Cronkite site is running the Yoast SEO Premium plugin. If you have not received basic information about Yoast and SEO, please talk to Abby or Andrea. Consistent application of basic SEO principles is crucial to the success of the site.
 
-**Note**: Our site title is The Walter Cronkite School of Journalism and Mass Communication, which eats a lot of characters. Yoast will let you shorten this to Cronkite School. Please do so.
+**Note**: Our site title is The Walter Cronkite School of Journalism and Mass Communication, which eats a lot of characters. Yoast will let you shorten this to simply Cronkite School. Please do so.
 
 Yoast SEO makes it very convenient to include proper meta descriptions for pages. **Every** page needs a good meta description.
 
@@ -58,11 +60,11 @@ Due to the way UDS works, posting content is slightly more complicated than on m
 
 Feel free to skip this section if you don't care about why thing work the way things work.
 
-The reason for the added complexity is that in the Bootstrap framework UDS is based on, content lives in containers. Every page has many containers that open and close. Think of them as little boxes that the content lives inside.
+The reason for the added complexity is that in [the Bootstrap framework](https://getbootstrap.com/) UDS is based on, content lives in containers. Every page has many containers that open and close. Think of them as little boxes that the content lives inside.
 
 On most sites the templates are written so content already has a container to live in, meaning the web producer doesn't have to worry about it.
 
-However, the setup of UDS requires opening and closing containers inside the content area as different kinds of content live in different-width containers. For example, body text only runs to half-width on desktop-size widths in order to maximize legibility, but images fill the content area and testimonials go to 8/12s of the width of the content area.
+However, the setup of UDS requires opening and closing containers inside the content area as different kinds of content live in different-width containers. For example, body text only runs to half-width on desktop-size page widths in order to maximize legibility, but images fill the content area and testimonials go to 8/12s of the width of the content area.
 
 One of the jobs of the containers is to provide margins, so if you don't wrap content inside a container, it will go full-bleed. Which might be what you want, but usually isn't.
 
@@ -86,8 +88,7 @@ The most commonly-used blocks are:
 
 - UDS Blockquote
 - UDS Card
-- UDS Heading (provides reversed-out text if needed)
-- UDS modals (like the Covid banner)
+- UDS Banner (used for things like the Covid banner)
 - Content Image Overlap (for what we call the optional box)
 
 ### Common patterns
@@ -106,11 +107,13 @@ The most common patterns are:
 
 ## Headings
 
-Use the UDS headings block to add headings to a page.
+Use the Heading block to add headings to a page.
 
 Use H2 headings to introduce sections, and H3 headings to separate content inside sections.
 
 All H3s should be reversed with gold.
+
+To find the ASU highlight colors, click the dropdown chevron in the Heading block.
 
 **Note:** The templates are already providing H1s to each page. Each page should only and always have exactly one H1, so do not add H1s unless you know exactly what you're doing.
 
@@ -151,11 +154,11 @@ The fields Cart Title and Card Description will be used in cards, unsurprisingly
 
 ### Kinds
 
-Kinds are like the topics for press releases or the categories for regular WordPress posts. Categorize each event with the kind of event it is to help readers to narrow the list down to events they are interested in. Give every event a kind.
+Kinds are like the topics for press releases or the categories for regular WordPress posts. Categorize each event with the kind of event it is to help readers to narrow the list down to events they are interested in. **Note:** Give every event a kind.
 
 ## Building pages
 
-The same principles go into building pages. Remember body text needs to use the Body Text pattern to pick up the correct width.
+Body text needs to use the Body Text pattern to pick up the correct width.
 
 Blocks and patterns can be mixed and matched as desired.
 
@@ -163,9 +166,9 @@ Blocks and patterns can be mixed and matched as desired.
 
 There are a few utility classes worth noting. For each container, you can increase the padding above and below the container by adding the following classs in the Additional Classes field at the bottom of the block's controls in the sidebar to the right:
 
-`pt-md-6 pt-sm-3` adds padding _above_ the container.
+`pt-md-6 pt-3` adds padding _above_ the container.
 
-`pb-md-6 pb-sm-3` adds padding _below_ the container.
+`pb-md-6 pb-3` adds padding _below_ the container.
 
 ### Adding people from iSearch
 
